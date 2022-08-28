@@ -13,4 +13,6 @@
 
 -Lorena Monsalve: Tengo 26 años, soy estudiante de psicología y mamá de una niña de 1 año de edad, me gusta adquirir nuevos conocimientos y si bien la programación está muy aislada de mi carrera, es un reto personal con el que aspiro poderme formar lo suficientemente bien para poder fusionar ambos conocimientos. 
 
+-Santiago Pagano: Tengo 26 años y soy de Buenos Aires. Llevo adelante junto a mi padre un emprendimiento de servicios contra incendios. Estudie Periodismo deportivo, aunque luego de terminar la carrera, me aleje de ese area. A mi vida la acompañan la musica como pasion mas grande. Soy compositor y productor musical y lancé algunos proyectos de Hip hop instrumental, que es la musica que mas me gusta hacer. Ademas, como otros intereses importantes en mi vida, me gusta mucho el cine y soy un aficionado de la impresion 3d.
+
 -![LogoKhaloStore-03](https://user-images.githubusercontent.com/111902531/187003396-bbc28ffe-2b0c-45d5-b23d-595fbde61bd7.png)
