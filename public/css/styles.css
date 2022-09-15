@@ -50,6 +50,7 @@ main {
     margin-top: 30px;
 }
 
+<<<<<<< HEAD
 a {
     font-size: 12px;
     justify-content: space-around;
@@ -154,3 +155,148 @@ figure {
 	}
 }
 
+=======
+
+.titulo{font-family: 'Lexend Zetta black', sans-serif;
+    margin-right: 25px; 
+    margin-left:  25px; 
+    width: 50%;
+    font-size: 30px;
+    display: flex;
+    border: 2px;
+    padding: 12px; 
+    }
+    .wrapper{ display: flex;
+        margin-right: 25px; 
+        margin-left:  25px; 
+        max-width: 960px; 
+        padding: 12px; 
+        flex-direction: row
+        }
+
+
+
+    
+    .formularioEnvio{ display: flex;
+        opacity: 75%;
+        font-family: 'Lexend Zetta black', sans-serif;
+        width: 70%;
+        position: relative;
+        left: 0%;
+    }
+    
+    .notasParaElEnvio{
+        font-size: 12px;
+        opacity: 75%;
+    }
+    
+    .email{
+        font-size: 12px;
+        height: 40px;
+        width: 100%;
+    }
+    .nombre{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+   
+    }
+    .apellido{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .calle{
+        font-size: 12px;
+        height: 40px;
+        width: 100%;
+    }
+    .numero{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .piso{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .departamento{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .provincia{
+        font-size: 12px;
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+
+    }
+    .codigoPostal{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .localidad{font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .dni{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .celular{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+
+    
+    .boxDerecha{display: flex;
+        width: 30%; 
+        height: 750px;
+        margin: 10px;
+        box-sizing: border-box;
+        position: relative;
+        font-family: 'Lexend Zetta black', sans-serif;
+        background-color: #c7b5a7;
+    }
+
+    .fotoProductoCarrito{
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+    }
+
+    .nombreProducto{
+        font-size: 20px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .talleProducto{
+        font-size: 15px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .cantidadProducto{
+        font-size: 15px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .boxTalleYCantidad{
+        width: 105px;
+        height: 30px;
+        font-size: 10px;
+    }
+>>>>>>> 357fd122a57e2f7d12249843d170c059d00d3075
