@@ -1,6 +1,5 @@
-/* Hacia abajo es el CSS del header*/
 
-
+/* Hacia abajo es el CSS del header CSS DE COMPAÑEROS - CSS de Carlos*/
 
 header {
     background-color:#c7b5a7;
@@ -9,9 +8,31 @@ header {
     margin-bottom: 30px;
 
 }
+.link{
+    color: black;
+    text-decoration: none;
+    justify-content: space-between;
+}
 
-/* Hacia abajo es el CSS del main*/
+.titulares{
+    text-align: center;
+    font-size: 24px;
+}
+.input{
+    
+text-align: center;
+         
+}
+/* esta clase es para la creacion de botones como el de crear cuenta*/
+.boton{
+    text-align: center;
+    margin-top: 30px;
+}
+.subtitulos{
 
+    font-size: 18px;
+    line-height: 30px;
+}
 
 main {
   
@@ -19,32 +40,450 @@ main {
     font-size: 14px;
    
 }
+/* Hasta acá CSS de Carlos*/
 
-.link{
-    color: black;
+/* Empieza CSS Alvaro y Santiago
+a {
+    font-size: 12px;
+    justify-content: space-around;
+    flex-direction: row;
+}
+*{
+    box-sizing: border-box;
+}
+.logo{
+	width: 170px;
+}
+body {
+    margin: 0;
+}
+img {
+    display: block;
+    width: 100%;;
+}
+.main-header{
+    padding: 0 20px;
+    background-color:#c7b5a7;
+}
+.main-header__title{
+    text-align: center;
+    font-size: 2.5em;
+    margin: 10px 0;
+    color: #454546;
+}
+.main-nav {
+    display: none;
+}
+.main-header__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon-menu{
+    font-size: 1.5em ;
+    border: 1px solid #454546;
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.main-header__btn{
+    display: block;
+    padding: 10px 15px;
+    color: #454546;
+    border: 1px solid #454546;
     text-decoration: none;
-}
-
-.titulares{
-    text-align: center;
-    font-size: 24px;
 
 }
-
-.subtitulos{
-
-    font-size: 18px;
-    line-height: 30px;
-}
-
-.input{
+.slider {
+    right: 800px;
+    overflow: hidden;
+	margin: 50px 0;
     
-    text-align: center;
-     
 }
-/* esta clase es para la creacion de botones como el de crear cuenta*/
-.boton{
-    text-align: center;
-    margin-top: 30px;
+figure {
+	position: relative;
+    width: 500%;
+	margin: 0;
+	left: 0;
+	animation: slider 13s infinite;
+    box-sizing: border-box;
 }
 
+.img {
+	float: left;
+	width: 20%;
+}
+@keyframes slider {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 0;
+	}
+	25% {
+		left: -100%;
+	}
+	45% {
+		left: -100%;
+	}
+	50% {
+		left: -200%;
+	}
+	70% {
+		left: -200%;
+	}
+	75% {
+		left: -300%;
+	}
+	95% {
+		left: -300%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+.titulo{font-family: 'Lexend Zetta black', sans-serif;
+    margin-right: 25px; 
+    margin-left:  25px; 
+    width: 50%;
+    font-size: 30px;
+    display: flex;
+    border: 2px;
+    padding: 12px; 
+    }
+    .wrapper{ display: flex;
+        margin-right: 25px; 
+        margin-left:  25px; 
+        max-width: 960px; 
+        padding: 12px; 
+        flex-direction: row
+        }
+    
+    .formularioEnvio{ display: flex;
+        opacity: 75%;
+        font-family: 'Lexend Zetta black', sans-serif;
+        width: 70%;
+        position: relative;
+        left: 0%;
+    }
+    
+    .notasParaElEnvio{
+        font-size: 12px;
+        opacity: 75%;
+    }
+    
+    .email{
+        font-size: 12px;
+        height: 40px;
+        width: 100%;
+    }
+    .nombre{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+   
+    }
+    .apellido{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .calle{
+        font-size: 12px;
+        height: 40px;
+        width: 100%;
+    }
+    .numero{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .piso{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .departamento{
+        font-size: 12px;
+        display: inline-block;
+        width: 30%;
+        height: 40px;
+    }
+    .provincia{
+        font-size: 12px;
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+
+    }
+    .codigoPostal{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .localidad{font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .dni{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+    .celular{
+        font-size: 12px;
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+    }
+
+    
+    .boxDerecha{display: flex;
+        width: 30%; 
+        height: 750px;
+        margin: 10px;
+        box-sizing: border-box;
+        position: relative;
+        font-family: 'Lexend Zetta black', sans-serif;
+        background-color: #c7b5a7;
+    }
+
+    .fotoProductoCarrito{
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+    }
+
+    .nombreProducto{
+        font-size: 20px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .talleProducto{
+        font-size: 15px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .cantidadProducto{
+        font-size: 15px;
+        font-family: 'Lexend Zetta Black', sans-serif; ;
+    }
+
+    .boxTalleYCantidad{
+        width: 105px;
+        height: 30px;
+        font-size: 10px;
+    }
+/* Finaliza CSS Alvaro y Santiago*/
+
+/* Clases para descripción de producto Jessica*/
+body{
+font-family: sans-serif;
+background-color: white;
+color: black;
+margin: 0px;
+
+}
+
+#nombre-producto {
+text-align: center;
+color: black;
+margin: auto;
+margin-top: auto;
+}
+
+#Detalle {
+color: black;
+padding-bottom: 0px;
+margin-bottom: 0px;
+font-weight: 100;
+}
+
+#imagen-producto {
+width: 80%;
+margin: auto;
+}
+
+.nombre-producto .nombre-quizas {
+color: black;
+font-weight: bold;
+font-size: 18px;
+}
+
+#opciones-producto {
+margin-top: 100px;
+text-align: center;
+}
+
+.opciones {
+color: #c7b5a7;
+font-size: 26px;
+font-weight: bold
+}
+
+.opciones-seleccionadas {
+border: 2px solid white;
+background-color: black;
+color: white;
+padding: 5px;
+width: 100px;
+border-radius: 5%;
+}
+
+#precio-producto {
+font-size: 26px;
+margin-top: 40px;
+font-weight: bold
+}
+
+#boton-agregar-carrito {
+width: 300px;
+height: 50px;
+background-color: black;
+border: 2px solid #c7b5a7;
+border-radius: 3%;
+color: #c7b5a7;
+font-size: 20px;
+transition: all 500ms;
+}
+
+#boton-agregar-carrito:hover {
+background-color: rgb(199, 182, 168);
+color: black;
+cursor: pointer;
+opacity: 0.6;
+}
+
+#descripcion-producto {
+text-align: center;
+margin-top: 50px;
+background: linear-gradient(rgb(199, 182, 168), rgb(199, 182, 168));
+background-size:100%;
+height: 300px;
+width: 100%;
+display: flex;
+align-items: center;
+
+}
+
+#texto-descripcionproducto {
+color: white;
+margin: auto;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+#productos-quetegusten {
+margin-top: 70px;
+text-align: center;
+display: flex;
+flex-wrap: wrap;
+justify-content:space-around;
+}
+
+#instrucciones_lavado {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    font-size: 20px;
+    }
+
+.un-productos-quetegusten {
+margin-bottom: 80px;
+}
+
+.nombre-producto-quetegusten {
+font-weight: bold;
+transition: all 750ms;
+
+}
+
+.imagen-producto-quetegusten {
+text-align: center;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+transform-origin: bottom;
+}
+
+#producto-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+
+}
+.producto-principal-1 {
+    width: 700px;
+    display:flex;
+    align-items: center;
+}
+
+.producto-principal-1-info {
+    width: 500px;
+    text-align: right;
+
+}
+
+@keyframes bounce {
+0%   { transform: translateY(0); }
+50%  { transform: translateY(-20px); }
+100% { transform: translateY(0); }
+}
+
+@media (min-width : 900px)  {
+
+#caracteristicas {
+    text-align: left;
+    margin-top: 60px;
+    color: black;
+    font-size: 16px;
+}
+.nombre-producto {
+    color: #7a6d63;
+}
+
+#opciones-producto {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.opciones {
+    color: #c7b5a7;
+    font-size: 20px;
+
+}
+
+.select-opciones {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    border-radius: 5%;
+
+}
+
+#precio-producto {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#boton-agregar-carrito {
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    border: 3px solid #c7b5a7;
+    border-radius: 3%;
+    color: #c7b5a7;
+    font-size: 20px;
+    transition: all 500ms;
+}}
