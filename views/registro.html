@@ -11,76 +11,34 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
 <body>
 
     <header>
-        <!-- Contenedor principal-->
-        <div class="row">
-
-            <div class="col-1 p-3 "> <img src="/images/Logo.jpg" style="width:150px"></div><!--logo, Col-1 esta diseñado para contener solo el logo-->
-            <div class="col-11"><!-- col 11 esta diseñado para contener la barra superior, la intermedia y la inferior-->
-
-
-            <div class="col-11">
-                <!-- col 11 esta diseñado para contener la barra superior, la intermedia y la inferior-->
-
-                <!--Barra Superior-->
-                <div class="top_bar">
-                    <div class="d-flex flex-row-reverse">
-                        <div class="p-2"> <a href="#" class="link"> Ingreso </a> </div>
-                        <!-- Link para ingresar a la cuenta-->
-                        <div class="p-2"> <i class="fa-regular fa-user fa-lg"></i><a href="#" class="link"> Registro
-                            </a> </div><!-- icono de registro y Link para ingresar a la pagina de registro-->
-                    </div>
+        <body>
+            <header class="main-header">
+                <div class="container container--flex">
+                    <div class="main-header__container">
+                        <div class="logo"><img src="/images/Logo.jpg"></div>
+                        
+                        <div class="icono-menu"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div class="icono-menu"><a href="http://localhost:3000/carrito" class="link"><i class="fa-solid fa-bag-shopping"></i></a></div>
+                        <span class="icon-menu fa-solid fa-bars" id="btn-menu"></span>
+                        <nav class="main-nav" id="main-nav">
+                            <ul class="menu">
+                              <li class="menu__item"><a href="http://localhost:3000/" class="menu__link">HOME</a></li>
+                              <li class="menu__item"><a href="" class="menu__link">ABOUT</a></li>
+                              <li class="menu__item"><a href="" class="menu__link">FEATURES</a></li>
+                              <li class="menu__item"><a href="" class="menu__link">SHOP</a></li>
+                              <li class="menu__item"><a href="" class="menu__link">CONTACT</a></li>
+                            </ul>
+                          </nav>
+                    </div> 
                 </div>
-                <!--Contenedor intermedio-->
-                <div class="row">
-                    <!--Barra Intermedia-->
-                    <div class="d-flex middle_bar">
-                        <div class="col d-flex flex-row-reverse"> <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-                            <!--Icono de Buscar-->
-                        </div>
-                        <div class="col d-flex "> <input type="text" placeholder="Buscar productos, marcas" size="40px">
-                            <!--Barra de Buscar-->
-                        </div>
-                        <div class="col">
-                            <div class="d-flex flex-row-reverse">
-                                <div class="p-2"> <i class="fa-regular fa-heart fa-lg"></i><a href="#" class="link">
-                                        Favoritos </a> </div>
-                                <!--Icono de Favoritos y la palabra Favoritos-->
-                                <div class="p-2"> <i class="fa-solid fa-basket-shopping fa-lg"></i><a href="#"
-                                        class="link"> Carrito </a>
-                                    <!--Icono de carrito de compras y la palabra carrito-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Contenedor Inferior-->
-                <div class="row">
-                    <!--Barra Inferior-->
-                    <div class="col-11 d-flex justify-content-end subtitulos">
-                        <div class="p-2"><a href="#" class="link">NUEVA TEMPORADA</a> </div>
-                        <div class="p-2"> <a href="#" class="link">ROPA</a> </div>
-                        <div class="p-2"> <a href="#" class="link">ACCESORIOS</a> </div>
-                        <div class="p-2"><a href="#" class="link">NOSOTRAS </a> </div>
-                    </div>
-                    <div class="col d-flex flex-row-reverse">
-                        <div class="p-2"> <a href="#"> <i class="fa-brands fa-facebook"></i> </a> </div>
-                        <div class="p-2"> <a href="#"> <i class="fa-brands fa-instagram"></i> </a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-    </header>
-
+            </header>
     <main>
         <div class="container">
             <div class="row">
@@ -121,15 +79,35 @@
         </form>
     </main>
 
-    <footer>
-
-
-    </footer>
-
 </body>
-
+<footer class="main-footer">
+    <div class="footer__section">
+      <h2 class="footer__title">About Us</h2>
+      <p class="footer__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque adipisci</p>
+    <div class="footer__section">
+      <h2 class="footer__title">Location :</h2>
+      <p class="footer__txt">0926k wedding building, Queen Avenue, New York City</p>
+      <h2 class="footer__title">Contact</h2>
+      <p class="footer__txt">Phone : +123 456 789 9987</p>
+      <p class="footer__txt">Email : info@example.com</p>
+    </div>
+    <div class="footer__section">
+      <h2 class="footer__title">Quick Links</h2>
+      <a href="" class="footer__link">Home</a>
+      <a href="" class="footer__link">About</a>
+      <a href="" class="footer__link">Error</a>
+      <a href="" class="footer__link">Shop</a>
+      <a href="" class="footer__link">Contact Us</a>
+    </div>
+    <div class="footer__section">
+      <h2 class="footer__title">Sign up for your offers</h2>
+      <p class="footer__txt">By subscribing to our mailing list you will always get latest news and updates from us.</p>
+      <input type="email" class="footer__input" placeholder="Enter your email">
+    </div>
+    <p class="copy">© 2021 Khalo. All Rights Reserved </p>
+  </footer>
 </html>
 
 
 
-<h1 class="main-header__title">Khalo</h1>
+<!--<h1 class="main-header__title">Khalo</h1>-->
