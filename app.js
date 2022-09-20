@@ -15,4 +15,7 @@ res.sendFile(path.join(__dirname, '/views/Home.html'));
 app.get('/registro', (req,res)=>{
     res.sendFile(path.join(__dirname, '/views/Registro.html'));
     }); 
-    
+app.get('/Carrito', (req,res)=>{
+        res.sendFile(path.join(__dirname, '/views/carrito.html'));
+    }); 
+        
