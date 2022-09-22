@@ -7,8 +7,6 @@ header {
     background-color:#c7b5a7;
     font-family: sans-serif;
     font-size: 16px;
-
-
 }
 .link{
     color: black;
@@ -22,7 +20,7 @@ header {
 }
 .input{
     
-text-align: center;
+
          
 }
 /* esta clase es para la creacion de botones como el de crear cuenta*/
@@ -149,13 +147,14 @@ img {
 	margin: 50px 0;
     
 }
-figure {
+
+.figura {
 	position: relative;
-    width: 500%;
+  width: 500%;
 	margin: 0;
 	left: 0;
 	animation: slider 13s infinite;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
@@ -194,197 +193,343 @@ figure {
 }
 /* fin CSS Alvaro 1/2*/
 /* Inicio CSS Santi */
-.titulo{font-family: 'Lexend Zetta black', sans-serif;
+
+@media screen and ( min-width: 1550px){
+  
+  .titulo{font-family: 'Lexend Zetta black', sans-serif;
     margin-right: 25px; 
-    margin-left:  25px; 
+      margin-right: 25px; 
+    margin-right: 25px; 
+    margin-left:  190px; 
     width: 50%;
     font-size: 30px;
-    display: flex;
     border: 2px;
     padding: 12px; 
-    }
-    .wrapper{ display: flex;
-        margin-right: 25px; 
-        margin-left:  25px; 
-        max-width: 960px; 
-        padding: 12px; 
-        flex-direction: row
-        }
-    
-    .formularioEnvio{ display: flex;
-        opacity: 75%;
-        font-family: 'Lexend Zetta black', sans-serif;
-        width: 70%;
-        position: relative;
-        left: 0%;
+      padding: 12px; 
+    padding: 12px; 
     }
     
+  .box {
+        width: 80%;
+        margin: 0 auto;
+        padding: 25px;
+        display: grid;
+        grid-template-columns: 40% 30%;
+  
+      }
+  
+    
+    .formularioEnvio{ 
+    opacity: 75%;
+    font-family: 'Lexend Zetta black', sans-serif;
+    width: 800px;
+  
+    }
+  
     .notasParaElEnvio{
         font-size: 12px;
         opacity: 75%;
     }
     
-    .email{
+    .inputsGrandes{
         font-size: 12px;
         height: 40px;
         width: 100%;
     }
-    .nombre{
-        font-size: 12px;
-        display: inline-block;
-        width: 48%;
-        height: 40px;
    
-    }
-    .apellido{
-        font-size: 12px;
-        display: inline-block;
-        width: 48%;
-        height: 40px;
-    }
-    .calle{
-        font-size: 12px;
-        height: 40px;
-        width: 100%;
-    }
-    .numero{
+  
+    .inputsPequeños{
         font-size: 12px;
         display: inline-block;
         width: 30%;
         height: 40px;
     }
-    .piso{
-        font-size: 12px;
-        display: inline-block;
-        width: 30%;
-        height: 40px;
-    }
-    .departamento{
-        font-size: 12px;
-        display: inline-block;
-        width: 30%;
-        height: 40px;
-    }
-    .provincia{
+   
+    .selectProvincia{
         font-size: 12px;
         display: inline-block;
         width: 100%;
         height: 40px;
-
+  
     }
-    .codigoPostal{
+    .inputsMedianos{
         font-size: 12px;
         display: inline-block;
         width: 48%;
         height: 40px;
     }
-    .localidad{font-size: 12px;
-        display: inline-block;
-        width: 48%;
-        height: 40px;
-    }
-    .dni{
-        font-size: 12px;
-        display: inline-block;
-        width: 48%;
-        height: 40px;
-    }
-    .celular{
-        font-size: 12px;
-        display: inline-block;
-        width: 48%;
-        height: 40px;
-    }
-
     
-    .boxDerecha{display: flex;
-        width: 30%; 
-        height: 750px;
+  
+    .boxDerecha{
+        width: 400px; 
+        height: auto ;
         margin: 10px;
         box-sizing: border-box;
-        position: relative;
         font-family: 'Lexend Zetta black', sans-serif;
         background-color: #c7b5a7;
+        display: grid;
+        grid-template-columns: auto  auto;
+        border: 1px solid black;
     }
-
+  
+  
+    .cajaEntera{grid-area: 1 / col4-start / last-line / 6;
+  
+    }
+  
     .fotoProductoCarrito{
-        width: 50px;
-        height: 50px;
-        margin: 5px;
+        width: 150px;
+        height: 150px;
+        margin:  5% 5% 5% 0;
     }
-
-    .nombreProducto{
-        font-size: 20px;
-        font-family: 'Lexend Zetta Black', sans-serif; ;
-    }
-
+  
     .talleProducto{
         font-size: 15px;
-        font-family: 'Lexend Zetta Black', sans-serif; ;
+        font-family: 'Lexend Zetta Black', sans-serif; 
     }
-
+  
     .cantidadProducto{
         font-size: 15px;
-        font-family: 'Lexend Zetta Black', sans-serif; ;
+        font-family: 'Lexend Zetta Black', sans-serif; 
     }
-
+  
     .boxTalleYCantidad{
-        width: 105px;
+        width: 200px;
         height: 30px;
-        font-size: 10px;
+        font-size: 15px;
+        margin: 5% 5% 5% 0%;
     }
+  
+    .botonDescuento{
+        margin: 5% 5% 5% 0;
+        text-align: right;
+    }
+    .total{
+        font-size:large;
+        margin: 5% 5% 5% 0;
+    }
+    .importe{
+        text-align: right;
+        font-size: larger;
+        
+    }
+    .tituloCard{
+      font-size: smaller;
+    }
+  
+    .cardProductos{
+      background-color: #c7b5a7;
+      border: #c7b5a7;
+  
+    }
+  
+    .botonEliminar{
+      font-size: smaller ;
+      margin: 5% 5% 5% 0;
+      display: flex;
+      justify-content: right;
+    }
+  
+    .botonComprar{
+      font-size: larger;
+      margin: 5% 5% 5% 0;
+      text-align: right;
+    } 
+  }
+  /*------------------------------------------------------------------------------MEDIA SCREEN-------------------------------------------------------------*/
+  
+    @media screen and (max-width: 1550px){
+  
+    
+      .titulo{font-family: 'Lexend Zetta black', sans-serif;
+        margin-right: 25px; 
+        text-align: center;
+        font-size: 30px;
+        border: 2px;
+        padding: 12px; 
+        }
+        .formularioEnvio{ display: flex;
+          justify-content: center;
+          opacity: 75%;
+          font-family: 'Lexend Zetta black', sans-serif;
+          width: auto;
+          margin: 5% 5% 5% 5%;
+        
+          }
+          .notasParaElEnvio{
+            font-size: 12px;
+            opacity: 75%;
+        }
+        
+        .inputsGrandes{
+            font-size: 12px;
+            height: 40px;
+            width: 100%;
+        }
+       
+      
+        .inputsPequeños{
+            font-size: 12px;
+            display: inline-block;
+            width: 30%;
+            height: 40px;
+        }
+       
+        .selectProvincia{
+            font-size: 12px;
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+      
+        }
+        .inputsMedianos{
+            font-size: 12px;
+            display: inline-block;
+            width: 48%;
+            height: 40px;
+        }
+        
+        .cajaEntera{
+          display: flex;
+          justify-content: center;
+          margin: 2%;
+          min-width: 280px; 
+          max-width: auto ;
+  
+  
+        }
+  
+      .boxDerecha{
+        min-width: 280px; 
+        max-width: auto;
+        height: auto ;
+        margin: 2%;
+        font-family: 'Lexend Zetta black', sans-serif;
+        background-color: #c7b5a7;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+    }
+    .fotoProductoCarrito{
+      max-width: 150px;
+      max-height: 150px;
+      margin:  5% 5% 5% 0;
+    }
+    
+      .nombreProducto{
+          font-size: 20px;
+          font-family: 'Lexend Zetta Black', sans-serif; ;
+  }
+  
+  .talleProducto{
+      font-size: 15px;
+      font-family: 'Lexend Zetta Black', sans-serif; 
+  }
+  
+  .cantidadProducto{
+      font-size: 15px;
+      font-family: 'Lexend Zetta Black', sans-serif; 
+  
+  }
+  
+  .boxTalleYCantidad{
+      width: auto;
+      height: 30px;
+      font-size: 15px;
+      margin: 5% 5% 5% 0%;
+  }
+  
+  .botonDescuento{
+      margin: 5% 5% 5% 0;
+      text-align: right;
+  }
+  .total{
+      font-size:large;
+      margin: 5% 5% 5% 0;
+  }
+  .importe{
+      text-align: right;
+      font-size: larger;
+      
+  }
+  .tituloCard{
+    font-size: smaller;
+  }
+  
+  .cardProductos{
+    background-color: #c7b5a7;
+    border: #c7b5a7;
+    display:block ;
+    width: fit-content;
+  
+  }
+  
+  .botonEliminar{
+    font-size: smaller ;
+    margin: 5% 5% 5% 0;
+    display: flex;
+    justify-content: right;
+  }
+  
+  .botonComprar{
+    font-size: larger;
+    margin: 5% 5% 5% 0;
+    text-align: right;
+  }   
+    }
+  
+  body{
+  font-family: sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0px;
+  
+  }
+  
+  #nombre-producto {
+  text-align: center;
+  color: black;
+  margin: auto;
+  margin-top: auto;
+  }
+  
+  #Detalle {
+  color: black;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-weight: 100;
+  }
+  
+  #imagen-producto {
+  width: 80%;
+  margin: auto;
+  }
+  
+  .nombre-producto .nombre-quizas {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  }
+  #opciones-producto {
+  margin-top: 100px;
+  text-align: center;
+  }
+  
+  .opciones {
+  color: #c7b5a7;
+  font-size: 26px;
+  font-weight: bold
+  }
+  
+  .opciones-seleccionadas {
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  width: 100px;
+  border-radius: 5%;
+  }
 
-body{
-font-family: sans-serif;
-background-color: white;
-color: black;
-margin: 0px;
-
-}
-
-#nombre-producto {
-text-align: center;
-color: black;
-margin: auto;
-margin-top: auto;
-}
-
-#Detalle {
-color: black;
-padding-bottom: 0px;
-margin-bottom: 0px;
-font-weight: 100;
-}
-
-#imagen-producto {
-width: 80%;
-margin: auto;
-}
-
-.nombre-producto .nombre-quizas {
-color: black;
-font-weight: bold;
-font-size: 18px;
-}
-#opciones-producto {
-margin-top: 100px;
-text-align: center;
-}
-
-.opciones {
-color: #c7b5a7;
-font-size: 26px;
-font-weight: bold
-}
-
-.opciones-seleccionadas {
-border: 2px solid white;
-background-color: black;
-color: white;
-padding: 5px;
-width: 100px;
-border-radius: 5%;
-}
 /* fin CSS Santi */
 /* Comienzo CSS Jessica*/
 #precio-producto {
@@ -441,7 +586,10 @@ title {
 display:none; 
 transition: all .1s;
 }
-
+figure {
+  display:flex; 
+  padding: 5px;
+  }
 /* Visible texto */
 figure:hover > title {
 display:flex;
@@ -639,6 +787,7 @@ product__price{
     }
     .main-header__container{
       flex-wrap: wrap;
+      display: flex;
       align-content: flex-start;
     }
     .main-header__txt{
@@ -755,7 +904,7 @@ product__price{
 /* sign in*/
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 2% 0 0;
   margin: auto;
 }
 .form {
@@ -804,8 +953,5 @@ product__price{
 .form .message a {
   color: #c7b5a7;
   text-decoration: none;
-}
-.form .register-form {
-  display: none;
 }
 

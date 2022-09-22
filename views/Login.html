@@ -16,20 +16,27 @@
 
 <html lang="en">
 
-    <header class="main-header">
+  <header class="main-header">
         <div class="container">
           <div class="main-header__container">
-            <div class="logo"><img src="/images/Logo.jpg"></div> 
+            <div class="logo"><img src="/images/Logo.jpg" ></div> 
             <div class="icono-menu"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="icono-menu"><a href="http://localhost:3000/carrito" class="link"><i class="fa-solid fa-bag-shopping"></i></a></div>
-            <span class="icon-menu"><i class="fa-solid fa-bars" id="btn-menu"></i></span>
+            <div class="col d-flex "> <input type="text" placeholder="Buscar productos, marcas" size="40px">
+            </div>
+            <div class="col">
+              <div class="d-flex flex-row-reverse">
+                  <div class="p-2"> <i class="fa-regular fa-heart fa-lg"></i><a href="#" class="link"> Favoritos </a> </div>
+                  <div class="p-2"> <i class="fa-solid fa-cart-shopping"></i><a href="http://localhost:3000/carrito" class="link">  Carrito </a>
+                  </div>
+              </div>
+          </div>
             <nav class="main-nav" id="main-nav">
               <ul class="menu">
                 <li class="menu__item"><a href="http://localhost:3000/" class="menu__link">HOME</a></li>
                 <li class="menu__item"><a href="" class="menu__link">CONTACT</a></li>
                 <li class="menu__item"><a href="" class="menu__link">FEATURES</a></li>
                 <li class="menu__item"><a href="" class="menu__link">SHOP</a></li>
-                <li class="menu__item"><a href="http://localhost:3000/login" class="menu__link">INICIAR SESION</a></li>
+                <li class="menu__item"><a href="http://localhost:3000/login" class="menu__link">LOGIN</a></li>
                 </ul>
               </nav>
             </div> 
@@ -37,15 +44,11 @@
         </header>
 
 </head>
+<br>
+<br>
+<h2 style="text-align: center;" class="iniciarSesion>"><strong>Iniciar Sesión</h2></strong>
 <div class="login-page">
     <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
       <form class="login-form">
         <input type="email" placeholder="email"/>
         <input type="password" placeholder="password"/>

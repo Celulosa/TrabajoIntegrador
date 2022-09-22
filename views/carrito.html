@@ -13,159 +13,7 @@
             <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100&display=swap" rel="stylesheet">    
          
         <link rel="stylesheet" href="/css/styles.css">
-<!--
-        <style>
-            .titulo{font-family: 'Lexend Zetta black', sans-serif;
-            margin-right: 25px; 
-            margin-left:  25px; 
-            width: 50%;
-            font-size: 30px;
-            display: flex;
-            border: 2px;
-            padding: 12px; 
-            }
-            .wrapper{ display: flex;
-                margin-right: 25px; 
-                margin-left:  25px; 
-                max-width: 960px; 
-                padding: 12px; 
-                flex-direction: row
-                }
 
-
-
-            
-            .formularioEnvio{ display: flex;
-                opacity: 75%;
-                font-family: 'Lexend Zetta black', sans-serif;
-                width: 70%;
-                position: relative;
-                left: 0%;
-            }
-            
-            .notasParaElEnvio{
-                font-size: 12px;
-                opacity: 75%;
-            }
-            
-            .email{
-                font-size: 12px;
-                height: 40px;
-                width: 100%;
-            }
-            .nombre{
-                font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-           
-            }
-            .apellido{
-                font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-            }
-            .calle{
-                font-size: 12px;
-                height: 40px;
-                width: 100%;
-            }
-            .numero{
-                font-size: 12px;
-                display: inline-block;
-                width: 30%;
-                height: 40px;
-            }
-            .piso{
-                font-size: 12px;
-                display: inline-block;
-                width: 30%;
-                height: 40px;
-            }
-            .departamento{
-                font-size: 12px;
-                display: inline-block;
-                width: 30%;
-                height: 40px;
-            }
-            .provincia{
-                font-size: 12px;
-                display: inline-block;
-                width: 100%;
-                height: 40px;
-
-            }
-            .codigoPostal{
-                font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-            }
-            .localidad{font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-            }
-            .dni{
-                font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-            }
-            .celular{
-                font-size: 12px;
-                display: inline-block;
-                width: 48%;
-                height: 40px;
-            }
-
-            
-            .boxDerecha{display: flex;
-                width: 30%; 
-                height: 750px;
-                margin: 10px;
-                box-sizing: border-box;
-                position: relative;
-                font-family: 'Lexend Zetta black', sans-serif;
-                background-color: #c7b5a7;
-            }
-
-            .fotoProductoCarrito{
-                width: 50px;
-                height: 50px;
-                margin: 5px;
-            }
-
-            .nombreProducto{
-                font-size: 20px;
-                font-family: 'Lexend Zetta Black', sans-serif; ;
-            }
-
-            .talleProducto{
-                font-size: 15px;
-                font-family: 'Lexend Zetta Black', sans-serif; ;
-            }
-
-            .cantidadProducto{
-                font-size: 15px;
-                font-family: 'Lexend Zetta Black', sans-serif; ;
-            }
-
-            .boxTalleYCantidad{
-                width: 105px;
-                height: 30px;
-                font-size: 10px;
-            }
-            
-
-
-
-
-            </style>
-
-        -->
- 
 
     </head>
     <header class="main-header">
@@ -181,7 +29,7 @@
                 <li class="menu__item"><a href="" class="menu__link">CONTACT</a></li>
                 <li class="menu__item"><a href="" class="menu__link">FEATURES</a></li>
                 <li class="menu__item"><a href="" class="menu__link">SHOP</a></li>
-                <li class="menu__item"><a href="http://localhost:3000/login" class="menu__link">INICIAR SESION</a></li>
+                <li class="menu__item"><a href="http://localhost:3000/login" class="menu__link">LOGIN</a></li>
                 </ul>
               </nav>
             </div> 
@@ -190,133 +38,163 @@
 <body>
 
     <h1 class="titulo"> Datos de facturación y envío:</h1>
-    <div class="wrapper">
-    <div class="formularioEnvio container-fluid">
-        <form action="resultado.html" method="POST">
-        <p>
-        <input class="email form-control  border border-dark" type="email" id="Email" name="Email" placeholder="Email" required>
-        </p>
 
-
-        <p>
-        <input class="nombre form-control  border border-dark" type="text" id="Nombre" name="Nombre" placeholder="Nombre" required>
-        <input class="apellido form-control  border border-dark" type="text" id="Apellido" name="Apellido" placeholder="Apellido" required>
-        </p>
-
-        <p>
-        <input class="calle form-control  border border-dark" type="text" id="Calle" name="Calle" placeholder="Calle" required>
-        </p>
-        <p>
-        <input class="numero form-control  border border-dark" type="text" id="Número" name="Número" placeholder="Número" required>
-        <input class="piso form-control  border border-dark" type="text" id="Piso" name="Piso" placeholder="Piso">
-        <input class="departamento form-control  border border-dark" type="text" id="Departamento" name="Departamento" placeholder="Departamento">
-        </p>
-
-        <p> 
-            <select class="provincia form-control  border border-dark" name="Provincia"required>
-                <option value="1">BUENOS AIRES</option>
-                <option value="2">CATAMARCA</option>
-                <option value="3">CHACO</option>
-                <option value="4">CHUBUT</option>
-                <option value="5">CIUDAD AUTONOMA DE Bs As</option>
-                <option value="6">CORDOBA</option>
-                <option value="7">CORRIENTES</option>
-                <option value="8">ENTRE RIOS</option>
-                <option value="9">FORMOSA</option>
-                <option value="10">JUJUY</option>
-                <option value="11">LA PAMPA</option>
-                <option value="12">LA RIOJA</option>
-                <option value="13">MENDOZA</option>
-                <option value="14">MISIONES</option>
-                <option value="15">NEUQUEN</option>
-                <option value="16">RIO NEGRO</option>
-                <option value="17">SALTA</option>
-                <option value="18">SAN LUIS</option>
-                <option value="19">SANTA CRUZ</option>
-                <option value="20">SANTA FE</option>
-                <option value="21">SANTIAGO DEL ESTERO</option>
-                <option value="22">TIERRA DEL FUEGO</option>
-                <option disabled="true" selected="true" value="">Provincia</option>
-            </select>   
-        </p>
-        <p> 
-            <input class="codigoPostal form-control  border border-dark" type="text" id="Código Postal" name="Código Postal" placeholder="Código Postal" required>
-            <input class="localidad form-control  border border-dark" type="text" id="Localidad" name="Localidad" placeholder="Localidad" required>
-        </p>
-
-        <p>
-        <input class="dni form-control  border border-dark" type="text" id="DNI" name="DNI" placeholder="DNI" required>
-        <input class="celular form-control  border border-dark" type="text" id="Celular" name="Celular" placeholder="Celular" required>
-        </p>
-       
-        <div class="notasParaElEnvio form-floating form-control  border border-dark">
-            <textarea class="form-control form-control  border border-dark" placeholder="Notas para el envío" id="Notas" ></textarea>
-            <label for="Notas">Notas para el envío</label>
-          </div>
-
-
-        </form>
-    </div>
-    <div class="boxDerecha border border-dark container-fluid rounded ">
-        <div>
+        <div class="box">
+    
+        
+        
+    
+        <div class="formularioEnvio">
+            <form action="resultado.html" method="POST">
             <p>
-                <img src="... " id="producto1" class="fotoProductoCarrito rounded mx-auto d-block" alt="foto1">
-            <label for="producto1" class="nombreProducto"> Producto 1</label>
-            <p></p>
-            <label for="producto1" class="talleProducto"> Talle:</label>
-            <select class="form-control  border border-dark boxTalleYCantidad" name="talle"required>
-                <option value="1">xs</option>
-                <option value="2">s</option>
-                <option value="3">m</option>
-                <option value="4">l</option>
-                <option value="5">xl</option>
-                <option value="6">xxl</option>
-                <option value="7">xxxl</option>
-                <option disabled="true" selected="true" value="">Talle</option>
-            </select>    
-            <p></p>
-            <label for="producto1" class="cantidadProducto"> Cantidad:</label>
-            <select class="form-control  border border-dark boxTalleYCantidad" name="cantidad"required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option disabled="true" selected="true" value="">Cantidad</option>
-            </select>
+            <input class="inputsGrandes form-control  border border-dark" type="email" id="Email" name="Email" placeholder="Email" required>
+            </p>
+    
+    
+            <p>
+            <input class="inputsMedianos form-control  border border-dark" type="text" id="Nombre" name="Nombre" placeholder="Nombre" required>
+            <input class="inputsMedianos form-control  border border-dark" type="text" id="Apellido" name="Apellido" placeholder="Apellido" required>
+            </p>
+    
+            <p>
+            <input class="inputsGrandes form-control  border border-dark" type="text" id="Calle" name="Calle" placeholder="Calle" required>
             </p>
             <p>
-                <img src="... " id="producto2" class="fotoProductoCarrito rounded mx-auto d-block" alt="foto2">
-            <label for="producto2" class="nombreProducto"> Producto 2</label>
-            <p></p>
-            <label for="producto2" class="talleProducto"> Talle:</label>
-            <select class="form-control  border border-dark boxTalleYCantidad" name="talle"required>
-                <option value="1">xs</option>
-                <option value="2">s</option>
-                <option value="3">m</option>
-                <option value="4">l</option>
-                <option value="5">xl</option>
-                <option value="6">xxl</option>
-                <option value="7">xxxl</option>
-                <option disabled="true" selected="true" value="">Talle</option>
-            </select>    
-            <p></p>
-            <label for="producto2" class="cantidadProducto"> Cantidad:</label>
-            <select class="form-control  border border-dark boxTalleYCantidad" name="cantidad"required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option disabled="true" selected="true" value="">Cantidad</option>}
-            </select>  
+            <input class="inputsPequeños form-control  border border-dark" type="text" id="Número" name="Número" placeholder="Número" required>
+            <input class="inputsPequeños form-control  border border-dark" type="text" id="Piso" name="Piso" placeholder="Piso">
+            <input class="inputsPequeños form-control  border border-dark" type="text" id="Departamento" name="Departamento" placeholder="Departamento">
             </p>
+    
+            <p> 
+                <select class="selectProvincia form-control  border border-dark" name="Provincia"required>
+                    <option value="1">BUENOS AIRES</option>
+                    <option value="2">CATAMARCA</option>
+                    <option value="3">CHACO</option>
+                    <option value="4">CHUBUT</option>
+                    <option value="5">CIUDAD AUTONOMA DE Bs As</option>
+                    <option value="6">CORDOBA</option>
+                    <option value="7">CORRIENTES</option>
+                    <option value="8">ENTRE RIOS</option>
+                    <option value="9">FORMOSA</option>
+                    <option value="10">JUJUY</option>
+                    <option value="11">LA PAMPA</option>
+                    <option value="12">LA RIOJA</option>
+                    <option value="13">MENDOZA</option>
+                    <option value="14">MISIONES</option>
+                    <option value="15">NEUQUEN</option>
+                    <option value="16">RIO NEGRO</option>
+                    <option value="17">SALTA</option>
+                    <option value="18">SAN LUIS</option>
+                    <option value="19">SANTA CRUZ</option>
+                    <option value="20">SANTA FE</option>
+                    <option value="21">SANTIAGO DEL ESTERO</option>
+                    <option value="22">TIERRA DEL FUEGO</option>
+                    <option disabled="true" selected="true" value="">Provincia</option>
+                </select>   
+            </p>
+            <p> 
+                <input class="inputsMedianos form-control  border border-dark" type="text" id="Código Postal" name="Código Postal" placeholder="Código Postal" required>
+                <input class="inputsMedianos form-control  border border-dark" type="text" id="Localidad" name="Localidad" placeholder="Localidad" required>
+            </p>
+    
+            <p>
+            <input class="inputsMedianos form-control  border border-dark" type="text" id="DNI" name="DNI" placeholder="DNI" required>
+            <input class="inputsMedianos form-control  border border-dark" type="text" id="Celular" name="Celular" placeholder="Celular" required>
+            </p>
+           
+            <div class="notasParaElEnvio form-floating form-control  border border-dark">
+                <textarea class="form-control form-control  border border-dark" placeholder="Notas para el envío" id="Notas" ></textarea>
+                <label for="Notas">Notas para el envío</label>
+              </div>
+    
+    
+            </form>
+        </div>
+        <div class="cajaEntera">
+        <div class="boxDerecha border border-dark container-fluid rounded ">
+            <div class="cajaDerecha">
+
+              <div class="cardProductos card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/ConjuntoPrimavera.jpeg" class=" fotoProductoCarrito img-fluid rounded-start" alt="foto1">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="tituloCard card-title">Conjunto Primavera</h5>
+                    
+                    <select class="form-select border border-dark boxTalleYCantidad" aria-label="Default select example" name="talle"required>
+                    <option value="1">xs</option>
+                    <option value="2">s</option>
+                    <option value="3">m</option>
+                    <option value="4">l</option>
+                    <option value="5">xl</option>
+                    <option value="6">xxl</option>
+                    <option value="7">xxxl</option>
+                    <option disabled="true" selected="true" value="">Talle</option>
+                    </select> 
+                    
+                    <select class="form-select border border-dark boxTalleYCantidad" aria-label="Default select example" name="cantidad"required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option disabled="true" selected="true" value="">Cantidad</option>
+                    </select>
+                    <button type="button" class="botonEliminar btn btn-dark">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+                <div class="cardProductos card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="/images/Khalo3.png" class=" fotoProductoCarrito img-fluid rounded-start" alt="foto2">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="tituloCard card-title">Camisa Oceano</h5>
+                        
+                        <select class="form-select border border-dark boxTalleYCantidad" aria-label="Default select example" name="talle"required>
+                        <option value="1">xs</option>
+                        <option value="2">s</option>
+                        <option value="3">m</option>
+                        <option value="4">l</option>
+                        <option value="5">xl</option>
+                        <option value="6">xxl</option>
+                        <option value="7">xxxl</option>
+                        <option disabled="true" selected="true" value="">Talle</option>
+                        </select> 
+                        
+                        <select class="form-select border border-dark boxTalleYCantidad" aria-label="Default select example" name="cantidad"required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option disabled="true" selected="true" value="">Cantidad</option>
+                        </select>
+                        <button type="button" class="botonEliminar btn btn-dark">Eliminar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <input class="descuento form-control  border border-dark" type="text" id="descuento" name="descuento" placeholder="Codigo de descuento"> 
+            <button type="button" class="botonDescuento btn btn-light">Enviar</button>  
+            <h1 class="total">Total:</h1>
+            <h1 class="importe"> $...</h1> 
+
+            <button type="button" class="botonComprar btn btn-light">Comprar</button>  
     </div> 
     </div>
+</div>
 </div>
 </body>
 <footer class="main-footer">
