@@ -28,7 +28,9 @@ app.get('/login', (req,res)=>{
 app.get('/', (req,res)=>{
     res.sendFile(path.join(__dirname, '/views/home.html'));
     });
-    app.get('/registro', (req,res)=>{
-        res.sendFile(path.join(__dirname, '/views/nuevoregistro.html'));
-        });
-    
+app.get('/registro', (req,res)=>{
+    res.sendFile(path.join(__dirname, '/views/registro.html'));
+    });
+    app.get('/slider', (req,res)=>{
+        res.sendFile(path.join(__dirname, '/views/slider.html'));
+        });  

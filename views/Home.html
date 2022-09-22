@@ -32,14 +32,50 @@
          </div> 
        </div>
      </header>
-     <!-- fin header-->
-   <figure class="Figura">
-     <img class="img" src="images/Khalo1.png">
-     <img class="img" src="images/Khalo2.png">
-     <img class="img" src="images/Khalo3.png">
-     <img class="img" src="images/Khalo4.png">
-     <img class="img" src="images/Khalo1.png">
-     </figure>  
+     <div class="carrusel">   
+      <section class="carousel" aria-label="Gallery">
+           <ol class="carousel__viewport">
+             <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo1.png" alt="plage"></div>
+                 <a href="#carousel__slide4" class="carousel__prev">Aller au dernier slide</a>
+                 <a href="#carousel__slide2" class="carousel__next">Aller au suivant slide</a>
+               
+             </li>
+             <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo2.png" alt="plage"></div>
+               <a href="#carousel__slide1" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide3" class="carousel__next">Aller au suivant slide</a>
+             </li>
+             <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo3.png" alt="plage"></div>
+               <a href="#carousel__slide2" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide4" class="carousel__next">Aller au suivant slide</a>
+             </li>
+             <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo4.png" alt="plage"></div>
+               <a href="#carousel__slide3" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide1" class="carousel__next">Aller au premier slide</a>
+             </li>
+           </ol>
+           <aside class="carousel__navigation">
+             <ol class="carousel__navigation-list">
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide1" class="carousel__navigation-button">Aller au slide 1</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide2" class="carousel__navigation-button">Aller au slide 2</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide3" class="carousel__navigation-button">Aller au slide 3</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide4" class="carousel__navigation-button">Aller au slide 4</a>
+               </li>
+             </ol>
+           </aside>
+         </section>
+       
+      </div>
    <main class="main">
      <div class="main-container">
        <h2 class="main-title">New Arrivals for you</h2>
@@ -53,7 +89,7 @@
            <i class="product__icon fa-solid fa-bag-shopping"></i>
            </div>
          <div class="product">
-           <a href="http://localhost:3000/detalleproducto" class="link"><img src="/images/Khalo1.png" alt="" class="product__img"></a>
+           <a href="http://localhost:3000/detalleproducto" class="link"><img src="/images/ConjuntoPrimavera.jpeg" alt="" class="product__img"></a>
            <div class="product__description">
              <h3 class="product__title">Conjunto Primavera</h3>
              <span class="producto__price">$100.000</span>
@@ -79,35 +115,35 @@
          </section>
        </div>
      </main>
- </body>
-    <br>
-    <!-- inicio footer-->
-    <footer class="main-footer">
-      <div class="footer__section">
-        <h2 class="footer__title">About Us</h2>
-        <p class="footer__txt">Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
-      </div>
-      <div class="footer__section">
-        <h2 class="footer__title">Location :</h2>
-        <p class="footer__txt">Cl. 33 #42B-06, Medellín, La Candelaria, Medellín, Antioquia, Colombia</p>
-        <h2 class="footer__title">Contact</h2>
-        <p class="footer__txt">Phone : +121 098 8907 9987</p>
-        <p class="footer__txt">Email : info@example.com</p>
-      </div>
-      <div class="footer__section">
-        <h2 class="footer__title">Quick Links</h2>
-        <a href="" class="footer__link">Home</a>
-        <a href="" class="footer__link">About</a>
-        <a href="" class="footer__link">Error</a>
-        <a href="" class="footer__link">Shop</a>
-        <a href="" class="footer__link">Contact Us</a>
-      </div>
-      <div class="footer__section">
-        <h2 class="footer__title">Sign up for your offers</h2>
-        <p class="footer__txt">By subscribing to our mailing list you will always get latest news and updates from us.</p>
-        <input type="email" class="footer__input" placeholder="Enter your email">
-      </div>
-      <p class="copy">© 2022 Khalo. All Rights Reserved | Design by Grupo1</p>
-    </footer>
-    <!-- final footer-->
-</html>
+   </body>
+  <br>
+  <!-- inicio footer-->
+  <footer class="main-footer">
+    <div class="footer__section">
+      <h2 class="footer__title">About Us</h2>
+      <p class="footer__txt">Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
+     </div>
+    <div class="footer__section">
+      <h2 class="footer__title">Location :</h2>
+      <p class="footer__txt">Cl. 33 #42B-06, Medellín, La Candelaria, Medellín, Antioquia, Colombia</p>
+      <h2 class="footer__title">Contact</h2>
+      <p class="footer__txt">Phone : +121 098 8907 9987</p>
+      <p class="footer__txt">Email : info@example.com</p>
+     </div>
+    <div class="footer__section">
+      <h2 class="footer__title">Quick Links</h2>
+      <a href="" class="footer__link">Home</a>
+      <a href="" class="footer__link">About</a>
+      <a href="" class="footer__link">Error</a>
+      <a href="" class="footer__link">Shop</a>
+      <a href="" class="footer__link">Contact Us</a>
+     </div>
+    <div class="footer__section">
+      <h2 class="footer__title">Sign up for your offers</h2>
+      <p class="footer__txt">By subscribing to our mailing list you will always get latest news and updates from us.</p>
+      <input type="email" class="footer__input" placeholder="Enter your email">
+     </div>
+    <p class="copy">© 2022 Khalo. All Rights Reserved | Design by Grupo1</p>
+   </footer>
+ <!-- final footer-->
+ </html>
