@@ -59,11 +59,13 @@ body {
 img {
     display: block;
     width: 100%;
+    
 }
 .main-header{
- 
+  position: sticky;
   padding: 0 20px;
-    background-color:#c7b5a7;
+  background-color:#c7b5a7;
+  z-index: 10;
 }
 .main-header__title{
   font-family: 'Baloo Chettan 2', thin;

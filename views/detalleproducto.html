@@ -14,42 +14,25 @@
 </head>
 
 <body>
-    <header>
-        <!-- Contenedor principal-->
-        <div class="row">
-            <div class="col-1 p-3 logo"> <img src="/images/logo.jpg" style="width:200px"></div><!--logo, Col-1 esta diseñado para contener solo el logo-->
-            <div class="col-11"><!-- col 11 esta diseñado para contener la barra superior, la intermedia y la inferior-->
-                <br>
-               <!--Contenedor intermedio-->
-                <div class="row">
-                  <!--Barra Intermedia-->   
-                    <div class="d-flex middle_bar">
-                        <div class="col d-flex flex-row-reverse"> <i class="fa-solid fa-magnifying-glass fa-2x"></i> 
-                        </div>
-                        <div class="col d-flex "> <input type="text" placeholder="Buscar productos, marcas" size="40px">
-                        </div>
-                        <div class="col">
-                            <div class="d-flex flex-row-reverse">
-                                <div class="p-2"> <i class="fa-regular fa-heart fa-lg"></i><a href="#" class="link"> Favoritos </a> </div>
-                                <div class="p-2"> <i class="fa-solid fa-cart-shopping"></i><a href="http://localhost:3000/carrito" class="link">  Carrito </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               <!--Contenedor Inferior-->
-                <div class="row">
-                  <!--Barra Inferior-->   
-                    <div class="col-11 d-flex justify-content-center subtitulos">
-                        <div class="p-2"><a href="#" class="link">NUEVA TEMPORADA</a>  </div>
-                        <div class="p-2"> <a href="#" class="link">ROPA</a> </div>
-                        <div class="p-2"> <a href="#" class="link">ACCESORIOS</a> </div>
-                        <div class="p-2"><a href="#" class="link">NOSOTRAS </a> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <header class="main-header">
+        <div class="container">
+          <div class="main-header__container">
+            <div class="logo"><img src="/images/Logo.jpg"></div> 
+            <div class="icono-menu"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="icono-menu"><a href="http://localhost:3000/carrito" class="link"><i class="fa-solid fa-bag-shopping"></i></a></div>
+            <span class="icon-menu"><i class="fa-solid fa-bars" id="btn-menu"></i></span>
+            <nav class="main-nav" id="main-nav">
+              <ul class="menu">
+                <li class="menu__item"><a href="http://localhost:3000/" class="menu__link">HOME</a></li>
+                <li class="menu__item"><a href="" class="menu__link">CONTACT</a></li>
+                <li class="menu__item"><a href="" class="menu__link">FEATURES</a></li>
+                <li class="menu__item"><a href="" class="menu__link">SHOP</a></li>
+                <li class="menu__item"><a href="http://localhost:3000/login" class="menu__link">INICIAR SESION</a></li>
+                </ul>
+              </nav>
+            </div> 
+          </div>
+        </header>
     <!--Pagina detalle de producto-->
     <main>
 
@@ -130,13 +113,33 @@
     </div>
     </main>
 
-    <footer>
-        <div class="col d-flex flex-row-reverse">
-            <div class="p-2"> <a href="#"> <i class="fa-brands fa-facebook"></i> </a> </div>
-            <div class="p-2"> <a href="#"> <i class="fa-brands fa-instagram"></i> </a></div>
+    <footer class="main-footer">
+        <div class="footer__section">
+          <h2 class="footer__title">About Us</h2>
+          <p class="footer__txt">Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
         </div>
-    </footer>
-
+        <div class="footer__section">
+          <h2 class="footer__title">Location :</h2>
+          <p class="footer__txt">Cl. 33 #42B-06, Medellín, La Candelaria, Medellín, Antioquia, Colombia</p>
+          <h2 class="footer__title">Contact</h2>
+          <p class="footer__txt">Phone : +121 098 8907 9987</p>
+          <p class="footer__txt">Email : info@example.com</p>
+        </div>
+        <div class="footer__section">
+          <h2 class="footer__title">Quick Links</h2>
+          <a href="" class="footer__link">Home</a>
+          <a href="" class="footer__link">About</a>
+          <a href="" class="footer__link">Error</a>
+          <a href="" class="footer__link">Shop</a>
+          <a href="" class="footer__link">Contact Us</a>
+        </div>
+        <div class="footer__section">
+          <h2 class="footer__title">Sign up for your offers</h2>
+          <p class="footer__txt">By subscribing to our mailing list you will always get latest news and updates from us.</p>
+          <input type="email" class="footer__input" placeholder="Enter your email">
+        </div>
+        <p class="copy">© 2022 Khalo. All Rights Reserved | Grupo1</p>
+      </footer>
 </body>
 
 </html>
