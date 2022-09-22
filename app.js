@@ -10,20 +10,20 @@ app.listen(process.env.PORT || 3000,() =>{
 });
 
 app.get('/detalleproducto', (req,res)=>{
-res.sendFile(path.join(__dirname, '/views/detalleproducto.html'));
+res.sendFile(path.join(__dirname, './views/detalleproducto.html'));
 });
 
 app.get('/carrito', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/carrito.html'));
+    res.sendFile(path.join(__dirname, './views/carrito.html'));
     });
 
 app.get('/login', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/login.html'));
+    res.sendFile(path.join(__dirname, './views/login.html'));
     });
 
 app.get('/home', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/home.html'));
+    res.sendFile(path.join(__dirname, './views/home.html'));
     });
 app.get('/registro', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/registro.html'));
+    res.sendFile(path.join(__dirname, './views/registro.html'));
     });
