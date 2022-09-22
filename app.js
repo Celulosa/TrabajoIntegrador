@@ -13,10 +13,6 @@ app.get('/detalleproducto', (req,res)=>{
 res.sendFile(path.join(__dirname, '/views/detalleproducto.html'));
 });
 
-app.get('/registroA', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/views/registro.html'));
-    });
-
 app.get('/carrito', (req,res)=>{
     res.sendFile(path.join(__dirname, '/views/carrito.html'));
     });
