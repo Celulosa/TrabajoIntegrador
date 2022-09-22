@@ -31,6 +31,3 @@ app.get('/', (req,res)=>{
 app.get('/registro', (req,res)=>{
     res.sendFile(path.join(__dirname, '/views/registro.html'));
     });
-    app.get('/slider', (req,res)=>{
-        res.sendFile(path.join(__dirname, '/views/slider.html'));
-        });  
