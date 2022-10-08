@@ -430,7 +430,7 @@ margin: 0px;
 }
 
 #nombre-producto {
-text-align: center;
+align-items: center;
 color: black;
 margin: auto;
 margin-top: auto;
