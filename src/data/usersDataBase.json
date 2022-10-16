@@ -27,20 +27,11 @@
  },
  {
   "id": 6,
-  "nombre": "yo",
+  "nombre": "yoNONO",
   "apellido": "soy",
   "email": "yo@gmail.com",
   "cumpleanos": "4444-04-04",
   "direccion": "cada 4",
   "contrasena": "abcde"
- },
- {
-  "id": 7,
-  "nombre": "aaaa",
-  "apellido": "aaaaa",
-  "email": "abc@gmail.com",
-  "cumpleanos": "2222-01-01",
-  "direccion": "cale",
-  "contrasena": "12345"
  }
 ]
