@@ -13,14 +13,15 @@
      <!-- INCLUDES HEADER-->
    <%- include('../partials/header') %>
     <main>
-
+        <br>
+        <br>
     <div id="producto-principal">
         <div class="producto-principal-1">
-            <img id="imagen-producto" src="/images/ConjuntoPrimavera.jpeg">
+            <img id="imagen-producto" src="/images/<%=producto.image %>">
         </div>
         <div class="producto-principal-1-info">
             <div id="caracteristicas">
-                <h2 class="nombre-producto"><strong>CONJUNTO PRIMAVERA</h2></strong>
+                <h2 class="nombre-producto"><strong><%=producto.name %></h2></strong>
             <div id="opciones-producto">
                         <strong><p class="opciones">COLOR</p></strong>
                         <select class="opciones-seleccionadas" name="Color">
@@ -45,9 +46,19 @@
                             <option value="3">3</option>
                         </select><br>
                         </select>
-                        <p id="precio-producto">PRECIO: $100.000</p>
-                        <a href="http://localhost:3000/carrito"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
-                    </div>
+                        <p id="precio-producto">PRECIO: $<%=producto.price %></p>
+                        <a href="http://localhost:3010/carrito"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
+                        <br> 
+                        <br>
+                        <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
+						</form>
+                        <br>
+                        <br>
+                        <a href="/products/editarproducto/<%=producto.id %>">
+                        <button type="submit" id="boton-agregar-carrito">EDITAR PRODUCTO</button></a>
+                </div>
+
                 <br>      
                 <div class="instrucciones_lavado"><h5><strong>Instrucciones de lavado</h5></strong>
                     <br>  
@@ -67,9 +78,9 @@
     </div>
     <div id="descripcion-producto">
         <div id="texto-descripcionproducto">
-            <h2 class="nombre-producto"><strong>CONJUNTO PRIMAVERA</h2></strong>
+            <h2 class="nombre-producto"><strong><%=producto.name %></h2></strong>
             <br>
-            <strong><p>Pantalón y top elaborados en lino. Con un diseño inovador para tener frescura, comodidad y elegancia en un mismo outfit.</p></strong>
+            <strong><p><%=producto.description %></p></strong>
         </div>
     </div>
     <div id="productos-quetegusten">
@@ -77,16 +88,16 @@
     </div>
     <div id="productos-quetegusten">
         <div class="un-productos-quetegusten">
-            <img class="imagen-producto-quetegusten" src="/images/Topperla1.jpg" width="300px" height="300px">
+            <a href="/products/detalleproducto/2" class="link"><img src="/images/Top-perla1.jpg" alt="" class="imagen-producto-quetegusten"width="300px" height="300px"></a>
             <p class="nombre-producto-quetegusten">TOP PERLA</p>
         </div>
         <div class="un-producto-quetegusten">
-            <img class="imagen-producto-quetegusten" src="/images/Khalo2.png" width="300px" height="300px">
-            <p class="nombre-producto-quetegusten">BOLSO PARIS</p>
+            <a href="/products/detalleproducto/3" class="link"><img src="/images/Khalo2.png" alt="" class="imagen-producto-quetegusten"width="300px" height="300px"></a>
+            <p class="nombre-producto-quetegusten">CARTERA KHALO</p>
         </div>
         <div class="un-producto-quetegusten">
-            <img class="imagen-producto-quetegusten" src="/images/Khalo3.png" width="300px" height="300px">
-            <p class="nombre-producto-quetegusten">CAMISA OCEANO</p>
+            <a href="/products/detalleproducto/4" class="link"><img src="/images/Khalo3.png" alt="" class="imagen-producto-quetegusten"width="300px" height="300px"></a>
+            <p class="nombre-producto-quetegusten">BLUSON STYLE</p>
         </div>
     </div>
     </main>

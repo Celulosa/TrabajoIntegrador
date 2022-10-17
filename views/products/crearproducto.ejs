@@ -17,16 +17,27 @@
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Añadir Producto</h2></strong>
         <div class="login-page">
             <div class="form">
-              <form class="register-form"> 
-                <input type="text" placeholder="Referencia" name="referencia"/>
-                <input type="text" placeholder="Nombre Producto" name="nombreProducto" />
-                <input type="text" placeholder="Precio" name="precio"/>
-                <input type="text" placeholder="Descuento" name="descuento"/>
-                <input type="password" placeholder="Talla" name="talla"/>
-                <input type="password" placeholder="Color" name="color"/>
+              <form class="register-form" action="/products/crearproducto" method="POST">
+                <input type="text" placeholder="Referencia" name="id"required/>
+                <input type="text" placeholder="Nombre Producto" name="name"required />
+                <input type="text" placeholder="Precio" name="price"required/>
+                <div class="register-form">
+                <br>
+                <label class="register-form" for="category">Categoría:</label>
+                <select name="category" id="category">
+                  <option value="in-sale">in-sale</option>
+                  <option value="visited">Últimos agregados</option>
+                </select>
+                <br>
+                <br>
+              </div>
+              <div class="col-12">
+                <label for="description" class="form-label">Descripción:</label>
+                <textarea name="description" id="description" class="form-input"></textarea>
+              </div>
                 <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
-                  <input type="file" name="Foto" accept="" multiple style="background-color: #ebebeb">
-                <button>Crear Producto</button>
+                <input type="file" name="Foto" accept="" multiple style="background-color: #ebebeb">
+                <button type="submit" id="boton-agregar-carrito">CREAR PRODUCTO</button>
               </form>
             </div>
           </div>

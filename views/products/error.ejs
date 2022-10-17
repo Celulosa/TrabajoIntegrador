@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- INCLUDES HEAD-->
+<head>
+	<title>Error</title>
+	<link rel="stylesheet" href="/css/styles.css">
+  
+  <%- include('../partials/head') %>
+  
+  </head>
+	<body>
+	   <!-- INCLUDES HEADER-->
+	 <%- include('../partials/header') %>
+	  <main>
+	<h1><%= message %></h1>
+	<h2><%= error.status %></h2>
+	<p>Error trying to access to: <b><%= path %></b></p>
+	<pre><i><%= error.stack %></i></pre>
+	</main>
+</body>
+</html>

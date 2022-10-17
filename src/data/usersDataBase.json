@@ -1,0 +1,37 @@
+[
+ {
+  "id": 1,
+  "nombre": "Primer",
+  "apellido": "Usuario",
+  "email": "Primer@gmail.com",
+  "cumpleanos": "1-Ene-1990",
+  "contrasena": "qw"
+ },
+ {
+  "id": 2,
+  "nombre": "",
+  "apellido": "",
+  "email": "",
+  "cumpleanos": "",
+  "direccion": "",
+  "contrasena": "as"
+ },
+ {
+  "id": 5,
+  "nombre": "Andres",
+  "apellido": "Castro",
+  "email": "abc@abc.com",
+  "cumpleanos": "",
+  "direccion": "2",
+  "contrasena": "1"
+ },
+ {
+  "id": 6,
+  "nombre": "yoNONO",
+  "apellido": "soy",
+  "email": "yo@gmail.com",
+  "cumpleanos": "4444-04-04",
+  "direccion": "cada 4",
+  "contrasena": "abcde"
+ }
+]
