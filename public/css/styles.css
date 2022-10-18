@@ -430,7 +430,7 @@ margin: 0px;
 }
 
 #nombre-producto {
-align-items: center;
+text-align: center;
 color: black;
 margin: auto;
 margin-top: auto;
@@ -825,6 +825,7 @@ padding:8px;
   }
   .main-header__container:nth-child(2){
     font-size: 1.5em;
+
   }
   .slider{
     height: 600px;
@@ -832,6 +833,7 @@ padding:8px;
   .product__img {
     height: 200px;
   }
+
 }
 .login-page {
 width: 360px;
@@ -842,12 +844,17 @@ margin: auto;
 position: relative;
 z-index: 1;
 background: #FFFFFF;
-max-width: 360px;
+
+width: fit-content;
+max-width: 460px;
 margin: 0 auto 100px;
 padding: 45px;
 text-align: center;
 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
+
+
 .form input {
 font-family: "Roboto", sans-serif;
 outline: 0;
@@ -1171,6 +1178,7 @@ height: 76%;
 .carrusel  {
   width: 300px;
   margin: 0 auto;
+
 }
 .carousel::before,
 .carousel::after,
@@ -1178,9 +1186,27 @@ height: 76%;
 .carousel__next {
   margin-top: 85%;
 }
+
 .carousel {
 
 /*   padding-top: 65%; */
 height: 76%;
+
 }
 }
+/* INICIO CSS para vista perfilusuario */
+.perfil{
+  display: flex;
+  font-size: 1.3rem;
+}
+.pernom{
+ 
+  font-weight: bold;
+  
+}
+.perdato{
+  
+  padding-left: 20px;
+}
+/* FIN CSS para vista perfilusuario */
+
