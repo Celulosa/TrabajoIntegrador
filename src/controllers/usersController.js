@@ -1,4 +1,3 @@
-const e = require('express');
 const { validationResult } = require('express-validator');// importa los resultados de las validaciones
 const fs = require('fs');
 const path = require('path');
@@ -14,26 +13,31 @@ const controlador = {
     },
 
     check: (req, res) => {
-        // Codigo para verificar las credenciales del login, si son correctas lleva a la vista perfil del usuario, de lo contrario muestra un mensaje de erro
+
+
         let currentUser = "";
+        let contador = 0
         let password = req.body.contrasena
         let email = req.body.email;
         email = email.toLowerCase();
-        let flag = 0
-
-        for (let i = 0; i < users.length; i++) {
-            if ((password == users[i].contrasena) & (email == users[i].email)) {
-                currentUser = users[i]
-                flag = 1
-                res.render('users/perfilusuario', { usuario: currentUser });
+        //console.log('el password ingresado es: ' + password)
+        //console.log('el email ingresado es: ' + email)
+        for (let obj of users) {
+            if ((password == obj.contrasena) & (email == obj.email)) {
+                currentUser = obj
+                console.log(currentUser)
+                contador = 1
                 break;
-            }
-        }
-        if (flag == 0) {
-            res.send('Usuario o contraseña Erronea o NO existen');
+            } 
         }
 
-
+        if (contador == 1) {
+            res.render('users/perfilusuario', { usuario: currentUser });
+        } else{
+           res.send('Usuario o contraseña Erronea o NO existen');
+ 
+        }
+          
     },
 
     edit: (req, res) => {
@@ -55,6 +59,8 @@ const controlador = {
     update: (req, res) => {
 
         let userToEdit = req.params.id;
+
+       // console.log('el usuario es:' + userToEdit);
 
         for (let obj of users) {
             if (userToEdit == obj.id) {
@@ -81,56 +87,41 @@ const controlador = {
     },
 
     guardarusuario: (req, res) => {
-        //Codigo desde linea 88 hasta la linea 100, verifica si el correo ya existe, si no existe empieza validaciones in la linea 101
-        let correo = req.body.email
-        let correoValidacion = users.findIndex(function (elemento) {
-            if (correo == elemento.email)
-                return true
-        })
-        console.log(correoValidacion)
 
-        if (correoValidacion != -1) {
-            res.send('Usuario ya existe. Por favor dirijase al link de Login')
+        let errors = validationResult(req);
+        console.log("errors", errors)
 
-        }
-        else {
+        if (errors.isEmpty()){
+        let nuevoUsuario = {
+            id: (users[users.length - 1].id) + 1,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            cumpleanos: req.body.cumpleanos,
+            direccion: req.body.direccion,
+            contrasena: req.body.contrasena,
 
-            let errors = validationResult(req);
-            console.log("errors", errors)
+        };
 
-            if (errors.isEmpty()) {
-                let nuevoUsuario = {
-                    id: (users[users.length - 1].id) + 1,
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    cumpleanos: req.body.cumpleanos,
-                    direccion: req.body.direccion,
-                    contrasena: req.body.contrasena,
+        users.push(nuevoUsuario);
 
-                };
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
-                users.push(nuevoUsuario);
+        res.redirect('/');
 
-                fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-
-                res.redirect('/');
-
-            }
-            else {
-                res.render('users/registro', { errors: errors.array() })
-            }
-        }
-
-    },
+    } 
+    else {
+        res.render('users/registro',{errors:errors.array()})
+    }
+},
 
     destroy: (req, res) => {
         let userToDelete = req.params.id;
-
-        let arrayUsers = users.filter(function (objetos) {
-            return objetos.id != userToDelete
+       
+         let arrayUsers= users.filter(function (objetos){
+             return objetos.id != userToDelete
         })
-
+        
 
         fs.writeFileSync(usersFilePath, JSON.stringify(arrayUsers, null, " "));
 

@@ -3,7 +3,7 @@
     
 <!-- INCLUDES HEAD-->
 <head>
-  <title>Registro</title>
+  <title>Login</title>
   <link rel="stylesheet" href="/css/styles.css">
 
 <%- include('../partials/head') %>
@@ -17,15 +17,15 @@
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Iniciar Sesión</h2></strong>
 <div class="login-page">
     <div class="form">
-      <form class="login-form">
-        <input type="email" placeholder="email"/>
-        <input type="password" placeholder="password"/>
+      <form class="login-form" action="/users/login" method="POST">
+        <input type="email" placeholder="email" name="email"  />
+        <input type="password" placeholder="password" name="contrasena" />
         <button>login</button>
-        <p class="message">Not registered? <a href="/products/registro">Create an account</a></p>
+        <p class="message">Not registered? <a href="/users/registro">Create an account</a></p>
       </form>
     </div>
   </div>
-</body>
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>
-</html>
+  </body>
+  </html>
