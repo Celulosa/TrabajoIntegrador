@@ -14,6 +14,7 @@ const controlador = {
 
     check: (req, res) => {
 
+
         let currentUser = "";
         let contador = 0
         let password = req.body.contrasena
@@ -60,6 +61,7 @@ const controlador = {
         let userToEdit = req.params.id;
 
        // console.log('el usuario es:' + userToEdit);
+
         for (let obj of users) {
             if (userToEdit == obj.id) {
                 obj.nombre = req.body.nombre
@@ -75,7 +77,7 @@ const controlador = {
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
         res.redirect('/');
-    
+
 
     },
 
