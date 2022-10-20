@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -63,12 +62,16 @@ const controller ={
      },
 	 update: (req, res) => {
 		let idProducto = req.params.id;
+
+		let nombreImagen = req.file.filename;
+
 		for (let o of products){
 			if (idProducto == o.id){
 				o.name = req.body.name;
 				o.price = req.body.price;
 				o.category = req.body.category;
 				o.description = req.body.description;
+				o.image = nombreImagen;
 				break;
 			}
 		}
