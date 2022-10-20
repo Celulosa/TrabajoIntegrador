@@ -2,7 +2,7 @@
  {
   "id": 1,
   "name": "Conjunto Primavera",
-  "price": "100000",
+  "price": 100000,
   "category": "in-sale",
   "description": "Pantalón y top elaborados en lino. Con un diseño inovador para tener frescura, comodidad y elegancia en un mismo outfit.",
   "image": "Khalo1.png"
@@ -10,7 +10,7 @@
  {
   "id": 2,
   "name": "Top Perla",
-  "price": "40200",
+  "price": 40200,
   "category": "in-sale",
   "description": "Top diseñado con perlas de forma simetricas, que permite verte estilizada",
   "image": "top-perla1.jpg"
@@ -79,5 +79,15 @@
   "price": 64990,
   "image": "Vestido-Elena.JPG",
   "category": "in-sale"
+ },
+ {
+  "id": 11,
+  "name": "sada",
+  "price": "sda",
+  "category": "in-sale",
+  "description": "dasasd"
+ },
+ {
+  "id": 12
  }
 ]
