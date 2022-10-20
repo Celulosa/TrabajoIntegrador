@@ -10,10 +10,10 @@
  {
   "id": 2,
   "name": "Top Perla",
-  "price": 40200,
+  "price": "40200",
   "category": "in-sale",
   "description": "Top diseñado con perlas de forma simetricas, que permite verte estilizada",
-  "image": "top-perla1.jpg"
+  "image": "1666296101236.jpg"
  },
  {
   "id": 3,
@@ -89,5 +89,13 @@
  },
  {
   "id": 12
+ },
+ {
+  "id": 13,
+  "name": "dasd",
+  "price": "420",
+  "category": "in-sale",
+  "description": "dasdasd",
+  "image": "1666295991687.jpg"
  }
 ]
