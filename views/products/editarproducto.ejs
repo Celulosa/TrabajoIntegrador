@@ -17,7 +17,7 @@
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Estás editando: <%=producto.name %></h2></strong>
         <div class="login-page">
             <div class="form">
-              <form action="/products/editarproducto/<%= producto.id %>?_method=PUT" method="POST">
+              <form action="/products/editarproducto/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <input type="text" placeholder="Id" name="id" value="<%=producto.id %>"/>
                 <input type="text" placeholder="Nombre" name="name" value="<%=producto.name %>"/>
                 <input type="text" placeholder="Precio" name="price" value="<%=producto.price %>"/>
@@ -26,7 +26,7 @@
                 <!-- <input type="password" placeholder="Talla" name="talla"/>-->
                 <!-- <input type="password" placeholder="Color" name="color"/>-->
                 <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
-                  <input type="file" name="Foto" accept="" multiple style="background-color: #ebebeb">
+                  <input type="file" name="imageProductEdit" accept="" />
                 <button type="submit">Guardar Cambios</button>
               </form>
             </div>

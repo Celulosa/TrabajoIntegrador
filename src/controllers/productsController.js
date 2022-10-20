@@ -33,7 +33,7 @@ const controller ={
 
 		/*console.log(req.file);*/
 
-		let nombreImagen = req.file.filename
+		let nombreImagen = req.file.filename;
 
 		let productoNuevo = {
 			id: (products[products.length-1].id)+1,

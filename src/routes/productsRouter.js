@@ -22,7 +22,7 @@ router.get('/crearproducto', productsController.crear);
 router.post('/crearproducto', productsController.store); 
 router.get('/detalleproducto/:id', productsController.detalle); 
 router.get('/editarproducto/:id', productsController.editar); 
-router.put('/editarproducto/:id', productsController.update); 
+router.put('/editarproducto/:id', uploadFile.single('imageProductEdit'), productsController.update); 
 router.delete('/delete/:id', productsController.destroy); 
 router.post("/create", uploadFile.single('imageProduct'), productsController.store);
 
