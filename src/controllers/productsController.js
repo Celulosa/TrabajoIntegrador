@@ -75,6 +75,8 @@ const controller ={
 				break;
 			}
 		}
+		
+		
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
 		res.redirect('products/detalleproducto/:id');
 	},
@@ -85,7 +87,14 @@ const controller ={
 		let arrProductos = products.filter(function(elemento){
 			return elemento.id!=idProducto;
 		})
-		
+
+		for (let arrProductos of products){
+			if (products.id == id){
+				arrProductos=products
+			}
+		}
+		fs.unlinkSync(path.join(__dirname, '../../public/images/', arrProductos.image));
+
 		fs.writeFileSync(productsFilePath,JSON.stringify(arrProductos,null," "));
 
 		res.redirect('/');
