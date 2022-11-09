@@ -9,8 +9,6 @@ const path = require('path');
 const methodOverride = require('method-override') // para poder usar PUT y DELETE
 const app = express();
 
-
-
 app.use(express.static('public'));
 
 app.listen( port ,() =>{
