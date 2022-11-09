@@ -7,6 +7,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
 
+	listado: (req, res) => {
+	   res.render('products/listadoproductos',{productos: products})
+   },
+
     home: (req, res) => {
 		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		res.render('products',{ps: products});
@@ -78,27 +82,26 @@ const controller ={
 		
 		
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
-		res.redirect('products/detalleproducto/:id');
+		//res.redirect('products/detalleproducto/:id');
+		res.render('detalleproducto',{producto: idProducto})
 	},
+
 	destroy : (req, res) => {
-		
-		let idProducto = req.params.id;
 
-		let arrProductos = products.filter(function(elemento){
-			return elemento.id!=idProducto;
-		})
-
-		for (let arrProductos of products){
-			if (products.id == id){
-				arrProductos=products
+		let idProducto = req.params.id;	
+		for(let i=0;i<products.length;i++){
+			if (products[i].id==idProducto){
+				var nombreImagen=products[i].image;
+				products.splice(i,1);
+				break;
 			}
 		}
-		fs.unlinkSync(path.join(__dirname, '../../public/images/', arrProductos.image));
+		
+	    fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
+		fs.unlinkSync(path.join(__dirname,'../../public/images/'+nombreImagen));
+		res.render('products/listadoproductos',{productos: products});
 
-		fs.writeFileSync(productsFilePath,JSON.stringify(arrProductos,null," "));
-
-		res.redirect('/');
-	}
+		}
  };
  
  module.exports = controller;

@@ -10,10 +10,10 @@
  {
   "id": 2,
   "name": "Top Perla",
-  "price": "40200",
+  "price": 40200,
   "category": "in-sale",
   "description": "Top diseñado con perlas de forma simetricas, que permite verte estilizada",
-  "image": "1666296101236.jpg"
+  "image": "TopPerla2.jpg"
  },
  {
   "id": 3,
@@ -25,11 +25,11 @@
  },
  {
   "id": 4,
-  "name": "Bluson style",
-  "description": "Disfrutá de la frescura de un bluson, de color azul en una tela fresca para todas las temporadas.",
-  "price": 80000,
-  "image": "Khalo3.png",
-  "category": "in-sale"
+  "name": "Bluson",
+  "price": 60000,
+  "category": "in-sale",
+  "description": "Blusón fresco para acompañar con cualquier moda.",
+  "image": "Khalo3.png"
  },
  {
   "id": 5,
@@ -79,23 +79,5 @@
   "price": 64990,
   "image": "Vestido-Elena.JPG",
   "category": "in-sale"
- },
- {
-  "id": 11,
-  "name": "sada",
-  "price": "sda",
-  "category": "in-sale",
-  "description": "dasasd"
- },
- {
-  "id": 12
- },
- {
-  "id": 13,
-  "name": "dasd",
-  "price": "420",
-  "category": "in-sale",
-  "description": "dasdasd",
-  "image": "1666295991687.jpg"
  }
 ]

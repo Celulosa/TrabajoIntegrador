@@ -29,6 +29,6 @@ app.use(methodOverride('_method'));
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-
+app.use('/products', productsRouter);
 
 app.use('*', function(req,res) {     res.send("Ruta equivocada") });
