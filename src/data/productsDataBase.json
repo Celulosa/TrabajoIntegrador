@@ -79,5 +79,13 @@
   "price": 64990,
   "image": "Vestido-Elena.JPG",
   "category": "in-sale"
+ },
+ {
+  "id": 11,
+  "name": "Ejemplo",
+  "price": "25001",
+  "category": "visited",
+  "description": "Ejemplo ",
+  "image": "1667955835992.PNG"
  }
 ]

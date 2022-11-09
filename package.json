@@ -26,5 +26,6 @@
     "url": "https://github.com/Celulosa/TrabajoIntegrador/issues"
   },
   "homepage": "https://github.com/Celulosa/TrabajoIntegrador#readme",
-  "description": ""
+  "description": "tp integrador\r Link Heroku: https://khalostore.herokuapp.com",
+  "devDependencies": {}
 }

@@ -53,7 +53,7 @@ const controller ={
 
 		res.redirect('/');
 	},
-     editar: (req , res) => {
+	editar: (req , res) => {
     	let idProducto = req.params.id;
 		let objProducto;
 		for (let o of products){
@@ -82,8 +82,7 @@ const controller ={
 		
 		
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
-		//res.redirect('products/detalleproducto/:id');
-		res.render('detalleproducto',{producto: idProducto})
+		res.redirect('products/detalleproducto/:id');
 	},
 
 	destroy : (req, res) => {
