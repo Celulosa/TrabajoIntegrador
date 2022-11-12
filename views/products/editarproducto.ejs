@@ -17,17 +17,21 @@
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Estás editando: <%=producto.name %></h2></strong>
         <div class="login-page">
             <div class="form">
-              <form action="/products/editarproducto/<%= producto.id %>?_method=PUT" method="POST">
-                <input type="text" placeholder="Id" name="id" value="<%=producto.id %>"/>
+              <form action="/products/editarproducto/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <label for="name" class="form-label">Nombre del producto</label>
                 <input type="text" placeholder="Nombre" name="name" value="<%=producto.name %>"/>
-                <input type="text" placeholder="Precio" name="price" value="<%=producto.price %>"/>
+                <label for="name" class="form-label">Precio</label>
+                <input type="number" placeholder="Precio" name="price" value="<%=producto.price %>"/>
+                <label for="name" class="form-label">Descripción</label>
                 <input type="text" placeholder="Descripción" name="description" value="<%=producto.description %>"/>
+                <label for="name" class="form-label">Categoría</label>
                 <input type="text" placeholder="Categoría" name="category" value="<%=producto.category %>"/>
                 <!-- <input type="password" placeholder="Talla" name="talla"/>-->
                 <!-- <input type="password" placeholder="Color" name="color"/>-->
                 <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
-                  <input type="file" name="Foto" accept="" multiple style="background-color: #ebebeb">
-                <button type="submit">Guardar Cambios</button>
+                  <input type="file" name="imageProductEdit" accept=""/>
+                <!--<a href="/products/listadoproductos">>-->
+                <button type="submit">Guardar Cambios</button></a>
               </form>
             </div>
           </div>

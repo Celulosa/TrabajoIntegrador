@@ -2,7 +2,7 @@
  {
   "id": 1,
   "name": "Conjunto Primavera",
-  "price": "100000",
+  "price": 100000,
   "category": "in-sale",
   "description": "Pantalón y top elaborados en lino. Con un diseño inovador para tener frescura, comodidad y elegancia en un mismo outfit.",
   "image": "Khalo1.png"
@@ -10,10 +10,10 @@
  {
   "id": 2,
   "name": "Top Perla",
-  "price": "40200",
+  "price": 40200,
   "category": "in-sale",
   "description": "Top diseñado con perlas de forma simetricas, que permite verte estilizada",
-  "image": "top-perla1.jpg"
+  "image": "TopPerla2.jpg"
  },
  {
   "id": 3,
@@ -25,16 +25,16 @@
  },
  {
   "id": 4,
-  "name": "Bluson style",
-  "description": "Disfrutá de la frescura de un bluson, de color azul en una tela fresca para todas las temporadas.",
-  "price": 80000,
-  "image": "Khalo3.png",
-  "category": "in-sale"
+  "name": "Bluson",
+  "price": 60000,
+  "category": "in-sale",
+  "description": "Blusón fresco para acompañar con cualquier moda.",
+  "image": "Khalo3.png"
  },
  {
   "id": 5,
-  "name": "Ojotas",
-  "description": "Calzado comodo que consta de una gruesa suela, con unas tiras de cueros.",
+  "name": "Camisa Rosada",
+  "description": "Camisa comoda para todo tipo de ocasión",
   "price": 53000,
   "discount": 20,
   "image": "Khalo4.png",
@@ -79,5 +79,13 @@
   "price": 64990,
   "image": "Vestido-Elena.JPG",
   "category": "in-sale"
+ },
+ {
+  "id": 11,
+  "name": "asad",
+  "price": "25000",
+  "category": "in-sale",
+  "description": "adafd",
+  "image": "1668281160011.PNG"
  }
 ]

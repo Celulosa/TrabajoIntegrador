@@ -50,13 +50,19 @@
                         <a href="http://localhost:3010/carrito"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
                         <br> 
                         <br>
-                        <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                        <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex" onsubmit="return confirm('Esta seguro que desea eliminarlo?');">
 							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
 						</form>
                         <br>
                         <br>
-                        <a href="/products/editarproducto/<%=producto.id %>">
+
+                        <a style="text-align: center" href="/products/editarproducto/<%=producto.id %>" id="boton-agregar-carrito">EDITAR PRODUCTO</a>
+						
+                        <!-- <a href="/products/editarproducto/<%=producto.id %>">
                         <button type="submit" id="boton-agregar-carrito">EDITAR PRODUCTO</button></a>
+                        <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
+						</form>-->
                 </div>
 
                 <br>      

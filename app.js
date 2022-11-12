@@ -1,14 +1,15 @@
 const port = process.env.PORT || 3010
 const mainRouter = require('./src/routes/mainRouter')
 const productsRouter = require('./src/routes/productsRouter')
+
 const usersRouter = require('./src/routes/usersRouter')
+
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override') // para poder usar PUT y DELETE
 const app = express();
 
 app.use(express.static('public'));
-
 app.listen( port ,() =>{
     console.log(`Servidor en puerto ${port} OK`);
 });

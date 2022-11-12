@@ -17,10 +17,9 @@
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Añadir Producto</h2></strong>
         <div class="login-page">
             <div class="form">
-              <form class="register-form" action="/products/crearproducto" method="POST">
-                <input type="text" placeholder="Referencia" name="id"required/>
+              <form class="register-form" action="/products/crearproducto" method="POST" enctype="multipart/form-data">
                 <input type="text" placeholder="Nombre Producto" name="name"required />
-                <input type="text" placeholder="Precio" name="price"required/>
+                <input type="number" placeholder="Precio" name="price"required/>
                 <div class="register-form">
                 <br>
                 <label class="register-form" for="category">Categoría:</label>
@@ -36,7 +35,7 @@
                 <textarea name="description" id="description" class="form-input"></textarea>
               </div>
                 <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
-                <input type="file" name="Foto" accept="" multiple style="background-color: #ebebeb">
+                <input type="file" name="imageProduct" accept="" />
                 <button type="submit" id="boton-agregar-carrito">CREAR PRODUCTO</button>
               </form>
             </div>
