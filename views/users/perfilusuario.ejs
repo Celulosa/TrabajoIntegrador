@@ -21,7 +21,7 @@
     <div class="login-page">
       <div class="form">
         <div class="perfil">
-          <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar %>">
+          <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar? usuario.avatar : 'default.png' %>">
         </div>
         <br>
         <br>

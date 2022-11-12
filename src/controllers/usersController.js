@@ -92,7 +92,7 @@ const controlador = {
                 return true
         })
         if (correoValidacion != -1) {
-            //res.send('Usuario ya existe. Por favor dirijase al link de Login')
+            
             res.render('users/registro', {
                 errors: {
                     email: {
@@ -105,8 +105,16 @@ const controlador = {
         else {
             let errors = validationResult(req);
             if (errors.isEmpty()) {
-
-                console.log(req.file.filename)
+                if(!req.file){
+                res.render('users/registro', {
+                    errors: {
+                        avatar: {
+                            msg: 'Por favor cargue una imagen '
+                        }
+                    },
+                    old: req.body
+                })
+            }
                 let nuevoUsuario = {
                     id: (users[users.length - 1].id) + 1,
                     nombre: req.body.nombre,
@@ -122,6 +130,7 @@ const controlador = {
                 res.redirect('/users/login');
             }
             else {
+                console.log(req.body)
                 res.render('users/registro', { errors: errors.array(), old: req.body })
             }
         }

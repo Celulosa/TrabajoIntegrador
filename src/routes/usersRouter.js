@@ -53,11 +53,12 @@ router.put('/edit/:id',validaciones,usersController.update);
 
 /*** REGISTER NEW USERS ***/
 router.get('/registro',loggedMiddleware, usersController.registro)
-router.post('/registro',uploadFile.single('avatar'),(req,res,next) => {
+router.post('/registro',uploadFile.single('avatar'),validaciones,usersController.guardarusuario)
+/*router.post('/registro',uploadFile.single('avatar'),(req,res,next) => {
     const file = req.file
     if(!file){
-        const error = new Error('seleccione un archivo')
-        return next(error)}},validaciones, usersController.guardarusuario)
+        const error = new Error('Por favor seleccione un archivo')
+        return next(error)}},validaciones, usersController.guardarusuario)*/
 
 /*** DELETING USERS ***/
 router.delete('/delete/:id', usersController.destroy)
@@ -69,15 +70,6 @@ router.get('/perfilusuario/',guestMiddleware,usersController.perfil)
 router.get('/logout/',usersController.logout)
 
 /*** CHECK LOGING ***/
-
-router.get('/test', function(req,res){
-    if(req.session.userLogged == undefined){
-       res.send('No estas logeado') 
-    }else {
-        res.send('El usuario esta LOGEADO')
-    }
-})
-
 
 
 module.exports = router;

@@ -17,7 +17,7 @@
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales</h2></strong>
 <div class="login-page">
   <div class="form">
-    <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos-->
+    <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
       <input type="text" placeholder="Nombre" name= "nombre" value="<%= locals.old && old.nombre %>"/>
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
@@ -66,12 +66,8 @@
       <% } %>
       <label for="avatar">Imagen para el perfil</label>
       <input type="file" placeholder="Imagen de Perfil" name="avatar"/>
-      <% if (locals && locals.errors) { %>
-        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
-        <% if (locals.errors[i].param=="avatar") { %>
-          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
-        <% } %>
-      <% } %>
+      <% if (locals.errors && errors.avatar) { %>
+        <h3 style="color:red"> <%= errors.avatar.msg %> </h3> 
       <% } %>
       <!-- <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"/>
       <% if (locals && locals.errors) { %>
