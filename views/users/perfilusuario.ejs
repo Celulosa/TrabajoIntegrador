@@ -4,7 +4,7 @@
 <!-- INCLUDES HEAD-->
 
 <head>
-  <title>Registro</title>
+  <title>Perfil</title>
   <link rel="stylesheet" href="/css/styles.css">
 
   <%- include('../partials/head') %>
@@ -14,11 +14,17 @@
 <body>
   <!-- INCLUDES HEADER-->
   <%- include('../partials/header') %>
+  
     <br>
     <br>
-    <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil del Usuario</h2></strong>
+    <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil de <%=usuario.nombre%></h2></strong>
     <div class="login-page">
       <div class="form">
+        <div class="perfil">
+          <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar %>">
+        </div>
+        <br>
+        <br>
         <div class="perfil">
           <div class="pernom"> Nombre: </div>
           <div class="perdato">
@@ -57,7 +63,7 @@
         <div class="perfil">
           <div class="pernom"> Contraseña: </div>
           <div class="perdato">
-            <%=usuario.contrasena%>
+            *****
           </div>
         </div>
         <br>

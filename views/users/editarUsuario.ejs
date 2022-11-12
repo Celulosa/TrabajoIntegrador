@@ -3,7 +3,7 @@
     
 <!-- INCLUDES HEAD-->
 <head>
-  <title>Registro</title>
+  <title>Editar</title>
   <link rel="stylesheet" href="/css/styles.css">
 
 <%- include('../partials/head') %>
@@ -14,10 +14,12 @@
    <%- include('../partials/header') %>
 <br>
 <br>
-<h2 style="text-align: center;" class="iniciarSesion>"><strong>Editar Perfil</h2></strong>
+<h2 style="text-align: center;" class="iniciarSesion>"><strong>Editar perfil de <%=usuario.nombre%> </h2></strong>
 <div class="login-page">
    <div class="form">
       <form class="register-form" action="/users/edit/<%= usuario.id %>?_method=PUT" method="POST">
+        <label for="avatar">Imagen para el perfil</label>
+        <input type="file" placeholder="Imagen de Perfil" name="avatar"value="<%=usuario.avatar%>"/>
         <label  class="register-form">Nombre</label>
         <input type="text" placeholder="Nombre" name= "nombre" value="<%=usuario.nombre%>"/>
         <label  class="register-form">Apellido</label>
@@ -29,7 +31,7 @@
         <label  class="register-form">Direccion de Envios</label>
         <input type="text" placeholder="Direccion de residencia" name="direccion" value="<%=usuario.direccion%>"/>
         <label  class="register-form">Contraseña</label>
-        <input type="password" placeholder="Contraseña" value="<%=usuario.contrasena%>" name="contrasena" minlength="5"required/>
+        <input type="password" placeholder="Contraseña"  name="contrasena" minlength="5"required/>
         <button type="submit">Guardar Cambios</button>
       </form>
     </div>

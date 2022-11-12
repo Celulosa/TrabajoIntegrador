@@ -1,91 +1,22 @@
 [
  {
   "id": 1,
-  "nombre": "Primer",
-  "apellido": "Usuario",
-  "email": "Primer@gmail.com",
-  "cumpleanos": "1-Ene-1990",
-  "contrasena": "qw"
+  "nombre": "Andres",
+  "apellido": "Castro",
+  "email": "abc@yahoo.com",
+  "cumpleanos": "1111-03-05",
+  "direccion": "1",
+  "contrasena": "$2a$10$3iHTemz6i3xx/i.wGbB9vO/ZnOOOHTAYq9VgBTc5DlQUb9qTPhgRi",
+  "avatar": ""
  },
  {
   "id": 2,
-  "nombre": "",
-  "apellido": "",
-  "email": "",
-  "cumpleanos": "",
-  "direccion": "",
-  "contrasena": "as"
- },
- {
-  "id": 5,
-  "nombre": "Andres",
-  "apellido": "Castro",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "2",
-  "contrasena": "1"
- },
- {
-  "id": 6,
-  "nombre": "yoNONO",
-  "apellido": "soy",
-  "email": "yo@gmail.com",
-  "cumpleanos": "4444-04-04",
-  "direccion": "cada 4",
-  "contrasena": "abcde"
- },
- {
-  "id": 7,
-  "nombre": "E",
-  "apellido": "E",
-  "email": "e@gmail.com",
-  "cumpleanos": "",
-  "direccion": "e",
-  "contrasena": "eeeee"
- },
- {
-  "id": 8,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "yo@gmail.com",
-  "cumpleanos": "",
-  "direccion": "s",
-  "contrasena": "11111"
- },
- {
-  "id": 9,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "t@gmail.com",
-  "cumpleanos": "",
-  "direccion": "2",
-  "contrasena": "11111"
- },
- {
-  "id": 10,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "t@gmail.com",
-  "cumpleanos": "",
-  "direccion": "asd",
-  "contrasena": "aaaaa"
- },
- {
-  "id": 11,
-  "nombre": "e",
-  "apellido": "e",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "e",
-  "contrasena": "eeeee"
- },
- {
-  "id": 12,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "a",
-  "contrasena": "11111"
+  "nombre": "tu",
+  "apellido": "tu",
+  "email": "tu@gmail.com",
+  "cumpleanos": "2022-11-23",
+  "direccion": "1",
+  "contrasena": "$2a$10$isRClSP9XPdnw5XeHt/wmOaGdSFbalrlRz.mgq3jk3Hv9N1eWyPLu",
+  "avatar": "1668098113245wolf-g9a90b6cc9_1920.png"
  }
 ]
