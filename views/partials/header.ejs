@@ -9,8 +9,13 @@
           <ul class="menu">
             <li class="menu__item"><a href="/" class="menu__link">HOME</a></li>
             <li class="menu__item"><a href="/products/crearproducto" class="menu__link">CREAR PRODUCTO</a></li>
-            <li class="menu__item"><a href='/users/login' class="menu__link">LOGIN</a></li>
-            <li class="menu__item"><a href='/users/registro' class="menu__link">CREAR USUARIO</a></li>
+            <% if(locals.isLogged){ %>               
+            <li class="menu__item"><a href='/users/perfilusuario' class="menu__link">HOLA <%= locals.userLogged.nombre %>!</a></li>
+            <li class="menu__item"><a href='/users/logout' class="menu__link">LOGOUT</a></li>
+            <% } else {%>          
+              <li class="menu__item"><a href='/users/registro' class="menu__link">CREAR USUARIO</a></li>
+              <li class="menu__item"><a href='/users/login' class="menu__link">LOGIN</a></li>
+            <% }%>
             </ul>
           </nav>
         </div> 
