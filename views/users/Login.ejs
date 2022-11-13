@@ -18,10 +18,16 @@
 <div class="login-page">
     <div class="form">
       <form class="login-form" action="/users/login" method="POST">
-        <input type="email" placeholder="email" name="email"  />
-        <input type="password" placeholder="password" name="contrasena" />
-        <button>login</button>
-        <p class="message">Not registered? <a href="/users/registro">Create an account</a></p>
+        <% if (locals.errors && errors.email) { %>
+          <h3 style="color:red"> <%= errors.email.msg %> </h3> 
+        <% } %>
+
+        <input type="Correo" placeholder="Correo" name="email"  value="<%= locals.old && old.email %>"/>
+        <input type="Contraseña" placeholder="Contraseña" name="contrasena" />
+        <label for=""> Recordar mi Usuario</label>
+        <input type="checkbox" name="recordame" />
+        <button>Iniciar Sesión</button>
+        <p class="message">No está registrado? <a href="/users/registro">Crear usuario</a></p>
       </form>
     </div>
   </div>

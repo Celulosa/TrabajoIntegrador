@@ -79,13 +79,5 @@
   "price": 64990,
   "image": "Vestido-Elena.JPG",
   "category": "in-sale"
- },
- {
-  "id": 11,
-  "name": "asad",
-  "price": "25000",
-  "category": "in-sale",
-  "description": "adafd",
-  "image": "1668281160011.PNG"
  }
 ]
