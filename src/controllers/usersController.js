@@ -13,8 +13,10 @@ const controlador = {
         res.render('users/login');
     },
 
+
     loginCheck: (req, res) => {
         // Codigo para verificar las credenciales del login, si son correctas lleva a la vista perfil del usuario, de lo contrario muestra un mensaje de error
+
         let currentUser = "";
         let password = req.body.contrasena;
         let email = req.body.email;
@@ -62,6 +64,7 @@ const controlador = {
 
     update: (req, res) => {
         let userToEdit = req.params.id;
+
         for (let obj of users) {
             if (userToEdit == obj.id) {
                 obj.nombre = req.body.nombre
@@ -77,6 +80,10 @@ const controlador = {
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
         res.redirect('/');
+
+
+
+
     },
 
     registro: (req, res) => {

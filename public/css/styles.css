@@ -1258,8 +1258,10 @@ hr {
 
 .product-box a {
   display: block;
+
   text-decoration: none;
   color: black;
+
 }
 
 .product-box_image {
@@ -1278,14 +1280,18 @@ hr {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+
   color: black;
+
 }
 
 .product-box_data span {
   font-size: 1.5em;
   font-weight: 300;
+
   margin: 0 0 0 10px;
   color: black;
+
 }
 
 .product-box_data p {
@@ -1299,6 +1305,8 @@ hr {
 }
 
 .product-box_data i {
+
+
   font-size: 1.8em;
   width: 35px;
   height: 35px;
@@ -1313,22 +1321,30 @@ hr {
   justify-content: center;
   align-items: center;
   transition: 300ms;
+
   color: black;
+
 }
 
 .product-box:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
   color: black;
+
 }
 
 .product-box:hover p {
   height: 40px;
   margin-top: 15px;
+
   color: black;
+
 }
 
 .product-box:hover i {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
+
   color: black;
+
 }

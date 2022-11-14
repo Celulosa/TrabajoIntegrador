@@ -68,7 +68,9 @@ const controller ={
 	 update: (req, res) => {
 		console.log(req.params.id);
 		let idProducto = req.params.id;
+
 		let objProducto;
+
 		let nombreImagen = req.file.filename;
 
 		for (let o of products){
@@ -84,6 +86,9 @@ const controller ={
 			}
 		}
 		
+
+		
+
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
 		res.render('products/detalleproducto',{producto: objProducto});
 	},

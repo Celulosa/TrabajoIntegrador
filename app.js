@@ -17,7 +17,6 @@ const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
 
 app.use(express.static('public'));
 
-
 app.listen( port ,() =>{
     console.log(`Servidor en puerto ${port} OK`);
 });
@@ -46,6 +45,7 @@ app.use(userLoggedMiddleware);
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 
 
 app.use('*', function(req,res) {     res.send("Ruta equivocada") });

@@ -22,7 +22,9 @@ router.get('/carrito', productsController.carrito);
 router.get('/crearproducto', productsController.crear);
 router.post('/crearproducto',uploadFile.single('imageProduct'), productsController.store); 
 router.get('/detalleproducto/:id', productsController.detalle); 
+
 router.get('/editarproducto/:id', productsController.editar);
+
 router.put('/editarproducto/:id',uploadFile.single('imageProductEdit'),  productsController.update);
 router.delete('/delete/:id', productsController.destroy); 
 router.get('/listadoproductos', productsController.listado); 
