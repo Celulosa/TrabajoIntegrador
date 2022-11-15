@@ -12,11 +12,11 @@
  {
   "id": 2,
   "nombre": "Andres",
-  "apellido": "Andfre",
+  "apellido": "tomater",
   "email": "a@gmail.com",
   "cumpleanos": "2022-11-28",
   "direccion": "1",
-  "contrasena": "$2a$10$9FEH5VJO9Cs2/8jrYsNh/ujEwaTC/HoHUwSkWkjhcx5nloijFOz7.",
+  "contrasena": "$2a$10$Jwx9r7IX2QrJAUVwc0on0OzdHPL0vWsfj9diCUMSKJD6gfXP2vvve",
   "avatar": "1668487334367blank-profile-picture.png"
  }
 ]
