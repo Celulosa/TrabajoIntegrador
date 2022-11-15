@@ -78,6 +78,8 @@ const controlador = {
         }
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
+        res.clearCookie('userEmail');
+        req.session.destroy();
         res.redirect('/');
     
  
