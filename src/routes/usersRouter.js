@@ -8,7 +8,8 @@ const router = express.Router();
 const { body } = require('express-validator');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const loggedMiddleware = require('../middlewares/loggedMiddleware');
-const multer = require('multer');
+//const multer = require('multer');
+const uploadFile = require('../modules/validateImage');
 // estas lineas son para traer el JSON
 const fs = require('fs');
 const path = require('path');
@@ -19,7 +20,7 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 //***  Multer configuration  ****/
 
-const configuracionImagen = multer.diskStorage({
+/*const configuracionImagen = multer.diskStorage({
     destination: function(req, file, cb) {       // request, archivo y callback que almacena archivo en destino
      cb(null, path.join(__dirname,'../../public/images/avatars'));    // Ruta donde almacenamos el archivo
     },
@@ -30,7 +31,7 @@ const configuracionImagen = multer.diskStorage({
 });
 
 
-const uploadFile = multer({ storage: configuracionImagen });
+const uploadFile = multer({ storage: configuracionImagen });*/
 
 //***  Validations  ****/
 
@@ -44,7 +45,7 @@ let validaciones = [
 ]
 
 /*** LOGIN AND LOGING CHECK ***/ 
-router.get('/login',loggedMiddleware,usersController.login);
+router.get('/login',usersController.login);
 router.post('/login',usersController.loginCheck);
 
 /*** EDIT USERS ***/

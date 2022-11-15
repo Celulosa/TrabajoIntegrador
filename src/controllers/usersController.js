@@ -48,7 +48,7 @@ const controlador = {
         res.render('users/perfilusuario', { usuario: req.session.userLogged });
     },
 
-    edit: (req, res) => {
+   edit: (req, res) => {
         let idUser = req.params.id;
         let UserSelected = "";
         for (let obj of users) {
@@ -59,40 +59,47 @@ const controlador = {
         }
         res.render('users/editarUsuario', { usuario: UserSelected });
     },
+    
 
     update: (req, res) => {
         let userToEdit = req.params.id;
+       
         for (let obj of users) {
             if (userToEdit == obj.id) {
                 obj.nombre = req.body.nombre
                 obj.apellido = req.body.apellido
-                obj.email = req.body.email
+                //obj.email = req.body.email
                 obj.cumpleanos = req.body.cumpleanos
                 obj.direccion = req.body.direccion
                 obj.contrasena = bcrypt.hashSync(req.body.contrasena, 10)
-                obj.avatar = req.body.avatar
+                //obj.avatar = req.body.avatar
                 break;
             }
         }
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
         res.redirect('/');
+    
+ 
+        
     },
+    
 
     registro: (req, res) => {
         res.render('users/registro');
     },
 
     guardarusuario: (req, res) => {
-        //Codigo desde linea 88 hasta la linea 100, verifica si el email ya existe, si el email no existe empieza validaciones in la linea 101
-
-        let correo = req.body.email
-        let correoValidacion = users.findIndex(function (elemento) {
-            if (correo == elemento.email)
-                return true
-        })
+        //Codigo desde linea 88 hasta la linea 100, verifica si el email ya existe, si el email no existe empieza validaciones in la linea 106
+     
+            let correo = req.body.email
+            let correoValidacion = users.findIndex(function (elemento) {
+                if (correo == elemento.email)
+                    return true
+            })
+        
         if (correoValidacion != -1) {
-            
+
             res.render('users/registro', {
                 errors: {
                     email: {
@@ -105,16 +112,17 @@ const controlador = {
         else {
             let errors = validationResult(req);
             if (errors.isEmpty()) {
-                if(!req.file){
-                res.render('users/registro', {
-                    errors: {
-                        avatar: {
-                            msg: 'Por favor cargue una imagen '
-                        }
-                    },
-                    old: req.body
-                })
-            }
+                if (!req.file) {
+                    res.render('users/registro', {
+                        errors: {
+                            avatar: {
+                                msg: 'Por favor cargue una imagen '
+                            }
+                        },
+                        old: req.body
+                    })
+                }
+           
                 let nuevoUsuario = {
                     id: (users[users.length - 1].id) + 1,
                     nombre: req.body.nombre,
@@ -134,6 +142,7 @@ const controlador = {
                 res.render('users/registro', { errors: errors.array(), old: req.body })
             }
         }
+
     },
 
     destroy: (req, res) => {

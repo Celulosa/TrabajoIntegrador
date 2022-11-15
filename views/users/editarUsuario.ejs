@@ -17,21 +17,21 @@
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Editar perfil de <%=usuario.nombre%> </h2></strong>
 <div class="login-page">
    <div class="form">
-      <form class="register-form" action="/users/edit/<%= usuario.id %>?_method=PUT" method="POST">
-        <label for="avatar">Imagen para el perfil</label>
-        <input type="file" placeholder="Imagen de Perfil" name="avatar"value="<%=usuario.avatar%>"/>
+      <form class="register-form" action="/users/edit/<%= usuario.id %>?_method=PUT" method="POST" > 
+        <div class="perfil">
+        <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar%>">
+        </div>
+        <br>
         <label  class="register-form">Nombre</label>
         <input type="text" placeholder="Nombre" name= "nombre" value="<%=usuario.nombre%>"/>
         <label  class="register-form">Apellido</label>
         <input type="text" placeholder="Apellido" name="apellido" value="<%=usuario.apellido%>"/>
-        <label  class="register-form">Correo Electronico</label>
-        <input type="text" placeholder="Email" name="email" value="<%=usuario.email%>"/>
         <label  class="register-form">Fecha de Cumpleaños</label>
         <input type="date" placeholder="Cumpleaños" name="cumpleanos" value="<%=usuario.cumpleanos%>">
         <label  class="register-form">Direccion de Envios</label>
         <input type="text" placeholder="Direccion de residencia" name="direccion" value="<%=usuario.direccion%>"/>
         <label  class="register-form">Contraseña</label>
-        <input type="password" placeholder="Contraseña"  name="contrasena" minlength="5"required/>
+        <input type="password" placeholder="Contraseña"  name="contrasena" minlength="6"required/>
         <button type="submit">Guardar Cambios</button>
       </form>
     </div>

@@ -11,22 +11,12 @@
  },
  {
   "id": 2,
-  "nombre": "tu",
-  "apellido": "tu",
-  "email": "tu@gmail.com",
-  "cumpleanos": "2022-11-23",
-  "direccion": "1",
-  "contrasena": "$2a$10$isRClSP9XPdnw5XeHt/wmOaGdSFbalrlRz.mgq3jk3Hv9N1eWyPLu",
-  "avatar": "1668098113245wolf-g9a90b6cc9_1920.png"
- },
- {
-  "id": 3,
-  "nombre": "a",
-  "apellido": "a",
+  "nombre": "Andres",
+  "apellido": "Andfre",
   "email": "a@gmail.com",
-  "cumpleanos": "",
+  "cumpleanos": "2022-11-28",
   "direccion": "1",
-  "contrasena": "$2a$10$Ti8YSCNGJveSSJBM4WAFuu6G6T8SwH9LZr2KRgQ7VDO9KO7.9Msem",
-  "avatar": "1668295147166blank-profile-picture.png"
+  "contrasena": "$2a$10$9FEH5VJO9Cs2/8jrYsNh/ujEwaTC/HoHUwSkWkjhcx5nloijFOz7.",
+  "avatar": "1668487334367blank-profile-picture.png"
  }
 ]
