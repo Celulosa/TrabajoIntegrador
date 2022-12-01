@@ -18,5 +18,25 @@
   "direccion": "1",
   "contrasena": "$2a$10$Nbvw4b8Mu.IQhR4EcJeO8OROuo4RLFf7thLu0G0xd4TjXyamBfQ22",
   "avatar": "1668487334367blank-profile-picture.png"
+ },
+ {
+  "id": 3,
+  "nombre": "a",
+  "apellido": "a",
+  "email": "ab@gmail.com",
+  "cumpleanos": "2022-11-15",
+  "direccion": "1",
+  "contrasena": "$2a$10$ygkAbPJ0KzlEh898IWjWcubVgkQz59o0XvGQScuNcnEY0Cz.sGo7C",
+  "avatar": "1668558188643blank-profile-picture.png"
+ },
+ {
+  "id": 4,
+  "nombre": "a",
+  "apellido": "a",
+  "email": "a1@gmail.com",
+  "cumpleanos": "",
+  "direccion": "1",
+  "contrasena": "$2a$10$HisBuGzscFb.14HqUNJ6EOm5T5n45vsapmkS7b0hupWTS5a4i.9Xu",
+  "avatar": "1668558386511blank-profile-picture.png"
  }
 ]

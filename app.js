@@ -1,4 +1,4 @@
-const port = process.env.PORT || 3010
+const port = process.env.PORT || 3040
 const mainRouter = require('./src/routes/mainRouter')
 const productsRouter = require('./src/routes/productsRouter')
 
@@ -10,7 +10,7 @@ const methodOverride = require('method-override') // para poder usar PUT y DELET
 const app = express();
 const session = require('express-session')// para mantener la session
 const cookies = require('cookie-parser')// para usar cookies
-const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')// Cookie para que el usuario permanezca logeado aun cuando cierre el navegador
 
 
 
@@ -41,6 +41,7 @@ app.use(session({
 app.use(cookies());
 //Middleware para verificar si un usuario esta logeado y esconder a dejar ver algunas partes del header
 app.use(userLoggedMiddleware);
+
 
 // sistema de rutas
 app.use('/', mainRouter);

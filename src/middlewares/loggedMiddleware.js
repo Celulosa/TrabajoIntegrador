@@ -1,9 +1,12 @@
-function loggedMiddleware(req,res,next){
-   
-    if(req.session.userLogged ){
+function loggedMiddleware(req, res, next) {
+
+   if (req.session.userLogged) {
       return res.redirect('/users/perfilusuario')
-   
+
    }
-   next();
+
+next();
+
+   
 }
-   module.exports = loggedMiddleware
+module.exports = loggedMiddleware

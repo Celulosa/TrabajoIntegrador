@@ -11,13 +11,13 @@
 </head>
   <body>
      <!-- INCLUDES HEADER-->
-     <%- include('../partials/headerGeneral') %>
+     <%- include('../partials/headersuperadmin') %>
 <br>
 <br>
-<h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales</h2></strong>
+<h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales del Gerente</h2></strong>
 <div class="login-page">
   <div class="form">
-    <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
+    <form class="register-form" action="/users/creargerente" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
       <input type="text" placeholder="Nombre" name= "nombre" value="<%= locals.old && old.nombre %>"/>
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
@@ -64,13 +64,14 @@
         <% } %>
       <% } %>
       <% } %>
-      <label for="avatar">Imagen del perfil (debe ser menor a 2 Mbytes</label>
+      
+     <label for="avatar">Imagen del perfil (debe ser menor a 2 Mbytes</label>
       <input type="file" placeholder="Imagen de Perfil" name="avatar"/>
       <% if (locals.errors && errors.avatar) { %>
         <h3 style="color:red"> <%= errors.avatar.msg %> </h3> 
       <% } %>
       
-      <!-- <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"/>
+     <!--   <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"/>
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
         <% if (locals.errors[i].param=="repcontrasena") { %>

@@ -11,12 +11,16 @@
 </head>
   <body>
      <!-- INCLUDES HEADER-->
-   <%- include('../partials/header') %>
+     <%- include('../partials/headerGeneral') %>
 <br>
 <br>
+
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Iniciar Sesión</h2></strong>
 <div class="login-page">
     <div class="form">
+      <% if (locals.errors && errors.userCreado) { %>
+        <h3 style="color:red"> <%= errors.userCreado.msg %> </h3> 
+      <% } %>
       <form class="login-form" action="/users/login" method="POST">
         <% if (locals.errors && errors.email) { %>
           <h3 style="color:red"> <%= errors.email.msg %> </h3> 

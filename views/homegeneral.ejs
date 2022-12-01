@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<!-- INCLUDES HEAD-->
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+<%- include('partials/head') %>
+</head>
+ <body>
+        <!-- INCLUDES HEADER-->
+  <%- include('partials/headergeneral') %>
+  
+     <div class="carrusel">   
+      <section class="carousel" aria-label="Gallery">
+           <ol class="carousel__viewport">
+             <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo1.png" alt="plage"></div>
+                 <a href="#carousel__slide4" class="carousel__prev">Aller au dernier slide</a>
+                 <a href="#carousel__slide2" class="carousel__next">Aller au suivant slide</a>
+               
+             </li>
+             <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo2.png" alt="plage"></div>
+               <a href="#carousel__slide1" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide3" class="carousel__next">Aller au suivant slide</a>
+             </li>
+             <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo3.png" alt="plage"></div>
+               <a href="#carousel__slide2" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide4" class="carousel__next">Aller au suivant slide</a>
+             </li>
+             <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+               <div class="carousel__snapper"><img src="images/Khalo4.png" alt="plage"></div>
+               <a href="#carousel__slide3" class="carousel__prev">Aller au précédent slide</a>
+               <a href="#carousel__slide1" class="carousel__next">Aller au premier slide</a>
+             </li>
+           </ol>
+           <aside class="carousel__navigation">
+             <ol class="carousel__navigation-list">
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide1" class="carousel__navigation-button">Aller au slide 1</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide2" class="carousel__navigation-button">Aller au slide 2</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide3" class="carousel__navigation-button">Aller au slide 3</a>
+               </li>
+               <li class="carousel__navigation-item">
+                 <a href="#carousel__slide4" class="carousel__navigation-button">Aller au slide 4</a>
+               </li>
+             </ol>
+           </aside>
+         </section>
+      </div>
+   <main class="main">
+     <div class="main-container">
+       <h2 class="main-title">New Arrivals for you</h2>
+       <section class="container-products">
+         <div class="product">
+          <a href="/products/detalleproducto/2" class="link"><img src="/images/top-perla1.jpg" alt="" class="product__img"></a>
+           <div class="product__description">
+            <a href="/products/detalleproducto/2" class="link"> <h3 class="product__title">Top Perla</h3> </a>
+           <br>
+             <span class="producto__price">$40.200</span>
+             </div>
+             <a href="/products/carrito"><i class="product__icon fa-solid fa-bag-shopping" ></i></a>
+           </div>
+         <div class="product">
+           <a href="/products/detalleproducto/1" class="link"><img src="/images/ConjuntoPrimavera.jpeg" alt="" class="product__img"></a>
+           <div class="product__description">
+            <a href="/products/detalleproducto/1" class="link"> <h3 class="product__title">Conjunto Primavera</h3> </a>
+            <br>
+            <span class="producto__price">$100.000</span>
+             </div>
+             <a href="/products/carrito"><i class="product__icon fa-solid fa-bag-shopping" ></i></a>
+           </div>
+         <div class="product">
+          <a href="/products/detalleproducto/3" class="link"><img src="/images/Khalo2.png" alt="" class="product__img"></a>
+           <div class="product__description">
+            <a href="/products/detalleproducto/3" class="link"> <h3 class="product__title">Cartera Khalo</h3> </a>
+            <br>
+             <span class="producto__price">$120.000</span>
+             </div>
+             <a href="products/carrito"><i class="product__icon fa-solid fa-bag-shopping" ></i></a>
+           </div>
+         <div class="product">
+          <a href="/products/detalleproducto/5" class="link"><img src="/images/Khalo4.png" alt="" class="product__img"></a>
+           <div class="product__description">
+            <a href="/products/detalleproducto/5" class="link"> <h3 class="product__title">Ojotas</h3> </a>
+            <br>
+             <span class="producto__price">$40.000</span>
+             </div>
+             <a href="/products/carrito"><i class="product__icon fa-solid fa-bag-shopping" ></i></a>
+           </div>
+         </section>
+       </div>
+     </main>
+   </body>
+  <br>
+  <!-- INCLUDES FOOTER-->
+  <%- include('partials/footer') %>
+ </html>

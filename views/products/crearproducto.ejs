@@ -11,26 +11,28 @@
 </head>
   <body>
      <!-- INCLUDES HEADER-->
-   <%- include('../partials/header') %>
+   <%- include('../partials/headeradmin') %>
     <main>
       <br>
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Añadir Producto</h2></strong>
         <div class="login-page">
             <div class="form">
               <form class="register-form" action="/products/crearproducto" method="POST" enctype="multipart/form-data">
-                <input type="text" placeholder="Referencia" name="id"required/>
                 <input type="text" placeholder="Nombre Producto" name="name"required />
                 <input type="number" placeholder="Precio" name="price"required/>
                 <div class="register-form">
                 <br>
                 <label class="register-form" for="category">Categoría:</label>
                 <select name="category" id="category">
-                  <option value="in-sale">in-sale</option>
-                  <option value="visited">Últimos agregados</option>
+                  <% for(let i=0;i<categorias.length;i++) { %> 
+                      <option value="<%=categorias[i].id %>"><%=categorias[i].nombre %></option>
+                  <% } %> 
                 </select>
                 <br>
                 <br>
               </div>
+              <div class="register-form">
+                <br>
               <div class="col-12">
                 <label for="description" class="form-label">Descripción:</label>
                 <textarea name="description" id="description" class="form-input"></textarea>
