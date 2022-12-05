@@ -9,16 +9,24 @@
 
   <%- include('../partials/head') %>
 
+
 </head>
 
 <body>
   <!-- INCLUDES HEADER-->
-  <%- include('../partials/header') %>
+  <%- include('../partials/headergeneral')%>
+
     <br>
     <br>
-    <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil del Usuario</h2></strong>
+    <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil de <%=usuario.nombre%>
+    </h2></strong>
     <div class="login-page">
       <div class="form">
+        <div class="perfil">
+          <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar %>">
+        </div>
+        <br>
+        <br>
         <div class="perfil">
           <div class="pernom"> Nombre: </div>
           <div class="perdato">
@@ -57,7 +65,7 @@
         <div class="perfil">
           <div class="pernom"> Contraseña: </div>
           <div class="perdato">
-            <%=usuario.contrasena%>
+            *****
           </div>
         </div>
         <br>

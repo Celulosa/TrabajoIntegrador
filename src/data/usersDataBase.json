@@ -1,91 +1,42 @@
 [
  {
   "id": 1,
-  "nombre": "Primer",
-  "apellido": "Usuario",
-  "email": "Primer@gmail.com",
-  "cumpleanos": "1-Ene-1990",
-  "contrasena": "qw"
+  "nombre": "Andres",
+  "apellido": "Castro",
+  "email": "abc@yahoo.com",
+  "cumpleanos": "1111-03-05",
+  "direccion": "1",
+  "contrasena": "$2a$10$3iHTemz6i3xx/i.wGbB9vO/ZnOOOHTAYq9VgBTc5DlQUb9qTPhgRi",
+  "avatar": ""
  },
  {
   "id": 2,
-  "nombre": "",
-  "apellido": "",
-  "email": "",
-  "cumpleanos": "",
-  "direccion": "",
-  "contrasena": "as"
- },
- {
-  "id": 5,
   "nombre": "Andres",
-  "apellido": "Castro",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "2",
-  "contrasena": "1"
+  "apellido": "editado",
+  "email": "a@gmail.com",
+  "cumpleanos": "2022-11-28",
+  "direccion": "1",
+  "contrasena": "$2a$10$Nbvw4b8Mu.IQhR4EcJeO8OROuo4RLFf7thLu0G0xd4TjXyamBfQ22",
+  "avatar": "1668487334367blank-profile-picture.png"
  },
  {
-  "id": 6,
-  "nombre": "yoNONO",
-  "apellido": "soy",
-  "email": "yo@gmail.com",
-  "cumpleanos": "4444-04-04",
-  "direccion": "cada 4",
-  "contrasena": "abcde"
+  "id": 3,
+  "nombre": "a",
+  "apellido": "a",
+  "email": "ab@gmail.com",
+  "cumpleanos": "2022-11-15",
+  "direccion": "1",
+  "contrasena": "$2a$10$ygkAbPJ0KzlEh898IWjWcubVgkQz59o0XvGQScuNcnEY0Cz.sGo7C",
+  "avatar": "1668558188643blank-profile-picture.png"
  },
  {
-  "id": 7,
-  "nombre": "E",
-  "apellido": "E",
-  "email": "e@gmail.com",
+  "id": 4,
+  "nombre": "a",
+  "apellido": "a",
+  "email": "a1@gmail.com",
   "cumpleanos": "",
-  "direccion": "e",
-  "contrasena": "eeeee"
- },
- {
-  "id": 8,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "yo@gmail.com",
-  "cumpleanos": "",
-  "direccion": "s",
-  "contrasena": "11111"
- },
- {
-  "id": 9,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "t@gmail.com",
-  "cumpleanos": "",
-  "direccion": "2",
-  "contrasena": "11111"
- },
- {
-  "id": 10,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "t@gmail.com",
-  "cumpleanos": "",
-  "direccion": "asd",
-  "contrasena": "aaaaa"
- },
- {
-  "id": 11,
-  "nombre": "e",
-  "apellido": "e",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "e",
-  "contrasena": "eeeee"
- },
- {
-  "id": 12,
-  "nombre": "yo",
-  "apellido": "o",
-  "email": "abc@abc.com",
-  "cumpleanos": "",
-  "direccion": "a",
-  "contrasena": "11111"
+  "direccion": "1",
+  "contrasena": "$2a$10$HisBuGzscFb.14HqUNJ6EOm5T5n45vsapmkS7b0hupWTS5a4i.9Xu",
+  "avatar": "1668558386511blank-profile-picture.png"
  }
 ]

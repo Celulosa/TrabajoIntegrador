@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- INCLUDES HEAD-->
+
+<head>
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <%- include('../partials/head') %>
+
+</head>
+
+<body>
+    <!-- INCLUDES HEADER-->
+    <%- include('../partials/headersuperadmin') %>
+        <!-- todos los productos -->
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2  class="products-title">Lista de todos los Gerentes</h2>
+                    <% if (locals.errors && errors.userCreado) { %>
+                        <h3 style="color:red"> <%= errors.userCreado.msg %> </h3> 
+                      <% } %>
+                </div>
+                <table border="1">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre Completo</th>
+                        <th>Email</th>
+                        <th>Dirección</th>
+                        <th>Cumpleaños</th>
+                        <th>Tipo de Usuario</th>
+                    </tr>
+                    <% for(let i=0;i<lista.length;i++) { %>
+                        
+                    <tr>
+                        
+                        <td><%=lista[i].id %></td>
+                        <td><%=lista[i].nombre %> <%=lista[i].apellido %> </td>
+                        <td><%=lista[i].email %></td>
+                        <td><%=lista[i].direccion %></td>
+                        <td><%=lista[i].cumpleanos %></td>
+                        <td><%=lista[i].tipoUsuario %></td>
+                        <td><a href="/users/editgerente/<%=lista[i].id%>">
+                            <button type="submit">Editar </button>
+                          </a></td>
+
+                          <td><form action="/users/deletegerente/<%=lista[i].id%>/?_method=DELETE" method="post">
+                            <button>Borrar </button>
+                          </form></td>
+
+ 
+                    </tr>
+                    <% } %>
+                    
+                </table>
+                
+            </div>
+        </div>
+        <!-- INCLUDES FOOTER-->
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

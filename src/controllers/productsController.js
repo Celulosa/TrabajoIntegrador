@@ -1,105 +1,116 @@
+const { validationResult } = require('express-validator');// importa los resultados de las validaciones
+const { privateDecrypt } = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+
+const db = require('../database/models');//Para importar sequelize
+const Op = db.Sequelize.Op;//para usar los operadores de sequelize
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller ={
 
-    home: (req, res) => {
-		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		res.render('products',{ps: products});
+	listado: (req, res) => {
+		let productsdb = [];
+		db.productos.findAll({ include: [{ association: 'categorias' }, { association: 'talles' }, { association: 'temporadas' }, { association: 'colores' }] })
+			.then((productos) => {
+				for (producto of productos) {
+					let objaux = {
+						id: producto.id,
+						nombre: producto.nombre,
+						categorias: producto.categorias.nombre,
+						precio: producto.precio,
+						imagen: producto.imagen
+					}
+
+					productsdb.push(objaux);
+				}
+				if(req.session.usuarioTipo == 'general'){
+					return res.render('products/listadoproductos', { productos: productsdb })
+				  }
+				  if(req.session.usuarioTipo == 'admin'){
+					return res.render('products/listadoproductosgerente', { productos: productsdb })
+				  }
+				  if(req.session.usuarioTipo == 'super'){
+					return res.render('products/listadoproductossuper', { productos: productsdb })
+				  }
+				
+			});
 	},
 	carrito: (req , res) => {
         res.render('carrito');
     },
     detalle: (req , res) => {
-    	let idProducto = req.params.id;
-		let objProducto;
-		for (let o of products){
-			if (idProducto == o.id){
-				objProducto=o;
-				break;
-			}
-		}
-		res.render('products/detalleproducto',{producto: objProducto})
+		db.productos.findByPk(req.params.id)
+		.then(function(producto) {
+			res.render('products/detalleproducto',{producto: producto});
+		});
 	},
-     crear: (req , res) => {
-        res.render('products/crearproducto');
-     },
+     crear: async (req , res) => {
+		if (req.session.usuarioTipo == 'admin') {
+		let categorias = await db.categorias.findAll();
+		let talles = await db.talles.findAll();
+		let colores = await db.colores.findAll();
+		let temporadas = await db.temporadas.findAll();
+		let users = await db.users.findAll();
+		res.render('products/crearproducto',{categorias:categorias,talles:talles,colores:colores,temporadas:temporadas,users:users});
+	}	
+	},		
 	 store: (req, res) => {
-
-		/*console.log(req.file);*/
-
 		let nombreImagen = req.file.filename;
-
-		let productoNuevo = {
-			id: (products[products.length-1].id)+1,
-			name: req.body.name,
-			price: req.body.price,
-			category: req.body.category,
-			description: req.body.description,
-			image: nombreImagen,
+	    db.productos.create(
+		{ 
+			nombre: req.body.name,
+			precio: req.body.price,
+			descripcion: req.body.description,
+			talle_id: req.body.talles,
+			color_id: req.body.colores,
+			temporada_id: req.body.temporadas,
+			imagen: nombreImagen,
+			admin_id: req.session.userLogged.id,
+			categoria_id: req.body.category,
 		}
-
-		products.push(productoNuevo);
-
-		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
-
-		res.redirect('/');
+		)
+		.then((resultados)  => { 
+			res.redirect('/products/listadoproductos');
+		 });	
+		},
+	editar: function(req , res) {
+		db.productos.findByPk(req.params.id, { include: [{ association: 'categorias' }, { association: 'talles' }, { association: 'temporadas' }, { association: 'colores' }] })
+			.then(function (producto) {
+				res.render('products/editarproducto', { producto: producto });
+			})
 	},
-     editar: (req , res) => {
-    	let idProducto = req.params.id;
-		let objProducto;
-		for (let o of products){
-			if (idProducto == o.id){
-				objProducto=o;
-				break;
-			}
-		}
-		res.render('products/editarproducto',{producto: objProducto})
-     },
-	 update: (req, res) => {
-		let idProducto = req.params.id;
-
+	 update: function(req, res)  {
 		let nombreImagen = req.file.filename;
-
-		for (let o of products){
-			if (idProducto == o.id){
-				o.name = req.body.name;
-				o.price = req.body.price;
-				o.category = req.body.category;
-				o.description = req.body.description;
-				o.image = nombreImagen;
-				break;
-			}
-		}
-		
-		
-		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "));
-		res.redirect('products/detalleproducto/:id');
+			db.productos.update({
+				id: req.body.id,
+				nombre: req.body.name,
+				precio: req.body.price,
+				categoria: req.body.category,
+				descripcion: req.body.description,
+				imagen: nombreImagen},
+				{where: {
+					id: req.params.id
+				}
+			})
+			res.redirect('/products/detalleproducto/' + req.params.id)	
+				//res.render('products/detalleproducto',{producto: producto})	
 	},
-	destroy : (req, res) => {
-		
-		let idProducto = req.params.id;
-
-		let arrProductos = products.filter(function(elemento){
-			return elemento.id!=idProducto;
-		})
-
-		for (let arrProductos of products){
-			if (products.id == id){
-				arrProductos=products
-			}
+	destroy : function(req, res) {
+		db.productos.destroy({
+		where: {
+			id: req.params.id	
 		}
-		fs.unlinkSync(path.join(__dirname, '../../public/images/', arrProductos.image));
-
-		fs.writeFileSync(productsFilePath,JSON.stringify(arrProductos,null," "));
-
-		res.redirect('/');
-	}
- };
- 
+	})
+	res.redirect('/products/listadoproductos');
+	    //fs.writeFileSync(productsFilePath, JSON.stringify(products,null, ' '));
+		//fs.unlinkSync(path.join(__dirname,'../../public/images/'+nombreImagen));
+		//res.render('products/listadoproductos',{productos: products});
+}
+}
  module.exports = controller;
 

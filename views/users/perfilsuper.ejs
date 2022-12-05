@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- INCLUDES HEAD-->
+
+<head>
+  <title>Perfil</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <%- include('../partials/head') %>
+
+</head>
+
+<body>
+  <!-- INCLUDES HEADER-->
+  <%- include('../partials/headersuperadmin') %>
+  
+    <br>
+    <br>
+    <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil de <%=usuario.nombre%></h2></strong>
+    <div class="login-page">
+      <div class="form">
+        <div class="perfil">
+          <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar %>">
+        </div>
+        <br>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Nombre: </div>
+          <div class="perdato">
+            <%=usuario.nombre%>
+          </div>
+        </div>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Apellido: </div>
+          <div class="perdato">
+            <%=usuario.apellido%>
+          </div>
+        </div>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Email: </div>
+          <div class="perdato">
+            <%=usuario.email%>
+          </div>
+        </div>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Cumpleaños: </div>
+          <div class="perdato">
+            <%=usuario.cumpleanos%>
+          </div>
+        </div>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Dirección: </div>
+          <div class="perdato">
+            <%=usuario.direccion%>
+          </div>
+        </div>
+        <br>
+        <div class="perfil">
+          <div class="pernom"> Contraseña: </div>
+          <div class="perdato">
+            *****
+          </div>
+        </div>
+        <br>
+
+        <a href="/users/edit/<%=usuario.id%>">
+          <button type="submit">Editar Cuenta</button>
+        </a>
+        <br>
+        <br>
+        <form action="/users/delete/<%=usuario.id%>/?_method=DELETE" method="post">
+          <button>Borrar Cuenta</button>
+        </form>
+        </p>
+
+
+      </div>
+    </div>
+    <!-- INCLUDES FOOTER-->
+    <%- include('../partials/footer') %>

@@ -11,27 +11,75 @@
 </head>
   <body>
      <!-- INCLUDES HEADER-->
-   <%- include('../partials/header') %>
+     <%- include('../partials/headerGeneral') %>
 <br>
 <br>
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales</h2></strong>
 <div class="login-page">
   <div class="form">
-    <form class="register-form" action="/users/registro" method="POST"> 
-      <input type="text" placeholder="Nombre" name= "nombre"required/>
-      <input type="text" placeholder="Apellido" name="apellido"required/>
-        <input type="text" placeholder="Email" name="email"/>
+    <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
+      <input type="text" placeholder="Nombre" name= "nombre" value="<%= locals.old && old.nombre %>"/>
       <% if (locals && locals.errors) { %>
-        <% if (locals.errors[0].param=="email") { %>
-          <h3 style="color:red"> <%= locals.errors[0].msg %>  </h3> 
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="nombre") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
         <% } %>
       <% } %>
-      <input type="date" placeholder="Cumpleaños" name="cumpleanos"/>
-      <input type="text" placeholder="Direccion de residencia" name="direccion"required/>
-      <input type="password" placeholder="Contraseña" name="contrasena"required minlength="5"/>
-      <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"required minlength="5"/>
+      <% } %>
+      <input type="text" placeholder="Apellido" name="apellido" value="<%= locals.old && old.apellido %>"/>
+      <% if (locals && locals.errors) { %>
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="apellido") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+        <% } %>
+      <% } %>
+      <% } %>
+        <input type="text" placeholder="Email" name="email" value="<%= locals.old && old.email %>"/>
+        <!-- Captura el error si el correo ingresado YA EXISTE-->
+      <% if (locals.errors && errors.email) { %>
+          <h3 style="color:red"> <%= errors.email.msg %> <a href="/users/login">Login</a> </h3> 
+        <% } %>
+         <!-- Captura el error si el correo NO FUE ingresado-->
+         <% if (locals && locals.errors) { %>
+          <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+          <% if (locals.errors[i].param=="email") { %>
+            <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+          <% } %>
+        <% } %>
+        <% } %>
+      <input type="date" placeholder="Cumpleaños" name="cumpleanos" value="<%= locals.old && old.cumpleanos %>"/>
+      <input type="text" placeholder="Direccion de residencia" name="direccion" value="<%= locals.old && old.direccion %>"/>
+      <% if (locals && locals.errors) { %>
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="direccion") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+        <% } %>
+      <% } %>
+      <% } %>
+      <input type="password" placeholder="Contraseña" name="contrasena"value="<%= locals.old && old.contrasena %>"/>
+      <% if (locals && locals.errors) { %>
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="contrasena") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+        <% } %>
+      <% } %>
+      <% } %>
+      <label for="avatar">Imagen del perfil (debe ser menor a 2 Mbytes</label>
+      <input type="file" placeholder="Imagen de Perfil" name="avatar"/>
+      <% if (locals.errors && errors.avatar) { %>
+        <h3 style="color:red"> <%= errors.avatar.msg %> </h3> 
+      <% } %>
+      
+      <!-- <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"/>
+      <% if (locals && locals.errors) { %>
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="repcontrasena") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+        <% } %>
+      <% } %>
+      <% } %> -->
       <button>Crear Cuenta</button>
-      <p class="message">Already registered? <a href="/products/login">Sign In</a></p>
+      <p class="message">Ya estás registrado? <a href="/users/login">Login</a></p>
     </form>
   </div>
 </div>

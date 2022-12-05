@@ -1,133 +1,310 @@
 const { validationResult } = require('express-validator');// importa los resultados de las validaciones
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs')//Libreria para encriptar el password
 
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+
+const db = require('../database/models');//Para importar sequelize
+const { UniqueConstraintError } = require('sequelize');
+const Op = db.Sequelize.Op;//para usar los operadores de sequelize
 
 
 const controlador = {
 
     login: (req, res) => {
-        res.render('users/login');
+        return res.render('users/login');
     },
 
-    check: (req, res) => {
+    loginCheck: (req, res) => {
+        // Codigo para verificar las credenciales del login, si son correctas lleva a la vista perfil del usuario, de lo contrario muestra un mensaje de error
+        let password = req.body.contrasena;
+        let correo = req.body.email;
+        correo = correo.toLowerCase();
+        let flag = 0
+        db.users.findOne({
+            where: { email: correo }
+        }).then((usuario) => {
+            if (usuario) {
+                if (bcrypt.compareSync(password, usuario.contrasena)) {
+                    flag = 1
+                    req.session.userLogged = usuario //para cargar el usuario logeado en la variable userLogged de session
+                    if (req.body.recordame) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 }) // pongo el email que ingreso el usuario en la cookie llamada userEmail
+                    }
+                    if (usuario.tipoUsuario == 'general') {
+                        req.session.usuarioTipo = 'general'//para cambiar el tipo de header(general, admin o super) en el perfil del usuario
+                        res.redirect('/products/listadoproductos')
+                    }
+                    if (usuario.tipoUsuario == 'super') {
+                        req.session.usuarioTipo = 'super'
+                        res.redirect('/')
+                    }
+                    if (usuario.tipoUsuario == 'admin') {
+                        req.session.usuarioTipo = 'admin'
+                        res.redirect('/')
+                    }
+
+                }
+            } if (flag == 0) {
+                //res.send('CREDENCIALES INVALIDAS')
+
+                res.render('users/login', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales inválidas!'
+                        }
+                    },
+                    old: req.body
+                })
+            }
+        })
+        return;
+
+    },
 
 
-        let currentUser = "";
-        let contador = 0
-        let password = req.body.contrasena
-        let email = req.body.email;
-        email = email.toLowerCase();
-        //console.log('el password ingresado es: ' + password)
-        //console.log('el email ingresado es: ' + email)
-        for (let obj of users) {
-            if ((password == obj.contrasena) & (email == obj.email)) {
-                currentUser = obj
-                console.log(currentUser)
-                contador = 1
-                break;
-            } 
+    perfil: (req, res) => {
+        if (req.session.usuarioTipo == 'general') {
+            return res.render('users/perfilusuario', { usuario: req.session.userLogged });
+        }
+        if (req.session.usuarioTipo == 'admin') {
+            return res.render('users/perfilgerente', { usuario: req.session.userLogged });
+        }
+        if (req.session.usuarioTipo == 'super') {
+            return res.render('users/perfilgerente', { usuario: req.session.userLogged });
         }
 
-        if (contador == 1) {
-            res.render('users/perfilusuario', { usuario: currentUser });
-        } else{
-           res.send('Usuario o contraseña Erronea o NO existen');
- 
-        }
-          
     },
 
     edit: (req, res) => {
 
-        let idUser = req.params.id;
-        let UserSelected = "";
-
-        for (let obj of users) {
-            if (idUser == obj.id) {
-                UserSelected = obj;
-                break;
-            }
-        }
-
-        res.render('users/editarUsuario', { usuario: UserSelected });
-
+        db.users.findByPk(req.params.id).then((userSelected) => {
+            res.render('users/editarUsuario', { usuario: userSelected });
+        })
+        return;
     },
 
+
     update: (req, res) => {
+        db.users.update({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            cumpleanos: req.body.cumpleanos,
+            direccion: req.body.direccion,
+            contrasena: bcrypt.hashSync(req.body.contrasena, 10)
+            //avatar = req.body.avatar
 
-        let userToEdit = req.params.id;
+        }, {
+            where: { id: req.params.id }
+        })
 
-       // console.log('el usuario es:' + userToEdit);
-
-        for (let obj of users) {
-            if (userToEdit == obj.id) {
-                obj.nombre = req.body.nombre
-                obj.apellido = req.body.apellido
-                obj.email = req.body.email
-                obj.cumpleanos = req.body.cumpleanos
-                obj.direccion = req.body.direccion
-                obj.contrasena = req.body.contrasena
-                break;
-
-            }
-        }
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-
+        res.clearCookie('userEmail');
+        req.session.destroy();
         res.redirect('/');
-
 
     },
 
 
     registro: (req, res) => {
-        res.render('users/registro');
+        return res.render('users/registro');
     },
 
     guardarusuario: (req, res) => {
 
-        let errors = validationResult(req);
-        console.log("errors", errors)
+        db.users.findOne({
+            where: { email: req.body.email }
+        })
+            .then((resultado) => {
+                if (resultado && req.body.email != '') {
+                    res.render('users/registro', {
+                        errors: {
+                            email: {
+                                msg: 'Este e-mail ya esta registrado. Por favor vaya a '
+                            }
+                        },
+                        old: req.body
+                    })
+                }
+                else {
+                    let errors = validationResult(req);
+                    if (errors.isEmpty()) {
+                        if (!req.file) { // revisa si no se cargo ninguna imagen y si no se cargo arroja un error, de lo contrario permite la creacion del usuario
+                            res.render('users/registro', {// si no se cargo la imagen, envia el error al formulario de registro
+                                errors: {
+                                    avatar: {
+                                        msg: 'Por favor cargue una imagen '// si no se cargo la imagen, envia el error al formulario de registro
+                                    }
+                                },
+                                old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
+                            })
+                        } else {
 
-        if (errors.isEmpty()){
-        let nuevoUsuario = {
-            id: (users[users.length - 1].id) + 1,
+                            db.users.create({
+                                nombre: req.body.nombre,
+                                apellido: req.body.apellido,
+                                email: req.body.email,
+                                cumpleanos: req.body.cumpleanos,
+                                direccion: req.body.direccion,
+                                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
+                                avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
+                                tipoUsuario: 'general',
+                                local_id: req.body.local_id
+                            })
+                            //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
+                            res.render('users/login', {// si no se cargo la imagen, envia el error al formulario de registro
+                                errors: {
+                                    userCreado: {
+                                        msg: 'Usuario creado existosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
+                                    }
+                                },
+                                old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
+                            })
+
+                        }
+                    }
+                    else {
+
+                        res.render('users/registro', { errors: errors.array(), old: req.body })
+                    }
+                }
+            })
+        return;
+    },
+    registrogerente: (req, res) => {
+        if (req.session.usuarioTipo == 'super') {
+            return res.render('users/creargerente');
+        }
+    },
+    creargerente: (req, res) => {
+
+        db.users.findOne({
+            where: { email: req.body.email }
+        })
+            .then((resultado) => {
+                if (resultado && req.body.email != '') {
+                    res.render('users/creargerente', {
+                        errors: {
+                            email: {
+                                msg: 'Este e-mail ya esta registrado. Por favor vaya a '
+                            }
+                        },
+                        old: req.body
+                    })
+                }
+                else {
+                    let errors = validationResult(req);
+                    if (errors.isEmpty()) {
+                        if (!req.file) { // revisa si no se cargo ninguna imagen y si no se cargo arroja un error, de lo contrario permite la creacion del usuario
+                            res.render('users/creargerente', {// si no se cargo la imagen, envia el error al formulario de registro
+                                errors: {
+                                    avatar: {
+                                        msg: 'Por favor cargue una imagen '// si no se cargo la imagen, envia el error al formulario de registro
+                                    }
+                                },
+                                old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
+                            })
+                        } else {
+
+                            db.users.create({
+                                nombre: req.body.nombre,
+                                apellido: req.body.apellido,
+                                email: req.body.email,
+                                cumpleanos: req.body.cumpleanos,
+                                direccion: req.body.direccion,
+                                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
+                                avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
+                                tipoUsuario: 'admin',
+                                local_id: req.body.local_id
+                            })
+                            //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
+                            /*res.render('users/listadogerentes', {// si no se cargo la imagen, envia el error al formulario de registro
+                                errors: {
+                                    userCreado: {
+                                        msg: 'Usuario creado existosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
+                                    }
+                                },
+                                old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
+                            })*/
+                            res.redirect('/users/listadogerentes')
+
+                        }
+                    }
+                    
+                    else {
+
+                        res.render('users/creargerente', { errors: errors.array(), old: req.body })
+                    }
+                }
+            })
+        return;
+    },
+
+    listadogerentes: (req, res) => {
+        if (req.session.usuarioTipo == 'super') {
+
+
+            db.users.findAll({
+                where: { tipoUsuario: 'admin' }
+            })
+                .then((resultado) => {
+                    //adminUsers = resultado
+                    return res.render('users/listadogerentes', { lista: resultado })
+                })
+        }
+
+    },
+
+    editgerente: (req, res) => {
+        if (req.session.usuarioTipo == 'super') {
+        db.users.findByPk(req.params.id).then((userSelected) => {
+            return res.render('users/editargerente', { usuario: userSelected });
+        })
+    }
+    },
+
+
+    updategerente: (req, res) => {
+        db.users.update({
             nombre: req.body.nombre,
             apellido: req.body.apellido,
-            email: req.body.email,
             cumpleanos: req.body.cumpleanos,
             direccion: req.body.direccion,
-            contrasena: req.body.contrasena,
+            contrasena: bcrypt.hashSync(req.body.contrasena, 10)
+            //avatar = req.body.avatar
 
-        };
+        }, {
+            where: { id: req.params.id }
+        })
+        return res.redirect('/users/listadogerentes')
 
-        users.push(nuevoUsuario);
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-
-        res.redirect('/');
-
-    } 
-    else {
-        res.render('users/registro',{errors:errors.array()})
-    }
-},
+    },
+    destroygerente: (req, res) => {
+        db.users.destroy({
+            where: { id: req.params.id }
+        })
+        return res.redirect('/users/listadogerentes')
+        /* res.clearCookie('userEmail');
+         req.session.destroy();
+         res.redirect('/');*/
+    },
 
     destroy: (req, res) => {
-        let userToDelete = req.params.id;
-       
-         let arrayUsers= users.filter(function (objetos){
-             return objetos.id != userToDelete
+        db.users.destroy({
+            where: { id: req.params.id }
         })
-        
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        res.send('Cuenta borrada exitosamente')
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(arrayUsers, null, " "));
+    },
 
+    logout: (req, res) => {
+        res.clearCookie('userEmail');
+        req.session.destroy();
         res.redirect('/');
     }
-
 }
 
 
