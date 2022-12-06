@@ -37,8 +37,11 @@ const controller ={
 				  if(req.session.usuarioTipo == 'super'){
 					return res.render('products/listadoproductossuper', { productos: productsdb })
 				  }
-				
+				  else{
+					return res.render('products/listadoproductos', { productos: productsdb })}
 			});
+				
+
 	},
 	carrito: (req , res) => {
         res.render('carrito');
