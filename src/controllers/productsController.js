@@ -52,6 +52,7 @@ const controller ={
 			res.render('products/detalleproducto',{producto: producto});
 		});
 	},
+
      crear: async (req , res) => {
 		if (req.session.usuarioTipo == 'admin') {
 		let categorias = await db.categorias.findAll();
