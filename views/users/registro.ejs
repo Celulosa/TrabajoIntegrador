@@ -11,12 +11,12 @@
 </head>
   <body>
      <!-- INCLUDES HEADER-->
-     <%- include('../partials/headerGeneral') %>
+     <%- include('../partials/headergeneral') %>
 <br>
 <br>
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales</h2></strong>
 <div class="login-page">
-  <div class="form">
+  <div class="form" id="frontValidation">
     <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
       <input type="text" placeholder="Nombre" name= "nombre" value="<%= locals.old && old.nombre %>"/>
       <% if (locals && locals.errors) { %>
@@ -83,6 +83,8 @@
     </form>
   </div>
 </div>
+<script src="/js/frontValidation.js"> </script>
+</body>
   <!-- INCLUDES FOOTER-->
 
   <%- include('../partials/footer') %>

@@ -22,17 +22,26 @@
         <div class="producto-principal-1-info">
             <div id="caracteristicas">
                 <h2 class="nombre-producto"><strong><%=producto.nombre %></h2></strong>
+                <br>
+                <button id="heartIcon" type="button" onclick="alert('Gracias por tu like!')" class="far fa-heart"></button>
+                <br>
             <div id="opciones-producto">
                         <strong><p class="opciones">COLOR</p></strong>
-                         <select class="opciones-seleccionadas" name="Color">
-                            <option value="Colores"><%=producto.colores.nombre %></option>
-                        </select>
-                        <br>
+                        <select class="opciones-seleccionadas" name="Color">
+                            <option value="Blanco">Blanco</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Rosado">Rosado</option>
+                        </select><br>
+
                         <strong><p class="opciones">TALLA</p></strong>
-                        <select class="opciones-seleccionadas" name="talla">
-                        <option value="talla"><%=producto.talles.medida %></option>
-                        </select>
-                        <br>
+                        <select class="opciones-seleccionadas" name="tamaño">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+            
+                        </select><br>
                         <strong><p class="opciones">CANTIDAD</p></strong>
                         <select class="opciones-seleccionadas" name="cantidad">
                             <option value="1">1</option>
@@ -41,17 +50,17 @@
                         </select><br>
                         </select>
                         <p id="precio-producto">PRECIO: $<%=producto.precio %></p>
-                        <a href="http://localhost:3010/carrito"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
+                        <a href="/products/carrito/"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
                         <br> 
                         <br>
+                        <% if (locals.userLogged && userLogged.tipoUsuario) { %>
                         <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex" onsubmit="return confirm('Esta seguro que desea eliminarlo?');">
 							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
 						</form>
                         <br>
                         <br>
-
                         <a style="text-align: center" href="/products/editarproducto/<%=producto.id %>" id="boton-agregar-carrito">EDITAR PRODUCTO</a>
-					
+                        <% } %>
                 </div>
 
                 <br>      

@@ -35,7 +35,7 @@ router.get('/registro',loggedMiddleware, usersController.registro)
 router.post('/registro',uploadFile.single('avatar'),validaciones,usersController.guardarusuario)
 
 /*** DELETING USERS ***/
-router.delete('/delete/:id', usersController.destroy)
+router.put('/delete/:id', usersController.destroy)
 
 /*** PERFIL DEL USUARIO ***/
 router.get('/perfilusuario',guestMiddleware,usersController.perfil)
@@ -54,8 +54,7 @@ router.get('/listadogerentes', usersController.listadogerentes)
 router.get('/editgerente/:id',usersController.editgerente);
 router.put('/editgerente/:id',validaciones,usersController.updategerente);
 /*** DELETING GERENTES ***/
-router.delete('/deletegerente/:id', usersController.destroygerente)
-
+router.put('/deletegerente/:id', usersController.destroygerente)
 
 
 module.exports = router;

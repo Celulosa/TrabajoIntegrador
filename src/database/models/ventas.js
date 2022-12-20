@@ -27,12 +27,6 @@ function usersData(sequelize, Datatypes) {
             as: "productos",
             foreignKey: "producto_id"
         });
-        ventas.belongsTo(models.detalle_ventas, {
-            as: "detalle_ventas",
-            foreignKey: "detalle_venta_id"
-        });
-
-      
     }
     return ventas;
 }

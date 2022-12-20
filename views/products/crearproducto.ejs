@@ -16,11 +16,35 @@
       <br>
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Añadir Producto</h2></strong>
         <div class="login-page">
-            <div class="form">
+          <div class="form" id="frontValidation">
               <form class="register-form" action="/products/crearproducto" method="POST" enctype="multipart/form-data">
-                <input type="text" placeholder="Nombre Producto" name="name"required />
-                <input type="number" placeholder="Precio" name="price"required/>
+                <input type="text" placeholder="Nombre Producto" name="name" />
+                <input type="number" placeholder="Precio" name="price"/>
                 <div class="register-form">
+                <br>
+                <label class="register-form" for="colores">Colores:</label>
+                <select name="colores" id="colores">
+                    <% for(let i=0;i<colores.length;i++) { %> 
+                        <option value="<%=colores[i].id %>"><%=colores[i].nombre %></option>
+                    <% } %> 
+                  </select>
+                <br>
+                <br>
+                <label class="register-form" for="temporadas">Temporadas:</label>
+                <select name="temporadas" id="temporadas">
+                    <% for(let i=0;i<temporadas.length;i++) { %> 
+                        <option value="<%=temporadas[i].id %>"><%=temporadas[i].nombre %></option>
+                    <% } %> 
+                  </select>
+                <br>
+                <br>
+                <label class="register-form" for="talla">Talla:</label>
+                <select name="talles" id="talles">
+                    <% for(let i=0;i<talles.length;i++) { %> 
+                        <option value="<%=talles[i].id %>"><%=talles[i].medida %></option>
+                    <% } %> 
+                  </select>
+                <br>
                 <br>
                 <label class="register-form" for="category">Categoría:</label>
                 <select name="category" id="category">
@@ -37,13 +61,13 @@
                 <label for="description" class="form-label">Descripción:</label>
                 <textarea name="description" id="description" class="form-input"></textarea>
               </div>
-                <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
-                <input type="file" name="imageProduct" accept="" />
-                <button type="submit" id="boton-agregar-carrito">CREAR PRODUCTO</button>
-              </form>
+              <h4 class="subtitulos2">Foto de Producto, seleccionar imagen</h4>
+              <input type="file" name="imageProduct" accept="" />
+              <button type="submit" id="boton-agregar-carrito">CREAR PRODUCTO</button>
+            </form>
             </div>
           </div>
-    
+          <script src="/js/frontValidation.js"> </script>
     </main>
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>

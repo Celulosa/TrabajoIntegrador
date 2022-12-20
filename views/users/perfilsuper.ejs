@@ -73,7 +73,7 @@
         </a>
         <br>
         <br>
-        <form action="/users/delete/<%=usuario.id%>/?_method=DELETE" method="post">
+        <form action="/users/delete/<%=usuario.id%>/?_method=PUT" method="post" onsubmit="return confirm('Esta seguro que desea Eliminar su perfil?');">
           <button>Borrar Cuenta</button>
         </form>
         </p>

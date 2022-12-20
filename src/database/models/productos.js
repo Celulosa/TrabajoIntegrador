@@ -21,6 +21,10 @@ const productos = sequelize.define(alias,cols,config)
 
 productos.associate = function (modelos){
 
+   productos.belongsTo(modelos.users, {   
+        as: "productos",
+        foreignKey: "admin_id"
+      });
     productos.belongsTo(modelos.categorias, {   
       as: "categorias",
       foreignKey: "categoria_id"
@@ -39,21 +43,7 @@ productos.associate = function (modelos){
       productos.belongsTo(modelos.temporadas, {   
         as: "temporadas",
         foreignKey: "temporada_id"
-      });
-
-      productos.belongsTo(modelos.users, {   
-        as: "users",
-        foreignKey: "admin_id"
-      });
-
-      productos.hasMany(modelos.ventas, {   
-        as: "ventas",
-        foreignKey: "producto_id"
-      });
-
-
-
-      
+      }); 
   }
 
 return productos;

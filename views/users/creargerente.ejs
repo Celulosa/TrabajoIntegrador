@@ -64,6 +64,14 @@
         <% } %>
       <% } %>
       <% } %>
+      <input type="text" placeholder="Número del local al que pertenece" name="local_id"value="<%= locals.old && old.local %>"/>
+      <% if (locals && locals.errors) { %>
+        <% for (let i = 0; i < locals.errors.length; i++ ) {%>
+        <% if (locals.errors[i].param=="local") { %>
+          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+        <% } %>
+      <% } %>
+      <% } %>
       
      <label for="avatar">Imagen del perfil (debe ser menor a 2 Mbytes</label>
       <input type="file" placeholder="Imagen de Perfil" name="avatar"/>

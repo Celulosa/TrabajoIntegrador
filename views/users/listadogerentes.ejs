@@ -30,7 +30,9 @@
                         <th>Email</th>
                         <th>Dirección</th>
                         <th>Cumpleaños</th>
+                        <th>Pertence al Local #</th>
                         <th>Tipo de Usuario</th>
+                        
                     </tr>
                     <% for(let i=0;i<lista.length;i++) { %>
                         
@@ -41,12 +43,14 @@
                         <td><%=lista[i].email %></td>
                         <td><%=lista[i].direccion %></td>
                         <td><%=lista[i].cumpleanos %></td>
+                        <td><%=lista[i].local_id %></td>
                         <td><%=lista[i].tipoUsuario %></td>
+                        
                         <td><a href="/users/editgerente/<%=lista[i].id%>">
                             <button type="submit">Editar </button>
                           </a></td>
 
-                          <td><form action="/users/deletegerente/<%=lista[i].id%>/?_method=DELETE" method="post">
+                          <td><form action="/users/deletegerente/<%=lista[i].id%>/?_method=PUT" method="post" onsubmit="return confirm('Esta seguro que desea Eliminar su perfil?');">
                             <button>Borrar </button>
                           </form></td>
 

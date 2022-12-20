@@ -10,12 +10,16 @@
   </head>
 	<body>
 	   <!-- INCLUDES HEADER-->
-	 <%- include('../partials/headergeneral') %>
+	 <%- include('../partials/header') %>
 	  <main>
-	<h1><%= message %></h1>
-	<h2><%= error.status %></h2>
-	<p>Error trying to access to: <b><%= path %></b></p>
-	<pre><i><%= error.stack %></i></pre>
+		<div class="mainError">
+			<div class="Msg1"><h1>404</h1></div>
+			<div class="Msg2"><h2>Page not found</h2></div>
+		</div>
+		
+		<div class="buttonsError">
+			<a href="/"><button class="button">Volver al inicio</button></a>
+		</div>		
 	</main>
 </body>
 </html>

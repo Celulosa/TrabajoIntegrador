@@ -1,0 +1,29 @@
+function productoData(sequelize, Datatypes){
+
+  alias = 'carts';
+  
+  cols ={
+    productos_id:{type: Datatypes.INTEGER},
+    users_id:{type: Datatypes.INTEGER},
+    count:{type: Datatypes.INTEGER},
+    product_price:{type: Datatypes.FLOAT},
+  }
+  config = {camelCase: false, timestamps: false}; 
+  const carts = sequelize.define(alias,cols,config)
+  
+  carts.associate = function (modelos){
+  
+    carts.belongsTo(modelos.users, {   
+          as: "users",
+          foreignKey: "users_id"
+        });
+    carts.belongsTo(modelos.Productos, {   
+          as: "Productos",
+          foreignKey: "productos_id"
+        });
+      }
+
+      return carts;
+      }
+      module.exports = productoData;
+   

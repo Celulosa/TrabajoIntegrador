@@ -28,9 +28,15 @@
       <div class="container">
         <div class="main-header__container">
           <a href="/" class="link"> <div class="logo"><img src="/images/Logo.jpg"></div> </a>
-          <div class="icono-menu"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <div class="icono-menu"><a href="/products/carrito" class="link"><i class="fa-solid fa-bag-shopping"></i></a></div>
-          <span class="icon-menu"><i class="fa-solid fa-bars" id="btn-menu"></i></span>
+          <div class="dropdown">
+              <a href=#buscar></a>
+                  <div class="dropdown">
+                    <%- include('../partials/searchField'); %>
+                  </div>
+                  <div class="dropdown">
+                  <a href="/products/carrito"><button id="iconosNav" class="fas fa-shopping-cart fa-lg"></button></a>
+                </div>
+            </div>
           <nav class="main-nav" id="main-nav">
             <ul class="menu">
               <li class="menu__item"><a href="/" class="menu__link">INICIO</a></li>

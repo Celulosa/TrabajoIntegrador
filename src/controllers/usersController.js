@@ -23,14 +23,14 @@ const controlador = {
         correo = correo.toLowerCase();
         let flag = 0
         db.users.findOne({
-            where: { email: correo }
+            where: { email: correo, borrar: 0 }
         }).then((usuario) => {
             if (usuario) {
                 if (bcrypt.compareSync(password, usuario.contrasena)) {
                     flag = 1
                     req.session.userLogged = usuario //para cargar el usuario logeado en la variable userLogged de session
                     if (req.body.recordame) {
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 }) // pongo el email que ingreso el usuario en la cookie llamada userEmail
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 100 }) // pongo el email que ingreso el usuario en la cookie llamada userEmail
                     }
                     if (usuario.tipoUsuario == 'general') {
                         req.session.usuarioTipo = 'general'//para cambiar el tipo de header(general, admin o super) en el perfil del usuario
@@ -149,6 +149,7 @@ const controlador = {
                                 contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                                 avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
                                 tipoUsuario: 'general',
+                                borrar: false, // para implementar un borrado logico
                                 local_id: req.body.local_id
                             })
                             //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
@@ -215,6 +216,7 @@ const controlador = {
                                 contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                                 avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
                                 tipoUsuario: 'admin',
+                                borrar: 0, // para implementar un borrado logico
                                 local_id: req.body.local_id
                             })
                             //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
@@ -245,7 +247,7 @@ const controlador = {
 
 
             db.users.findAll({
-                where: { tipoUsuario: 'admin' }
+                where: { tipoUsuario: 'admin', borrar: 0}
             })
                 .then((resultado) => {
                     //adminUsers = resultado
@@ -281,17 +283,20 @@ const controlador = {
 
     },
     destroygerente: (req, res) => {
-        db.users.destroy({
+        db.users.update({
+            borrar: 1, // para implementar un borrado logico
+
+        }, {
             where: { id: req.params.id }
         })
         return res.redirect('/users/listadogerentes')
-        /* res.clearCookie('userEmail');
-         req.session.destroy();
-         res.redirect('/');*/
     },
 
     destroy: (req, res) => {
-        db.users.destroy({
+        db.users.update({
+            borrar: 1, // para implementar un borrado logico
+
+        }, {
             where: { id: req.params.id }
         })
         res.clearCookie('userEmail');
