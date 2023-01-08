@@ -23,14 +23,14 @@ const controlador = {
         correo = correo.toLowerCase();
         let flag = 0
         db.users.findOne({
-            where: { email: correo }
+            where: { email: correo, borrar: 0 }
         }).then((usuario) => {
             if (usuario) {
                 if (bcrypt.compareSync(password, usuario.contrasena)) {
                     flag = 1
                     req.session.userLogged = usuario //para cargar el usuario logeado en la variable userLogged de session
                     if (req.body.recordame) {
-                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 30 }) // pongo el email que ingreso el usuario en la cookie llamada userEmail
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 1000 }) // pongo el email que ingreso el usuario en la cookie llamada userEmail
                     }
                     if (usuario.tipoUsuario == 'general') {
                         req.session.usuarioTipo = 'general'//para cambiar el tipo de header(general, admin o super) en el perfil del usuario
@@ -64,10 +64,17 @@ const controlador = {
     },
 
 
-    perfil: (req, res) => {
+    perfil: async function (req, res) {
+        let pedidos = await db.ventas.findAll({
+            where: {
+                usuario_id: req.session.userLogged.id
+
+            }
+        })
         if (req.session.usuarioTipo == 'general') {
-            return res.render('users/perfilusuario', { usuario: req.session.userLogged });
+            return res.render('users/perfilusuario', { usuario: req.session.userLogged, pedidos });
         }
+        console.log ('mis pedidos',pedidos)
         if (req.session.usuarioTipo == 'admin') {
             return res.render('users/perfilgerente', { usuario: req.session.userLogged });
         }
@@ -149,13 +156,14 @@ const controlador = {
                                 contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                                 avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
                                 tipoUsuario: 'general',
+                                borrar: false, // para implementar un borrado logico
                                 local_id: req.body.local_id
                             })
-                            //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
+                            //res.send('Usuario creado exitosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
                             res.render('users/login', {// si no se cargo la imagen, envia el error al formulario de registro
                                 errors: {
                                     userCreado: {
-                                        msg: 'Usuario creado existosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
+                                        msg: 'Usuario creado exitosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
                                     }
                                 },
                                 old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
@@ -215,13 +223,14 @@ const controlador = {
                                 contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                                 avatar: req.file.filename, //esta es una propiedad de Multer que trae el nombre de la imagen a cargar
                                 tipoUsuario: 'admin',
+                                borrar: 0, // para implementar un borrado logico
                                 local_id: req.body.local_id
                             })
-                            //res.send('Usuario creado existosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
+                            //res.send('Usuario creado exitosamente') //como hacer que luego de este mensaje espere 3 segundos y me redirija al home
                             /*res.render('users/listadogerentes', {// si no se cargo la imagen, envia el error al formulario de registro
                                 errors: {
                                     userCreado: {
-                                        msg: 'Usuario creado existosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
+                                        msg: 'Usuario creado exitosamente. Por favor ingrese '// si no se cargo la imagen, envia el error al formulario de registro
                                     }
                                 },
                                 old: req.body //permite que el formulario no se borre luego del error y permanezca con los datos ingresados por el usuario
@@ -230,7 +239,7 @@ const controlador = {
 
                         }
                     }
-                    
+
                     else {
 
                         res.render('users/creargerente', { errors: errors.array(), old: req.body })
@@ -245,7 +254,7 @@ const controlador = {
 
 
             db.users.findAll({
-                where: { tipoUsuario: 'admin' }
+                where: { tipoUsuario: 'admin', borrar: 0 }
             })
                 .then((resultado) => {
                     //adminUsers = resultado
@@ -257,10 +266,10 @@ const controlador = {
 
     editgerente: (req, res) => {
         if (req.session.usuarioTipo == 'super') {
-        db.users.findByPk(req.params.id).then((userSelected) => {
-            return res.render('users/editargerente', { usuario: userSelected });
-        })
-    }
+            db.users.findByPk(req.params.id).then((userSelected) => {
+                return res.render('users/editargerente', { usuario: userSelected });
+            })
+        }
     },
 
 
@@ -281,17 +290,20 @@ const controlador = {
 
     },
     destroygerente: (req, res) => {
-        db.users.destroy({
+        db.users.update({
+            borrar: 1, // para implementar un borrado logico
+
+        }, {
             where: { id: req.params.id }
         })
         return res.redirect('/users/listadogerentes')
-        /* res.clearCookie('userEmail');
-         req.session.destroy();
-         res.redirect('/');*/
     },
 
     destroy: (req, res) => {
-        db.users.destroy({
+        db.users.update({
+            borrar: 1, // para implementar un borrado logico
+
+        }, {
             where: { id: req.params.id }
         })
         res.clearCookie('userEmail');

@@ -20,17 +20,19 @@
                 <div class="col-12">
                     <h2  class="products-title">Lista de todos los Gerentes</h2>
                     <% if (locals.errors && errors.userCreado) { %>
-                        <h3 style="color:red"> <%= errors.userCreado.msg %> </h3> 
+                        <h3 style="color:green"> <%= errors.userCreado.msg %> </h3> 
                       <% } %>
                 </div>
-                <table border="1">
+                <table border ="1">
                     <tr>
                         <th>Id</th>
                         <th>Nombre Completo</th>
                         <th>Email</th>
                         <th>Dirección</th>
                         <th>Cumpleaños</th>
+                        <th>Pertenece al Local #</th>
                         <th>Tipo de Usuario</th>
+                        
                     </tr>
                     <% for(let i=0;i<lista.length;i++) { %>
                         
@@ -41,12 +43,14 @@
                         <td><%=lista[i].email %></td>
                         <td><%=lista[i].direccion %></td>
                         <td><%=lista[i].cumpleanos %></td>
+                        <td><%=lista[i].local_id %></td>
                         <td><%=lista[i].tipoUsuario %></td>
+                        
                         <td><a href="/users/editgerente/<%=lista[i].id%>">
                             <button type="submit">Editar </button>
                           </a></td>
 
-                          <td><form action="/users/deletegerente/<%=lista[i].id%>/?_method=DELETE" method="post">
+                          <td><form action="/users/deletegerente/<%=lista[i].id%>/?_method=PUT" method="post" onsubmit="return confirm('Esta seguro que desea Eliminar su perfil?');">
                             <button>Borrar </button>
                           </form></td>
 
@@ -61,6 +65,6 @@
         <!-- INCLUDES FOOTER-->
         <%- include('../partials/footer') %>
 
-</body>
-
-</html>
+        <script src="/js/scripts.js"></script>
+    </body>
+    </html>

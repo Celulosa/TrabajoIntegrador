@@ -1,7 +1,7 @@
 const port = process.env.PORT || 3040
 const mainRouter = require('./src/routes/mainRouter')
 const productsRouter = require('./src/routes/productsRouter')
-
+const apiRouter = require('./src/routes/apiRouter')
 const usersRouter = require('./src/routes/usersRouter')
 
 const express = require('express');
@@ -47,6 +47,7 @@ app.use(userLoggedMiddleware);
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 
 app.use('*', function(req,res) {     res.send("Ruta equivocada") });

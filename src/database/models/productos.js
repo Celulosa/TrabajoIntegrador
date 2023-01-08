@@ -19,31 +19,35 @@ cols ={
 config = {camelCase: false, timestamps: false}; 
 const productos = sequelize.define(alias,cols,config)
 
-productos.associate = function (modelos){
+productos.associate = function (models){
 
-   productos.belongsTo(modelos.users, {   
+   productos.belongsTo(models.users, {   
         as: "productos",
         foreignKey: "admin_id"
       });
-    productos.belongsTo(modelos.categorias, {   
+    productos.belongsTo(models.categorias, {   
       as: "categorias",
       foreignKey: "categoria_id"
     });
   
-    productos.belongsTo(modelos.talles, {   
+    productos.belongsTo(models.talles, {   
         as: "talles",
         foreignKey: "talle_id"
       });
 
-      productos.belongsTo(modelos.colores, {   
+      productos.belongsTo(models.colores, {   
         as: "colores",
         foreignKey: "color_id"
       });
 
-      productos.belongsTo(modelos.temporadas, {   
+      productos.belongsTo(models.temporadas, {   
         as: "temporadas",
         foreignKey: "temporada_id"
       }); 
+      productos.hasMany(models.ventas, {   
+        as: "ventas",
+        foreignKey: "producto_id"
+      });
   }
 
 return productos;

@@ -16,13 +16,13 @@
 <br>
 <h2 style="text-align: center;" class="iniciarSesion>"><strong>Datos Personales</h2></strong>
 <div class="login-page">
-  <div class="form">
+  <div class="form" id="frontValidation">
     <form class="register-form" action="/users/registro" method="POST" enctype="multipart/form-data"> <!-- enctype es para poder enviar archivos  enctype="multipart/form-data"-->
       <input type="text" placeholder="Nombre" name= "nombre" value="<%= locals.old && old.nombre %>"/>
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
         <% if (locals.errors[i].param=="nombre") { %>
-          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+          <h3 style="color:green"> <%= locals.errors[i].msg %>  </h3> 
         <% } %>
       <% } %>
       <% } %>
@@ -30,20 +30,20 @@
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
         <% if (locals.errors[i].param=="apellido") { %>
-          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+          <h3 style="color:green"> <%= locals.errors[i].msg %>  </h3> 
         <% } %>
       <% } %>
       <% } %>
         <input type="text" placeholder="Email" name="email" value="<%= locals.old && old.email %>"/>
         <!-- Captura el error si el correo ingresado YA EXISTE-->
       <% if (locals.errors && errors.email) { %>
-          <h3 style="color:red"> <%= errors.email.msg %> <a href="/users/login">Login</a> </h3> 
+          <h3 style="color:green"> <%= errors.email.msg %> <a href="/users/login">Login</a> </h3> 
         <% } %>
          <!-- Captura el error si el correo NO FUE ingresado-->
          <% if (locals && locals.errors) { %>
           <% for (let i = 0; i < locals.errors.length; i++ ) {%>
           <% if (locals.errors[i].param=="email") { %>
-            <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+            <h3 style="color:green"> <%= locals.errors[i].msg %>  </h3> 
           <% } %>
         <% } %>
         <% } %>
@@ -52,7 +52,7 @@
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
         <% if (locals.errors[i].param=="direccion") { %>
-          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+          <h3 style="color:green"> <%= locals.errors[i].msg %>  </h3> 
         <% } %>
       <% } %>
       <% } %>
@@ -60,14 +60,14 @@
       <% if (locals && locals.errors) { %>
         <% for (let i = 0; i < locals.errors.length; i++ ) {%>
         <% if (locals.errors[i].param=="contrasena") { %>
-          <h3 style="color:red"> <%= locals.errors[i].msg %>  </h3> 
+          <h3 style="color:green"> <%= locals.errors[i].msg %>  </h3> 
         <% } %>
       <% } %>
       <% } %>
       <label for="avatar">Imagen del perfil (debe ser menor a 2 Mbytes</label>
       <input type="file" placeholder="Imagen de Perfil" name="avatar"/>
       <% if (locals.errors && errors.avatar) { %>
-        <h3 style="color:red"> <%= errors.avatar.msg %> </h3> 
+        <h3 style="color:green"> <%= errors.avatar.msg %> </h3> 
       <% } %>
       
       <!-- <input type="password" placeholder="Repetir Contraseña" name="repcontrasena"/>
@@ -83,7 +83,12 @@
     </form>
   </div>
 </div>
+<script src="/js/frontValidation.js"> </script>
+</body>
   <!-- INCLUDES FOOTER-->
 
   <%- include('../partials/footer') %>
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
 

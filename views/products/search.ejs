@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<!-- INCLUDES HEAD-->
+<head>
+  <title>Busqueda de producto</title>
+  <link rel="stylesheet" href="/css/styles.css">
+<%- include('../partials/head') %>
+
+</head>
+  <body>
+     <!-- INCLUDES HEADER-->
+   <%- include('../partials/headergeneral') %>
+    <main>
+      <br>
+  <% if (!productFound==0) { %>
+    <h2 class="products-title">Resultados de la búsqueda: <%=keywords%></h2>
+      <% } else { %>
+      <h2 class="products-title">No encontramos resultados para "<%=keywords%>" pero podría interesarte:</h2>
+  <% } %>
+  
+    <div class="products-wrapper">
+      
+          <!-- Show the search results -->
+        <% searchResults.forEach(result => { %>
+          <section class="product-card">
+            <a href="/products/detalleproducto/<%=producto.id %>">
+              <figure class="product-card-img">
+                <img src= "/images/<%=producto.imagen %>" alt="imagen de producto">
+              </figure>
+              <article class="product-card-content">
+                <h4><%=producto.categoria%></h4>
+                <br>
+                <h2><%=producto.nombre%></h2>
+                <br>
+                <h3 id="price">$<%=producto.precio%></h3>
+                <br>
+                <p><%=producto.descripcion%></p>
+              </article>
+            </a>
+          </section>
+    <% }) %>
+  </div>
+</div>
+    <%- include('../partials/footer'); %>
+</body>
+</html>

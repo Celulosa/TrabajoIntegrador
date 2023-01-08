@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<!-- INCLUDES HEAD-->
+<head>
+  <title>Listado de Productos</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+<%- include('../partials/head') %>
+
+</head>
+  <body>
+     <!-- INCLUDES HEADER-->
+   <%- include('../partials/headergeneral') %>
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center"> Pedido Nro <%= ventas.id %></h2>
+                <div class="card my-5">
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Producto</strong>
+                                    </th>
+                                    <th class="th-lg ">
+                                        <strong>Precio</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Cantidad</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Subtotal</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="cartRows">
+                               <% for (let i=0; i<detalle.length; i++) { %> 
+                                <tr> 
+                                    <th scope="row">
+                                       <%= i + 1 %>
+                                    </th>
+                                    <td>
+                                        <%= detalle[i].nombre %>
+                                    </td>
+
+                                    <td>
+                                        <%= detalle[i].precio %>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <%= detalle[i].quantity %>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <%= detalle[i].quantity * detalle[i].precio %>
+                                    </td>
+                                </tr>
+                             <% } %>
+
+                            </tbody>
+                        </table>
+                    <br>
+                        <div class="card-footer text-right">
+                            <h2>Total: <span class="totalAmount">$ <%= ventas.total %></span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        Detalles de la compra
+                    </div>
+                    <form class="card-body" id="checkoutCart">
+                        <div class="row">
+                            <div class=" col-md-6 mb-4">
+                                <p><strong>Direccion de envio:</strong> <%= ventas.direccion %></p>
+                            </div>
+                            <div class=" col-md-6 mb-4">
+                                <p><strong>Pago:</strong> <%= ventas.paymentMethod %></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+   <!-- INCLUDES FOOTER-->
+   <%- include('../partials/footer') %>
+   <script src="/js/cart.js"></script>
+   <script src="/js/scripts.js"></script>
+</body>
+
+</html>

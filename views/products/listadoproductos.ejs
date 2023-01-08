@@ -26,19 +26,24 @@
                         <img src="/images/<%=productos[i].imagen %>" alt="imagen de producto">
                     </figure>
                     <article class="product-box_data">
-                        <h2>$<%=productos[i].precio %></h2>
+                        <h2 id="price">$<%=productos[i].precio %></h2>
                         <span><%=productos[i].categoria %> </span>
                         <p><%=productos[i].nombre %></p>
                     </article>
                 </a>
+                <button type="button"  class="agregar_carrito" id="boton-agregar-carrito" data-id="<%=productos[i].id %>">AGREGAR AL CARRITO</button>
+                
             </section>
         </div>
         <% } %>
+        
     </div> 
 </div>
 	<!-- /todos los productos -->
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>
+
+  <script src="/js/scripts.js"></script>
 
 </body>
 

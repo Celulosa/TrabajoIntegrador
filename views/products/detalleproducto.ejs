@@ -22,6 +22,9 @@
         <div class="producto-principal-1-info">
             <div id="caracteristicas">
                 <h2 class="nombre-producto"><strong><%=producto.nombre %></h2></strong>
+                <br>
+                <button id="heartIcon" type="button" onclick="alert('Gracias por tu like!')" class="far fa-heart"></button>
+                <br>
             <div id="opciones-producto">
                         <strong><p class="opciones">COLOR</p></strong>
                         <select class="opciones-seleccionadas" name="Color">
@@ -47,17 +50,17 @@
                         </select><br>
                         </select>
                         <p id="precio-producto">PRECIO: $<%=producto.precio %></p>
-                        <a href="http://localhost:3010/carrito"><button type="button"  id="boton-agregar-carrito">AGREGAR AL CARRITO</button></a>
+                        <a href="/products/cart/"><button type="button" class="agregar_carrito" id="boton-agregar-carrito" data-id="<%=producto.id %>">AGREGAR AL CARRITO</button></a>
                         <br> 
                         <br>
+                        <% if (locals.userLogged && userLogged.tipoUsuario == 'admin') { %>
                         <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex" onsubmit="return confirm('Esta seguro que desea eliminarlo?');">
 							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
 						</form>
                         <br>
                         <br>
-
                         <a style="text-align: center" href="/products/editarproducto/<%=producto.id %>" id="boton-agregar-carrito">EDITAR PRODUCTO</a>
-					
+                        <% } %>
                 </div>
 
                 <br>      
@@ -105,6 +108,6 @@
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>
 
+  <script src="/js/scripts.js"></script>
 </body>
-
 </html>

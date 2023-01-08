@@ -19,11 +19,11 @@
 <div class="login-page">
     <div class="form">
       <% if (locals.errors && errors.userCreado) { %>
-        <h3 style="color:red"> <%= errors.userCreado.msg %> </h3> 
+        <h3 style="color:green"> <%= errors.userCreado.msg %> </h3> 
       <% } %>
       <form class="login-form" action="/users/login" method="POST">
         <% if (locals.errors && errors.email) { %>
-          <h3 style="color:red"> <%= errors.email.msg %> </h3> 
+          <h3 style="color:green"> <%= errors.email.msg %> </h3> 
         <% } %>
 
         <input type="email" placeholder="email" name="email"  value="<%= locals.old && old.email %>"/>
@@ -37,5 +37,6 @@
   </div>
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>
+  <script src="/js/scripts.js"></script>
   </body>
   </html>

@@ -16,10 +16,10 @@
       <br>
         <h2 style="text-align: center;" class="iniciarSesion>"><strong>Añadir Producto</h2></strong>
         <div class="login-page">
-            <div class="form">
+          <div class="form" id="frontValidation">
               <form class="register-form" action="/products/crearproducto" method="POST" enctype="multipart/form-data">
-                <input type="text" placeholder="Nombre Producto" name="name"required />
-                <input type="number" placeholder="Precio" name="price"required/>
+                <input type="text" placeholder="Nombre Producto" name="name" />
+                <input type="number" placeholder="Precio" name="price"/>
                 <div class="register-form">
                 <br>
                 <label class="register-form" for="colores">Colores:</label>
@@ -67,7 +67,7 @@
             </form>
             </div>
           </div>
-    
+          <script src="/js/frontValidation.js"> </script>
     </main>
   <!-- INCLUDES FOOTER-->
   <%- include('../partials/footer') %>

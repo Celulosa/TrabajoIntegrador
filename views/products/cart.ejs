@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- INCLUDES HEAD-->
+
+<head>
+  <title>Listado de Productos</title>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <%- include('../partials/head') %>
+
+</head>
+
+<body>
+  <!-- INCLUDES HEADER-->
+  <%- include('../partials/headergeneral') %>
+    <br>
+    <br>
+    <!-- CARRITO DE COMPRAS -->
+    <section class="container content-section">
+      <h2 class="section-header">Carrito de compras</h2>
+      <!--<div class="cart-row">
+        <div class="cart-item cart-header cart-column">Producto</div>
+        <div class="cart-price cart-header cart-column">Precio unitario</div>
+        <div class="cart-quantity cart-header cart-column">Cantidad</div>
+      </div>
+      <div class="cart-items">
+      </div>-->
+      <table class="table table-responsive-md mb-0">
+        <thead>
+          <tr>
+            <th style="width: 50px;">
+              <strong>#</strong>
+            </th>
+            <th class="th-lg">
+              <strong>Producto</strong>
+            </th>
+            <th class="th-lg ">
+              <strong>Precio</strong>
+            </th>
+            <th class="text-center">
+              <strong>Cantidad</strong>
+            </th>
+            <th class="text-center">
+              <strong>Subtotal</strong>
+            </th>
+            <th style="width: 50px;"></th>
+          </tr>
+        </thead>
+        <tbody class="cartRows">
+        </tbody>
+      </table>
+
+    </section>
+    <br>
+    <br>
+    <div class="col-sm-3 offset-sm-7 ">
+      <div class="checkout">
+        <div class="cart-total">
+          <h2>
+            <strong class="cart-total-title">Total</strong>
+            <div class="cart-total-price">$ 0</div>
+          </h2>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-purchase" onclick="setCarritoVacio()" type="submit">Vaciar Carrito</button> 
+    </div>
+
+
+    <div class="card">
+      <div class="card-header text-center">
+        Terminar la compra
+      </div>
+      <form class="card-body" id="checkoutCart">
+        <div class="row">
+          <div class=" col-md-6 mb-4">
+            <label for="country">Direccion de Envio</label>
+            <input type="text" placeholder="Calle 77 ..." name="direccion" value="" required />
+
+          </div>
+          <div class=" col-md-6 mb-4">
+            <label for="country">Pago</label>
+            <select class="custom-select d-block w-100" id="paymentMethod" name="paymentMethod" required="">
+              <option value="">Elegir...</option>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Débito">Tarjeta Débito</option>
+              <option value="Crédito">Tarjeta Crédito</option>
+            </select>
+
+
+          </div>
+          <button class="btn btn-primary btn-purchase" type="submit">Finalizar Compra</button>
+         
+         
+        </div>
+
+       
+        <!--<button class="btn btn-primary btn-lg btn-block waves-effect waves-light" type="submit">Comprar</button>-->
+      </form>
+    </div>
+    <!--
+  <h2 class="products-title">Otros productos que podrían interesarte</h2>
+  <div class="products-wrapper">
+    <% for( let i = 0; i < products.length; i++ ) { %>
+      <% if (products[i].status=="1") { %>
+
+        <section class="product-card">
+          <a href="/products/<%=products[i].id%>">
+            <figure class="product-card-img">
+              <img class="shop-item-image" src="/images/productsImg/<%=products[i].images[0].image_url%> " alt="imagen de producto">
+            </figure>
+            <article class="product-card-content">
+                   en proceso mostrar categoria del producto 
+              <h4> <%=products[i].categorias_id %> </h4>
+              
+              <h2 class="shop-item-title"><%=products[i].nombre%></h2>
+                  
+              <h3 class="shop-item-price" id="price">$<%=products[i].precio%></h3>
+              <p class="text-center"><%=products[i].descripcion%></p>
+            </article>
+          </a>
+          <div class="btn-container d-flex justify-content-center">
+            <button class="btn btn-primary shop-item-button" type="button">Añadir al carro</button>
+          </div>
+        </section>
+        
+      <% } %>
+    <% } %>
+  </div>-->
+    <!-- INCLUDES FOOTER-->
+    <%- include('../partials/footer') %>
+      <script src="/js/cart.js"></script>
+      <script src="/js/scripts.js"></script>
+</body>
+
+</html>
