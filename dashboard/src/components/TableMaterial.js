@@ -19,7 +19,7 @@ function TableMaterial(props) {
             <Table>
             <TableHead>
             <TableRow>
-               <StyledTableCell>Vídeo</StyledTableCell> 
+               <StyledTableCell>Producto</StyledTableCell> 
                <StyledTableCell>Fecha de Publicación</StyledTableCell> 
                <StyledTableCell>Número de Visualizaciones</StyledTableCell> 
             </TableRow>
