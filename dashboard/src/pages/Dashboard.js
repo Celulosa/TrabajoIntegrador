@@ -11,6 +11,7 @@ import CardsHeader from '../components/CardsHeader';
 import Cards from '../components/Cards';
 import Graphics from '../components/Graphics';
 import TableMaterial from '../components/TableMaterial';
+import Api from '../components/Api';
 
 const useStyles= makeStyles(()=>({
 root:{
@@ -89,7 +90,7 @@ function Dashboard(props) {
               </Grid>
 
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-              <Cards titulo="TOTAL USUARIOS" texto="16"/>
+              <Cards titulo="TOTAL USUARIOS" texto={Api}/>
               </Grid>
 
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
