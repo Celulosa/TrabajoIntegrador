@@ -10,7 +10,7 @@ function Graphics(props) {
             label:"Horas de Visualización por Mes",
             fill: false,
             backgroundColor: 'rgba(73,155,234,1)',
-            borderColor:'rgba(73,155,234,1)',
+            borderColor:'#c7b5a7',
             pointBorderColor:'rgba(73,155,234,1)',
             pointBorderWidth:1,
             pointHoverRadius:5,

@@ -34,85 +34,85 @@ containerTabla:{
 const data = [
     {
       id:1,
-      video:
-        "Como Hacer un Split en React JS || React Split Pane || Tutorial en Español (2020)",
-      fecha: "6 de sep. 2020",
-      visualizaciones: 32,
-      imagen: require("../assets/img/split.webp"),
+      producto:
+        "Cartera Khalo",
+      fecha: "1 de ene. 2023",
+      Id: 3,
+      imagen: require("../assets/img/Khalo2.png")
     },
     {
       id:2,
-        video:
-          "Cómo Solucionar Error al Crear Applicación de React JS",
-        fecha: "5 de sep. 2020",
-        visualizaciones: 31,
-        imagen: require("../assets/img/error.webp"),
-      },
-      {
+      producto:
+        "Conjunto Primavera",
+      fecha: "1 de ene. 2023",
+      Id: 1,
+      imagen: require("../assets/img/ConjuntoPrimavera.jpeg")
+    },
+    {
       id:3,
-        video:
-          "Cómo Utilizar Forever en Node JS || Ejecutar Node JS en Segundo Plano || Background Node JS",
-        fecha: "4 de sep. 2020",
-        visualizaciones: 21,
-        imagen: require("../assets/img/forever.webp"),
+      producto:
+          "Top Perla",
+        fecha: "1 de ene. 2023",
+        Id: 2,
+        imagen: require("../assets/img/top-perla1.jpg"),
       },
   ];
 
 function Dashboard(props) {
     const classes= useStyles();
     return (
-        <div className={classes.root}>
-            <Grid container spacing={3}>
+      <div className={classes.root}>
+      <Grid container spacing={3}>
 
-                <Grid item xs={12}>
-                    <Navbar/>
-                </Grid>
+          <Grid item xs={12}>
+              <Navbar/>
+          </Grid>
 
-                
-                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                   <CardsHeader icono={<YouTubeIcon className={classes.iconos}/>} titulo="CANAL" texto="BorjaScript" color="rgba(248,80,50,1)" font="white"/>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                <CardsHeader icono={<PublicIcon className={classes.iconos}/>} titulo="PAÍS" texto="México" color="rgba(248,80,50,1)" font="white"/>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                <CardsHeader icono={<VideocamIcon className={classes.iconos}/>} titulo="CANTIDAD DE VÍDEOS" texto="85" color="rgba(248,80,50,1)" font="white"/>
-                </Grid>
+          
+          <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+             <CardsHeader icono={<YouTubeIcon className={classes.iconos}/>} titulo="TIENDA" texto="Khalo Store" color="#c7b5a7" font="black"/>
+          </Grid>
+          <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+          <CardsHeader icono={<PublicIcon className={classes.iconos}/>} titulo="PAÍS" texto="Colombia" color="#c7b5a7" font="black"/>
+          </Grid>
+          <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+          <CardsHeader icono={<VideocamIcon className={classes.iconos}/>} titulo="???" texto="85" color="#c7b5a7" font="black"/>
+          </Grid>
 
-                <Grid container spacing={1} className={classes.container} xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="SUSCRIPTORES" texto="692"/>
-                    </Grid>
+          <Grid container spacing={1} className={classes.container} xs={12} sm={12} md={6} lg={6} xl={6} >
+              <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+              <Cards titulo="TOTAL VENTAS" texto="50"/>
+              </Grid>
 
-                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="VISUALIZACIONES" texto="111,092"/>
-                    </Grid>
+              <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+              <Cards titulo="VENTAS POR MES" texto="111,092"/>
+              </Grid>
 
-                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="TIEMPO VISUALIZACIÓN" texto="2,504 horas"/>
-                    </Grid>
+              <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+              <Cards titulo="TOTAL USUARIOS" texto="16"/>
+              </Grid>
 
-                    <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="PORCENTAJE IMPRESIONES" texto="14.2%"/>
-                    </Grid>
+              <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+              <Cards titulo="USUARIOS POR MES" texto="12"/>
+              </Grid>
 
-                    </Grid>
+              </Grid>
 
-                    <Grid item xs={0} sm={0} md={1} lg={1} xl={1}></Grid>
+              <Grid item xs={0} sm={0} md={1} lg={1} xl={1}></Grid>
 
-                    <Grid item xs={12} sm={12} md={5} lg={5} xl={5} className={classes.containerGrafica}>
-                        <Graphics />
-                    </Grid>
-
-
-                    <Grid item xs={12} className={classes.containerTabla}>
-                    <TableMaterial data={data}/>
-                    </Grid>
+              <Grid item xs={12} sm={12} md={5} lg={5} xl={5} className={classes.containerGrafica}>
+                  <Graphics />
+              </Grid>
 
 
-            </Grid>
-        </div>
-    );
+              <Grid item xs={12} className={classes.containerTabla}>
+              <TableMaterial data={data}/>
+              </Grid>
+
+
+      </Grid>
+  </div>
+);
 }
 
 export default Dashboard;

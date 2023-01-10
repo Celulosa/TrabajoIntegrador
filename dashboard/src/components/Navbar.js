@@ -15,6 +15,9 @@ const useStyles= makeStyles(()=>({
     },
     imagen:{
         borderRadius: '50%'
+    },
+    color: {
+        color:"#c7b5a7"
     }
     }));
 
@@ -24,15 +27,15 @@ function Navbar() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit">
+                    <IconButton edge="start" className={classes.menuButton} color="#c7b5a7">
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                       BorjaScript
+                       Khalo Store
                     </Typography>
 
                     <IconButton color="inherit">
-                            <img src={require('../assets/img/branding.jpg')} width="40px" height="40px" className={classes.imagen}/>
+                            <img src={require('../assets/img/LogoKhaloStore-03.png')} width="40px" height="40px" className={classes.imagen}/>
                             </IconButton>
                 </Toolbar>
 

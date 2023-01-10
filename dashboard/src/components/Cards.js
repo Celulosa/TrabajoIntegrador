@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles= makeStyles(()=>({
     root:{
         textAlign: 'center',
-        backgroundColor: 'rgba(73,155,234,1)'
+        backgroundColor: '#c7b5a7'
     },
     texto:{
         fontSize: 18,
