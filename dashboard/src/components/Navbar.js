@@ -15,26 +15,22 @@ const useStyles= makeStyles(()=>({
     },
     imagen:{
         borderRadius: '50%'
-    },
-    color: {
-        color:"#c7b5a7"
     }
     }));
-
 function Navbar() {
     const classes= useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
+            <AppBar position="static" style={{ background: '#5D535E' }} >
+                <Toolbar color="#c7b5a7">
                     <IconButton edge="start" className={classes.menuButton} color="#c7b5a7">
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                       Khalo Store
+                    <Typography variant="h6" style={{ color: 'black', fontWeight: 'bold' }} className={classes.title}>
+                       Khalo Store Dashboard
                     </Typography>
 
-                    <IconButton color="inherit">
+                    <IconButton color="#c7b5a7">
                             <img src={require('../assets/img/LogoKhaloStore-03.png')} width="40px" height="40px" className={classes.imagen}/>
                             </IconButton>
                 </Toolbar>

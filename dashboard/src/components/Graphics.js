@@ -7,15 +7,15 @@ function Graphics(props) {
         labels:["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto"],
         datasets:[
             {
-            label:"Horas de Visualización por Mes",
+            label:"Productos más vendidos",
             fill: false,
-            backgroundColor: 'rgba(73,155,234,1)',
+            backgroundColor: '#c7b5a7',
             borderColor:'#c7b5a7',
-            pointBorderColor:'rgba(73,155,234,1)',
+            pointBorderColor:'#c7b5a7)',
             pointBorderWidth:1,
             pointHoverRadius:5,
-            pointHoverBackgroundColor:'rgba(73,155,234,1)',
-            pointHoverBorderColor:'rgba(73,155,234,1)',
+            pointHoverBackgroundColor:'#c7b5a7',
+            pointHoverBorderColor:'#c7b5a7',
             pointRadius: 1,
             pointHitRadius: 10,
             data: [0.17, 19, 156, 357, 565, 1149]

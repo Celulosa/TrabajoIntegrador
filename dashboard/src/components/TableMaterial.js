@@ -4,8 +4,8 @@ import {withStyles} from '@material-ui/core/styles';
 
 const StyledTableCell= withStyles(()=>({
     head:{
-        color: 'white',
-        background: 'black',
+        color: 'Black',
+        background: '#c7b5a7',
         textAlign: 'center'
     },
    body:{
@@ -20,16 +20,16 @@ function TableMaterial(props) {
             <TableHead>
             <TableRow>
                <StyledTableCell>Producto</StyledTableCell> 
-               <StyledTableCell>Fecha de Publicación</StyledTableCell> 
-               <StyledTableCell>Número de Visualizaciones</StyledTableCell> 
+               <StyledTableCell>Fecha de Creacción</StyledTableCell> 
+               <StyledTableCell>Id</StyledTableCell> 
             </TableRow>
             </TableHead>
             <TableBody>
                 {props.data.map(elemento=>(
                     <TableRow key={elemento.id}>
-                        <TableCell><img src={elemento.imagen} width="35px" height="25px"/>{"  "}{elemento.video}</TableCell>
+                        <TableCell><img src={elemento.imagen} width="35px" height="25px"/>{"  "}{elemento.producto}</TableCell>
                         <TableCell align="center">{elemento.fecha}</TableCell>
-                        <TableCell align="center">{elemento.visualizaciones}</TableCell>
+                        <TableCell align="center">{elemento.Id}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

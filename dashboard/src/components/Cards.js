@@ -9,12 +9,12 @@ const useStyles= makeStyles(()=>({
     },
     texto:{
         fontSize: 18,
-        color: 'white'
+        color: 'Black'
     },
     titulo:{
         fontWeight: 'bold',
         fontSize: 20,
-        color: 'white'
+        color: 'Black'
     }
     }));
 
