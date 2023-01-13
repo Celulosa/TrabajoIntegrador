@@ -8,6 +8,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override') // para poder usar PUT y DELETE
 const app = express();
+const cors  = require('cors');
 const session = require('express-session')// para mantener la session
 const cookies = require('cookie-parser')// para usar cookies
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')// Cookie para que el usuario permanezca logeado aun cuando cierre el navegador
@@ -16,7 +17,7 @@ const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware')//
 
 
 app.use(express.static('public'));// para los archivos publicos
-
+app.use(cors());
 
 app.listen( port ,() =>{
     console.log(`Servidor en puerto ${port} OK`);
