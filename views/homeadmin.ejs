@@ -5,6 +5,8 @@
 <head>
   <title>Home</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet"   href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <%- include('partials/head') %>
 </head>
@@ -12,49 +14,46 @@
         <!-- INCLUDES HEADER-->
         <%- include('partials/headeradmin') %>
   
-     <div class="carrusel">   
-      <section class="carousel" aria-label="Gallery">
-           <ol class="carousel__viewport">
-             <li id="carousel__slide1" tabindex="0" class="carousel__slide">
-               <div class="carousel__snapper"><img src="images/Khalo1.png" alt="plage"></div>
-                 <a href="#carousel__slide4" class="carousel__prev">Aller au dernier slide</a>
-                 <a href="#carousel__slide2" class="carousel__next">Aller au suivant slide</a>
-               
-             </li>
-             <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-               <div class="carousel__snapper"><img src="images/Khalo2.png" alt="plage"></div>
-               <a href="#carousel__slide1" class="carousel__prev">Aller au précédent slide</a>
-               <a href="#carousel__slide3" class="carousel__next">Aller au suivant slide</a>
-             </li>
-             <li id="carousel__slide3" tabindex="0" class="carousel__slide">
-               <div class="carousel__snapper"><img src="images/Khalo3.png" alt="plage"></div>
-               <a href="#carousel__slide2" class="carousel__prev">Aller au précédent slide</a>
-               <a href="#carousel__slide4" class="carousel__next">Aller au suivant slide</a>
-             </li>
-             <li id="carousel__slide4" tabindex="0" class="carousel__slide">
-               <div class="carousel__snapper"><img src="images/Khalo4.png" alt="plage"></div>
-               <a href="#carousel__slide3" class="carousel__prev">Aller au précédent slide</a>
-               <a href="#carousel__slide1" class="carousel__next">Aller au premier slide</a>
-             </li>
-           </ol>
-           <aside class="carousel__navigation">
-             <ol class="carousel__navigation-list">
-               <li class="carousel__navigation-item">
-                 <a href="#carousel__slide1" class="carousel__navigation-button">Aller au slide 1</a>
-               </li>
-               <li class="carousel__navigation-item">
-                 <a href="#carousel__slide2" class="carousel__navigation-button">Aller au slide 2</a>
-               </li>
-               <li class="carousel__navigation-item">
-                 <a href="#carousel__slide3" class="carousel__navigation-button">Aller au slide 3</a>
-               </li>
-               <li class="carousel__navigation-item">
-                 <a href="#carousel__slide4" class="carousel__navigation-button">Aller au slide 4</a>
-               </li>
-             </ol>
-           </aside>
-         </section>
-      </div>
+        <div class="container-slide">
+          <div class="swiper">
+      
+            <div class="swiper-wrapper">
+      
+              <div class="swiper-slide"><img src="images/Khalo1slide.png" alt="plage"></div>
+              <div class="swiper-slide"><img src="images/Khalo2slide.png" alt="plage"></div>
+              <div class="swiper-slide"><img src="images/Khalo3slide.png" alt="plage"></div>
+              <div class="swiper-slide"><img src="images/Khalo4slide.png" alt="plage"></div>
+            </div>
+      
+            <div class="swiper-pagination"></div>
+          
+      
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div> 
+          <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+          <script>const swiper = new Swiper('.swiper', {
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            
+            loop: true,
+          
+      
+            pagination: {
+            
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+          
+       
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });</script>
       <main class="main">
         <div class="main-container">
           <h2 class="main-title">New Arrivals for you</h2>
