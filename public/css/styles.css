@@ -82,7 +82,7 @@ z-index: 999999;
 }
 .menu{
   position: absolute;
-  top: 180px;
+  top: 95px;
   left: 0;
   background: #212121;
   width: 100%;
@@ -137,6 +137,34 @@ z-index: 999999;
   overflow: hidden;
 margin: 50px 0;
   
+}
+.swiper {
+  width: 75%;
+  height: 75%;
+}
+
+.container-slide img{
+  background: #222;
+}
+
+.swiper-slide{
+  width: 100%;
+  height: 200px;    
+}
+.swiper .swiper-button-prev, .swiper .swiper-button-next {
+  color: #fff;
+}
+
+.swiper .swiper-pagination-bullet-active{
+  background: #fff;
+}
+.hambButton{
+  border-radius: 15px;
+}
+.agregar_carrito{
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
 @media screen and ( min-width: 1550px){
 
@@ -699,6 +727,11 @@ padding:8px;
 /*Estilos para web*/
 
 @media screen and (min-width:1024px) { 
+  
+  
+  .hambButton{
+    display: none;
+  }
 
 
 .logo{
@@ -837,10 +870,13 @@ padding:8px;
 
 }
 .login-page {
+grid-area: center;
 width: 360px;
 padding: 2% 0 0;
 margin: auto;
 }
+
+
 .form {
 position: relative;
 z-index: 1;
@@ -853,6 +889,20 @@ padding: 45px;
 text-align: center;
 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
+.form-perfil {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  display:block;
+  width: fit-content;
+  margin-left: -100px;
+  
+
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
 
 
 
@@ -1194,6 +1244,13 @@ height: 76%;
 height: 76%;
 
 }
+
+.hambButton{
+  display: flex;
+}
+.abrirMenu{
+  display: none;
+}
 }
 /* INICIO CSS para vista perfilusuario */
 .perfil{
@@ -1355,8 +1412,26 @@ hr {
 .dropdown {
   position: relative;
   display: inline-block;
+  align-items: center;
 
 }
+.inputBusqueda{
+  width: 70%;
+  height: 35px;
+}
+.searchButton{
+  height: 35px;
+  width: 35px;
+;
+}
+.fas .fa-search .fa-lg{
+  align-items: center;
+  justify-content: center;
+  width: fit-content ;
+  margin-left: -5%;
+}
+
+
 #iconosNav {
   text-decoration: none;
   background-color: #ffffff;
@@ -1368,7 +1443,8 @@ hr {
   transition: 0.3s;
   text-decoration: none;
   cursor: pointer;
-  padding: 8px 16px 8px 10px;
+  padding: 8px 16px 8px 16px;
+  height: 44px;
 }
 
 #iconosNav:hover {
@@ -1541,4 +1617,35 @@ a {
   .product-card-content p {
     font-size: 1vw;
   }
+  /*CSS de las alertas del front validation*/ 
+.register-form span{
+  position: absolute;
+  bottom:12px;
+  right: 17px;
+  font-size: 14px;
+  color:red;
+  align-items: center;
+}
+
+.input-group{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  position: relative;
+}
+/* aqui le cambio el color al icono del check mark */
+.register-form span i {
+color: seagreen
+}
+
+#password1-error,#avatar-error{
+  
+  bottom:12px;
+  right: 17px;
+  font-size: 14px;
+  color:red;
+  align-items: center;
+}
+
 }

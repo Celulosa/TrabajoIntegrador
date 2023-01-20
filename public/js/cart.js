@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 let cartNumber = document.querySelector('.cart_number'); //se usa para cuando al dar click en vaciar carrito todo quede en ceros en la vista cart
 let cartTotal = document.querySelector(".cart-total-price")//se usa para cuando al dar click en vaciar carrito todo quede en ceros en la vista cart
 let cartRows = document.querySelector('.cartRows')//se usa para cuando al dar click en vaciar carrito todo quede en ceros en la vista cart
@@ -49,7 +47,7 @@ let removeItem = (index) => {
       <tr id="row${index}">
           <th scope="row"> ${index + 1}</th>
           <td> ${product.nombre}</td>
-          <td> ${product.precio}</td>
+          <td> ${(product.precio)}</td>
           <td class="text-center"> ${item.quantity}</td>
           <td class="text-center"> ${parseFloat(product.precio * item.quantity,2).toFixed(0)}</td>
           <td><button class="btn btn-danger btn-sm" onclick=removeItem(${index})><i class="fa-sharp fa-solid fa-trash-can"</td>

@@ -21,7 +21,7 @@
     <h2 style="text-align: center;" class="iniciarSesion>"><strong>Perfil de <%=usuario.nombre%>
     </h2></strong>
     <div class="login-page">
-      <div class="form">
+      <div class="form-perfil">
         <div class="perfil">
           <img id="imagen-producto" src="/images/avatars/<%=usuario.avatar %>">
         </div>
@@ -81,6 +81,9 @@
                               <strong>#</strong>
                           </th>
                           <th class="th-lg">
+                            <strong>Numero de Pedido</strong>
+                        </th>
+                          <th class="th-lg">
                               <strong>Fecha</strong>
                           </th>
                           <th class="th-lg">
@@ -101,10 +104,11 @@
                     <% for (let i=0; i<pedidos.length; i++){%> 
                       <tr>
                           <th scope="row"><%= i + 1 %></th>
-                          <td><%= pedidos[i].createdAt %></td>  .
+                          <td><%= pedidos[i].id %></td> 
+                          <td><%= pedidos[i].createdAt %></td> 
                           <td><%= pedidos[i].direccion%></td>
                           <td><%= pedidos[i].paymentMethod%></td>
-                          <td>$<%= pedidos[i].total%></td>
+                          <td>$<%= toThousand(pedidos[i].total)%></td>
                           <td><a class="btn btn-warning btn-sm" href="<%= `/products/pedido/${pedidos[i].id}` %>"><i class="fas fa-eye"></i></a>
                           </td>
                       </tr>

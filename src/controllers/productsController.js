@@ -9,7 +9,7 @@ const path = require('path');
 const db = require('../database/models');//Para importar sequelize
 const Op = db.Sequelize.Op;//para usar los operadores de sequelize
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");//Se usa para poner una coma cada 3 decimales
 
 const controller = {
 	//PARA LISTAR TODOS LOS PRODUCTOS DE LA BASE DE DATOS
@@ -29,16 +29,16 @@ const controller = {
 					productsdb.push(objaux);
 				}
 				if (req.session.usuarioTipo == 'general') {
-					return res.render('products/listadoproductos', { productos: productsdb })
+					return res.render('products/listadoproductos', {toThousand, productos: productsdb })
 				}
 				if (req.session.usuarioTipo == 'admin') {
-					return res.render('products/listadoproductosgerente', { productos: productsdb })
+					return res.render('products/listadoproductosgerente', { toThousand,productos: productsdb })
 				}
 				if (req.session.usuarioTipo == 'super') {
-					return res.render('products/listadoproductossuper', { productos: productsdb })
+					return res.render('products/listadoproductossuper', { toThousand,productos: productsdb })
 				}
 				else {
-					return res.render('products/listadoproductos', { productos: productsdb })
+					return res.render('products/listadoproductos', { toThousand,productos: productsdb })
 				}
 			});
 
@@ -67,8 +67,8 @@ const controller = {
 				ventaId: req.params.id
 			}
 		})
-		if (ventas.usuario_id == req.session.userLogged.id) {//console.log ('el lenght de detalle',detalle.length);
-			return res.render('./products/pedido', { ventas: ventas, detalle: detalle });
+		if (ventas.usuario_id == req.session.userLogged.id) {
+			return res.render('./products/pedido', { ventas: ventas, toThousand, detalle: detalle });
 		} else {
 			return res.send('No tienes permiso para ver este Pedido')
 		}
@@ -79,14 +79,27 @@ const controller = {
 			let productos = await db.productos.findAll({ include: [{ association: 'categorias' }, { association: 'talles' }, { association: 'temporadas' }, { association: 'colores' }] });
 			let searchResults = productos.filter(productos => productos.nombre.toLowerCase().includes(req.query.keywords.toLowerCase()));
 			let productFound = searchResults.length;
+			
+			//console.log ('lo que busco', req.query)
 			(searchResults.length == 0) ? searchResults = productos : "null"
-
-			return res.render("./products/search", { searchResults, productFound, keywords: req.query.keywords })
+			
+			return res.render("./products/search", {searchResults, productFound, keywords: req.query.keywords })
 		} catch (error) {
 			console.log(error);
 			return res.render("./products/error");
 		}
 	},
+	/*search: async function(req,res){
+		let productos = await db.productos.findAll({ include: [{ association: 'categorias' }, { association: 'talles' }, { association: 'temporadas' }, { association: 'colores' }] });
+			let searchResults = (productos.filter(productos => productos.nombre.toLowerCase().includes(req.query.keywords.toLowerCase())));
+			let resultado = searchResults.length
+			let ensayo = Object.values(productos)
+			let encontrados = []
+			searchResults.forEach(element => encontrados.push(element.id))
+			console.log ('busqueda', encontrados)
+			//console.log ('busqueda', resultado)
+
+	},*/
 	detalle: (req, res) => {
 		db.productos.findByPk(req.params.id)
 			.then(function (producto) {

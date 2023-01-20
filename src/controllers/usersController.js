@@ -9,7 +9,7 @@ const db = require('../database/models');//Para importar sequelize
 const { UniqueConstraintError } = require('sequelize');
 const Op = db.Sequelize.Op;//para usar los operadores de sequelize
 
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 const controlador = {
 
     login: (req, res) => {
@@ -65,14 +65,27 @@ const controlador = {
 
 
     perfil: async function (req, res) {
-        let pedidos = await db.ventas.findAll({
+       let ventas = await db.ventas.findAll({
             where: {
                 usuario_id: req.session.userLogged.id
 
             }
         })
+        let pedidos = []
+        ventas.forEach(element => {
+            pedidos.push({
+                total: element.total,
+                direccion: element.direccion,
+                id: element.id,
+                peymentMethod: element.peymentMethod,
+                createdAt: element.createdAt.getFullYear()+"-"+(element.createdAt.getMonth()+1)+"-"+element.createdAt.getDate()// esta linea es para formatear la fecha
+            })
+        });
+        console.log('pedido', ventas.createdAt)
+
+        
         if (req.session.usuarioTipo == 'general') {
-            return res.render('users/perfilusuario', { usuario: req.session.userLogged, pedidos });
+            return res.render('users/perfilusuario', { usuario: req.session.userLogged, toThousand,pedidos });
         }
         console.log ('mis pedidos',pedidos)
         if (req.session.usuarioTipo == 'admin') {

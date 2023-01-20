@@ -22,8 +22,9 @@
     <div class="products-wrapper">
       
           <!-- Show the search results -->
-        <% searchResults.forEach(result => { %>
+        <% searchResults.forEach(producto => { %>
           <section class="product-card">
+        
             <a href="/products/detalleproducto/<%=producto.id %>">
               <figure class="product-card-img">
                 <img src= "/images/<%=producto.imagen %>" alt="imagen de producto">

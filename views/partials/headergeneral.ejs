@@ -9,11 +9,13 @@
                     <%- include('../partials/searchField'); %>
                   </div>
                   <div class="dropdown">
-                  <a href="/products/cart"><button id="iconosNav" class="fas fa-shopping-cart fa-lg"></button></a>
-                  <span id="iconosNav" class="cart_number">0</span>
+                  <a href="/products/cart"><button id="iconosNav" class="fas fa-shopping-cart fa-lg">  <span id="iconosNav" class="cart_number">0</span></button></a>
+                  
                 </div>
             </div>
-            <ul class="menu">
+            <button class="hambButton"><i class=" fa-sharp fa-solid fa-bars"></i></button>
+
+              <ul class="menu menuContainer abrirMenu animate__backInDown">
               <li class="menu__item"><a href="/" class="menu__link">INICIO</a></li>
               <!--<li class="menu__item"><a href="/products/crearproducto" class="menu__link">CREAR PRODUCTO</a></li>-->
               <li class="menu__item"><a href="/products/listadoproductos" class="menu__link">LISTADO PRODUCTOS</a></li>
@@ -25,9 +27,25 @@
                   <li class="menu__item"><a href='/users/login' class="menu__link">LOGIN</a></li>
                 <% }%>
                 </ul>
+
             </nav>
+
           </div> 
         </div>
+        <script>
+          let botonHamburguesa = document.querySelector(".hambButton");
+          let menuHamburguesa = document.querySelector(".menuContainer")
+          botonHamburguesa.addEventListener("click" , ()=>{
+            menuHamburguesa.classList.toggle("abrirMenu")
+          })
+
+        document.addEventListener("scroll" , ()=>{
+          if ((menuHamburguesa.classList.contains(".abrirMenu")) == false){
+            menuHamburguesa.classList.add("abrirMenu")
+          }
+          })
+
+        </script>
       </header>
   
   

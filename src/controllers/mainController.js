@@ -7,7 +7,7 @@ let productsdb = [];
 
 const db = require('../database/models');//Para importar sequelize
 const Op = db.Sequelize.Op;//para usar los operadores de sequelize
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 const controller ={
     home: (req, res) => {

@@ -65,11 +65,6 @@ function validateDireccion(){
         return false
     }
 
-    if (name.length>0 && name.length<20){
-        direccionError.innerHTML= 'Ingrese una dirección válida';
-        return false
-    }
-
     
     direccionError.innerHTML= '<i class="fa-sharp fa-solid fa-circle-check"></i>';
     return true
@@ -77,8 +72,8 @@ function validateDireccion(){
 function validateAvatar(){
     var name = document.getElementById('contact-avatar').value;
 
-    if (!name){// esta funcion complete verifica que se haya cargado una imagen
-        avatarError.innerHTML= 'Cargue una imagen';
+    if (!name.complete){// esta funcion complete verifica que se haya cargado una imagen
+        avatarError.innerHTML= 'Cargue una foto';
         return false
     }
     
