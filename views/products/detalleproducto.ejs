@@ -51,16 +51,16 @@
                         </select><br>-->
                         </select>
                         <p id="precio-producto">PRECIO: $<%=producto.precio %></p>
-                        <a href="/products/cart/"><button type="button" class="agregar_carrito" id="boton-agregar-carrito" data-id="<%=producto.id %>">AGREGAR AL CARRITO</button></a>
+                        <a href="/products/cart/" style="text-decoration: none;"><button type="button" class="agregar_carrito" id="boton-agregar-carrito" data-id="<%=producto.id %>">AGREGAR AL CARRITO</button></a>
                         <br> 
                         <br>
                         <% if (locals.userLogged && userLogged.tipoUsuario == 'admin') { %>
                         <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="display: inline-flex" onsubmit="return confirm('Esta seguro que desea eliminarlo?');">
-							<button type="submit" id="boton-agregar-carrito">ELIMINAR</button>
+							<button type="submit" id="boton-agregar-carrito" >ELIMINAR</button>
 						</form>
                         <br>
                         <br>
-                        <a style="text-align: center" href="/products/editarproducto/<%=producto.id %>" id="boton-agregar-carrito">EDITAR PRODUCTO</a>
+                        <a href="/products/editarproducto/<%=producto.id %>" style="text-decoration: none;"><button type="button" class="agregar_carrito" id="boton-agregar-carrito" data-id="<%=producto.id %>">EDITAR PRODUCTO</button></a>
                         <% } %>
                 </div>
 

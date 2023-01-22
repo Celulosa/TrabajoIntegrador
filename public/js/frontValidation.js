@@ -65,7 +65,7 @@ function validateDireccion(){
         return false
     }
 
-    if (name.length>0 && name.length<20){
+    if (name.length>0 && name.length<10){
         direccionError.innerHTML= 'Ingrese una dirección válida';
         return false
     }
